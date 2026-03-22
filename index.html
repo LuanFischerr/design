@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luan Fischer — Designer Gráfico & UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0D0D1A;--bg2:#13131F;--bgc:#1A1A2E;
+  --pri:#E65100;--pril:#FF7043;--sec:#1A237E;
+  --txt:#FFFFFF;--muted:#BBBBCC;--dim:#6666AA;
+  --bdr:rgba(255,255,255,0.07);--bdrhov:rgba(230,81,0,0.4);
+  --tr:0.3s ease;--sh:0 20px 60px rgba(0,0,0,0.5);
+  --shc:0 8px 32px rgba(0,0,0,0.35);--r:16px;--rsm:8px;
+}
+[data-theme="light"]{
+  --bg:#F4F4F8;--bg2:#EAEAF0;--bgc:#FFFFFF;
+  --txt:#0D0D1A;--muted:#44445A;--dim:#888899;
+  --bdr:rgba(0,0,0,0.07);--bdrhov:rgba(230,81,0,0.3);
+  --sh:0 20px 60px rgba(0,0,0,0.08);--shc:0 8px 32px rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);
+  line-height:1.6;overflow-x:hidden;transition:background var(--tr),color var(--tr)}
+@media(hover:hover){body{cursor:none}}
+
+/* ===== CURSOR ===== */
+.cur,.curf{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;
+  transform:translate(-50%,-50%);transition:transform .15s ease}
+.cur{width:10px;height:10px;background:var(--pri);z-index:9999}
+.curf{width:38px;height:38px;border:2px solid var(--pri);opacity:.45;z-index:9998;
+  transition:transform .4s ease,width .3s,height .3s,opacity .3s}
+.cur.hov{transform:translate(-50%,-50%) scale(2)}
+.curf.hov{width:64px;height:64px;opacity:.2}
+@media(hover:none){.cur,.curf{display:none}}
+
+/* ===== LAYOUT ===== */
+.wrap{max-width:1280px;margin:0 auto;padding:0 2rem}
+.sec{padding:120px 0}
+.lbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--pri);margin-bottom:.9rem}
+.stit{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.025em;margin-bottom:1.5rem}
+.stit span{color:var(--pri)}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.875rem 2rem;
+  border-radius:100px;font-family:inherit;font-weight:700;font-size:.9rem;
+  letter-spacing:.01em;cursor:pointer;text-decoration:none;border:none;
+  transition:all var(--tr);outline:none;line-height:1}
+.btn-pri{background:var(--pri);color:#fff}
+.btn-pri:hover{background:var(--pril);transform:translateY(-2px);
+  box-shadow:0 14px 32px rgba(230,81,0,.38)}
+.btn-out{background:transparent;color:var(--txt);border:2px solid var(--bdr)}
+.btn-out:hover{border-color:var(--pri);color:var(--pri);transform:translateY(-2px)}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.rvl{opacity:0;transform:translateX(-36px);transition:opacity .7s ease,transform .7s ease}
+.rvr{opacity:0;transform:translateX(36px);transition:opacity .7s ease,transform .7s ease}
+.rv.on,.rvl.on,.rvr.on{opacity:1;transform:none}
+
+/* ===== NAVBAR ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.25rem 0;
+  transition:all var(--tr)}
+.nav.sc{background:rgba(13,13,26,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bdr);padding:.85rem 0}
+[data-theme="light"] .nav.sc{background:rgba(244,244,248,.92)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:900;font-size:1.25rem;color:var(--txt);text-decoration:none;
+  letter-spacing:-.03em}
+.nav-logo span{color:var(--pri)}
+.nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;
+  padding:.5rem 1rem;border-radius:100px;transition:all var(--tr)}
+.nav-links a:hover{color:var(--txt);background:var(--bdr)}
+.nav-links a.act{color:var(--pri);background:rgba(230,81,0,.1)}
+.nav-act{display:flex;align-items:center;gap:.75rem}
+.thm-btn{background:var(--bdr);border:none;width:40px;height:40px;border-radius:50%;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;transition:all var(--tr);color:var(--txt)}
+.thm-btn:hover{background:rgba(230,81,0,.15);color:var(--pri)}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;
+  cursor:pointer;padding:.5rem}
+.hbg span{display:block;width:24px;height:2px;background:var(--txt);
+  border-radius:2px;transition:all var(--tr)}
+
+/* ===== MOBILE MENU ===== */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:999;
+  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:2.2rem;font-weight:800;color:var(--txt);text-decoration:none;
+  transition:color var(--tr)}
+.mob-menu a:hover{color:var(--pri)}
+.mob-x{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;
+  font-size:1.5rem;color:var(--txt);cursor:pointer}
+
+/* ===== HERO ===== */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+#hcanvas{position:absolute;inset:0;z-index:0}
+.hero-grad{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 20% 50%,rgba(230,81,0,.07) 0%,transparent 60%),
+  radial-gradient(ellipse 60% 80% at 80% 30%,rgba(26,35,126,.12) 0%,transparent 60%)}
+.hero-cnt{position:relative;z-index:1;padding-top:80px}
+.hero-eyb{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.hero-eyb .eline{width:40px;height:2px;background:var(--pri)}
+.hero-eyb span{font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--pri)}
+.hero-name{font-size:clamp(3.5rem,10vw,8.5rem);font-weight:900;letter-spacing:-.04em;
+  line-height:.95;margin-bottom:1.5rem}
+.hero-name .fn{display:block;color:var(--txt)}
+.hero-name .ln{display:block;color:transparent;
+  -webkit-text-stroke:2px var(--pri);paint-order:stroke fill}
+.hero-role{font-size:clamp(1.1rem,2.5vw,1.75rem);font-weight:300;color:var(--muted);
+  margin-bottom:2rem;min-height:2.5rem}
+.hero-role .typed{color:var(--txt);font-weight:600}
+.cursor-blink{display:inline-block;width:3px;height:1.1em;background:var(--pri);
+  margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-desc{max-width:520px;margin-bottom:3rem;font-size:1rem;line-height:1.8;color:var(--muted)}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:var(--dim);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;z-index:1}
+.hero-scroll .sline{width:1px;height:50px;
+  background:linear-gradient(to bottom,var(--pri),transparent);
+  animation:sdown 1.8s ease-in-out infinite}
+@keyframes sdown{0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  51%{transform:scaleY(1);transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Spinning Badge */
+.hero-badge{position:absolute;top:50%;right:6%;transform:translateY(-50%);
+  width:170px;height:170px;display:flex;align-items:center;justify-content:center}
+.badge-ring{position:absolute;inset:0;border:1.5px solid var(--pri);border-radius:50%;
+  opacity:.25;animation:spin 22s linear infinite}
+.badge-svg{position:absolute;inset:0;animation:spin 22s linear infinite}
+.badge-svg textPath{fill:var(--dim);font-size:10.5px;letter-spacing:2.5px;
+  font-family:'Inter',sans-serif}
+.badge-ctr{font-size:.65rem;font-weight:800;color:var(--pri);text-align:center;
+  letter-spacing:.06em;line-height:1.6}
+.badge-ctr .star{font-size:1.6rem;display:block;line-height:1}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ===== TAG ===== */
+.tag{display:inline-flex;align-items:center;padding:.3rem .85rem;
+  background:rgba(230,81,0,.1);color:var(--pri);
+  border:1px solid rgba(230,81,0,.22);border-radius:100px;
+  font-size:.72rem;font-weight:700;letter-spacing:.04em}
+
+/* ===== SOBRE ===== */
+#sobre{background:var(--bg2)}
+.sobre-g{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.sobre-text p{color:var(--muted);margin-bottom:1.25rem;font-size:1rem;line-height:1.85}
+.sobre-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.stats-g{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.stat-c{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--r);
+  padding:2rem 1.5rem;text-align:center;transition:all var(--tr);position:relative;overflow:hidden}
+.stat-c::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--pri),transparent 60%);
+  opacity:0;transition:opacity var(--tr)}
+.stat-c:hover::before{opacity:.06}
+.stat-c:hover{border-color:var(--bdrhov);transform:translateY(-4px);box-shadow:var(--shc)}
+.stat-n{font-size:3rem;font-weight:900;color:var(--pri);letter-spacing:-.03em;line-height:1}
+.stat-l{font-size:.85rem;color:var(--muted);margin-top:.5rem;font-weight:500}
+
+/* ===== HABILIDADES ===== */
+#habilidades{background:var(--bg)}
+.skills-g{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.skill-grp h3{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--bdr)}
+.skill-items{display:flex;flex-direction:column;gap:1.5rem}
+.skill-item{display:flex;flex-direction:column;gap:.5rem}
+.skill-hd{display:flex;justify-content:space-between;align-items:center}
+.skill-nm{font-weight:600;font-size:.9rem}
+.skill-ic{margin-right:.4rem;font-size:1rem}
+.skill-pct{font-size:.78rem;color:var(--muted);font-weight:500}
+.skill-bar{height:5px;background:var(--bdr);border-radius:100px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--pri),var(--pril));
+  border-radius:100px;width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1)}
+
+/* ===== PROJETOS ===== */
+#projetos{background:var(--bg2)}
+.filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.fbtn{padding:.5rem 1.3rem;border:1px solid var(--bdr);background:transparent;
+  color:var(--muted);font-family:inherit;font-size:.85rem;font-weight:500;
+  border-radius:100px;cursor:pointer;transition:all var(--tr)}
+.fbtn:hover{color:var(--txt);border-color:rgba(255,255,255,.2)}
+.fbtn.act{background:var(--pri);border-color:var(--pri);color:#fff}
+.proj-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.proj-c{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--r);
+  overflow:hidden;transition:all var(--tr);cursor:pointer;position:relative}
+.proj-c:hover{border-color:var(--bdrhov);transform:translateY(-6px);box-shadow:var(--shc)}
+.proj-c.hide{display:none}
+.proj-thumb{position:relative;height:200px;overflow:hidden}
+.proj-tg{width:100%;height:100%;transition:transform .5s ease}
+.proj-c:hover .proj-tg{transform:scale(1.06)}
+.proj-ov{position:absolute;inset:0;background:rgba(13,13,26,.72);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity var(--tr);backdrop-filter:blur(4px)}
+.proj-c:hover .proj-ov{opacity:1}
+.proj-ovb{padding:.75rem 1.5rem;background:var(--pri);color:#fff;border-radius:100px;
+  font-weight:700;font-size:.875rem;border:none;cursor:pointer;font-family:inherit;
+  transition:background var(--tr)}
+.proj-ovb:hover{background:var(--pril)}
+.proj-num{position:absolute;top:1rem;left:1rem;font-size:.7rem;font-weight:700;
+  color:rgba(255,255,255,.7);letter-spacing:.1em;background:rgba(0,0,0,.35);
+  padding:.25rem .65rem;border-radius:100px}
+.proj-bdgs{position:absolute;top:1rem;right:1rem;display:flex;flex-direction:column;
+  gap:.35rem;align-items:flex-end}
+.bdg{font-size:.62rem;font-weight:700;padding:.25rem .65rem;border-radius:100px;line-height:1}
+.bdg-star{background:#FFD700;color:#333}
+.bdg-ux{background:rgba(26,35,126,.88);color:#90CAF9;border:1px solid rgba(144,202,249,.3)}
+.proj-body{padding:1.5rem}
+.proj-tit{font-size:1rem;font-weight:700;line-height:1.3;margin-bottom:.25rem}
+.proj-sub{font-size:.78rem;color:var(--dim);margin:0}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
+.ptag{font-size:.68rem;font-weight:600;color:var(--dim);background:var(--bdr);
+  padding:.2rem .6rem;border-radius:100px}
+
+/* ===== MODAL ===== */
+.m-ov{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:2000;
+  opacity:0;pointer-events:none;transition:opacity var(--tr);backdrop-filter:blur(6px)}
+.m-ov.open{opacity:1;pointer-events:all}
+.m-pan{position:fixed;top:0;right:0;width:min(620px,100vw);height:100vh;
+  background:var(--bg);z-index:2001;overflow-y:auto;
+  transform:translateX(100%);transition:transform .42s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;border-left:1px solid var(--bdr)}
+.m-pan.open{transform:translateX(0)}
+.m-thumb{height:290px;position:relative;flex-shrink:0}
+.m-tg{width:100%;height:100%}
+.m-cls{position:absolute;top:1rem;right:1rem;width:40px;height:40px;
+  background:rgba(0,0,0,.55);border:none;border-radius:50%;color:#fff;
+  font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background var(--tr);font-family:inherit}
+.m-cls:hover{background:var(--pri)}
+.m-cnt{padding:2rem;flex:1}
+.m-num{font-size:.7rem;font-weight:700;letter-spacing:.15em;color:var(--pri);margin-bottom:.4rem}
+.m-tit{font-size:1.65rem;font-weight:900;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.2}
+.m-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem}
+.m-sec{margin-bottom:1.75rem}
+.m-sec h4{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--bdr)}
+.m-sec p{font-size:.93rem;line-height:1.85;color:var(--muted)}
+.m-tools{display:flex;flex-wrap:wrap;gap:.5rem}
+.m-tool{padding:.4rem 1rem;background:var(--bgc);border:1px solid var(--bdr);
+  border-radius:100px;font-size:.8rem;font-weight:500;color:var(--muted)}
+.m-acts{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem;
+  padding-top:2rem;border-top:1px solid var(--bdr)}
+.m-views{font-size:.72rem;color:var(--dim);margin-top:.75rem}
+
+/* ===== PROCESSO ===== */
+#processo{background:var(--bg)}
+.proc-intro{max-width:640px;margin-bottom:4rem}
+.proc-intro p{font-size:1.05rem;color:var(--muted);line-height:1.85}
+.proc-wrap{position:relative}
+.proc-line{position:absolute;top:3.5rem;left:calc(12.5% + 8px);right:calc(12.5% + 8px);
+  height:2px;background:linear-gradient(90deg,var(--pri),var(--sec));opacity:.2}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.pstep{text-align:center}
+.pstep-ic{width:72px;height:72px;background:var(--bgc);border:2px solid var(--bdr);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.75rem;margin:0 auto 1.5rem;position:relative;z-index:1;
+  transition:all var(--tr)}
+.pstep:hover .pstep-ic{border-color:var(--pri);background:rgba(230,81,0,.08);
+  transform:scale(1.1);box-shadow:0 0 32px rgba(230,81,0,.18)}
+.pstep-n{position:absolute;top:-8px;right:-8px;width:24px;height:24px;
+  background:var(--pri);border-radius:50%;font-size:.68rem;font-weight:800;
+  color:#fff;display:flex;align-items:center;justify-content:center}
+.pstep h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem}
+.pstep p{font-size:.875rem;color:var(--muted);line-height:1.75}
+.arts{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;margin-top:1rem}
+.art{font-size:.65rem;font-weight:600;padding:.2rem .55rem;
+  background:rgba(26,35,126,.18);color:#90CAF9;border-radius:100px;
+  border:1px solid rgba(26,35,126,.38)}
+
+/* ===== CONTATO ===== */
+#contato{background:var(--bg2)}
+.cont-g{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cont-info p{color:var(--muted);font-size:1.02rem;margin-bottom:2.5rem;line-height:1.85}
+.soc-links{display:flex;flex-direction:column;gap:1rem}
+.soc-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.5rem;
+  background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--rsm);
+  text-decoration:none;color:var(--txt);transition:all var(--tr)}
+.soc-link:hover{border-color:var(--bdrhov);transform:translateX(6px)}
+.soc-ic{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:1rem;flex-shrink:0;font-weight:800}
+.soc-tx{font-size:.875rem;font-weight:500;color:var(--muted)}
+.soc-lb{font-size:.72rem;color:var(--dim)}
+.c-form{background:var(--bgc);border:1px solid var(--bdr);
+  border-radius:var(--r);padding:2.5rem}
+.fg{margin-bottom:1.5rem}
+.flbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:.5rem}
+.finp{width:100%;padding:.875rem 1.25rem;background:var(--bg);border:1px solid var(--bdr);
+  border-radius:var(--rsm);font-family:inherit;font-size:.95rem;color:var(--txt);
+  transition:border-color var(--tr);outline:none}
+.finp:focus{border-color:var(--pri)}
+.finp::placeholder{color:var(--dim)}
+textarea.finp{resize:vertical;min-height:130px}
+
+/* ===== FOOTER ===== */
+footer{background:var(--bg);border-top:1px solid var(--bdr);padding:2rem 0}
+.foot-in{display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem}
+.foot-in p{font-size:.82rem;color:var(--dim)}
+.foot-in p:last-child{font-style:italic}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .proj-g{grid-template-columns:repeat(2,1fr)}
+  .proc-steps{grid-template-columns:repeat(2,1fr)}
+  .proc-line{display:none}
+}
+@media(max-width:768px){
+  .sec{padding:80px 0}
+  .sobre-g,.skills-g,.cont-g{grid-template-columns:1fr;gap:3rem}
+  .nav-links{display:none}
+  .hbg{display:flex}
+  .hero-badge{display:none}
+  .proj-g{grid-template-columns:1fr}
+  .proc-steps{grid-template-columns:1fr;gap:2.5rem}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .hero-ctas{flex-direction:column}
+  .stats-g{grid-template-columns:1fr 1fr}
+  .m-pan{width:100vw}
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cur" id="cur"></div>
+<div class="curf" id="curf"></div>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mmenu">
+  <button class="mob-x" id="mmx">✕</button>
+  <a href="#sobre"      onclick="mclose()">Sobre</a>
+  <a href="#habilidades" onclick="mclose()">Habilidades</a>
+  <a href="#projetos"   onclick="mclose()">Projetos</a>
+  <a href="#processo"   onclick="mclose()">Processo UX</a>
+  <a href="#contato"    onclick="mclose()">Contato</a>
+</div>
+
+<!-- Navbar -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#hero" class="nav-logo">LF<span>.</span></a>
+    <ul class="nav-links" id="nlinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#processo">Processo UX</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <div class="nav-act">
+      <button class="thm-btn" id="thmbtn" title="Alternar tema">🌙</button>
+      <button class="hbg" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <canvas id="hcanvas"></canvas>
+  <div class="hero-grad"></div>
+  <div class="wrap">
+    <div class="hero-cnt">
+      <div class="hero-eyb rv">
+        <span class="eline"></span>
+        <span>Disponível para Freelance &amp; Full Time Remote</span>
+      </div>
+      <h1 class="hero-name rv">
+        <span class="fn">Luan</span>
+        <span class="ln">Fischer</span>
+      </h1>
+      <div class="hero-role rv">
+        <span class="typed" id="typed"></span><span class="cursor-blink"></span>
+      </div>
+      <p class="hero-desc rv">
+        Designer Gráfico &amp; UX Designer baseado em Lages, SC, Brasil. Especialista em identidades visuais, interfaces digitais e experiências que conectam marcas com seus públicos de forma criativa e estratégica.
+      </p>
+      <div class="hero-ctas rv">
+        <a href="#projetos" class="btn btn-pri">
+          Ver Projetos
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="https://www.behance.net/luanfischer" target="_blank" rel="noopener" class="btn btn-out">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.2.836 1.884 2.109 1.884 1.03 0 1.567-.54 1.81-1.031l2.83.597zM14.29 19c1.073 0 1.895-.58 2.095-1.499h-4.19c.199.919 1.02 1.499 2.095 1.499zm-6.5 1H1.5a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5h6.79c2.485 0 4.21 1.31 4.21 3.41 0 1.44-.775 2.59-1.995 3.052 1.52.387 2.495 1.598 2.495 3.288 0 2.49-1.85 3.75-4.21 3.75zM4 8h3.79c1.015 0 1.71-.557 1.71-1.5S8.805 5 7.79 5H4v3zm0 5.5h4.29c1.02 0 1.71-.527 1.71-1.5S9.31 11 8.29 11H4v2.5z"/></svg>
+          Behance
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spinning Badge -->
+  <div class="hero-badge" aria-hidden="true">
+    <div class="badge-ring"></div>
+    <svg class="badge-svg" viewBox="0 0 170 170">
+      <defs>
+        <path id="cp" d="M 85,85 m -65,0 a 65,65 0 1,1 130,0 a 65,65 0 1,1 -130,0"/>
+      </defs>
+      <text><textPath href="#cp">UI/UX · BRANDING · EDITORIAL · UX RESEARCH · </textPath></text>
+    </svg>
+    <div class="badge-ctr">
+      <span class="star">✦</span>
+      Design
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="sline"></div>
+  </div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section id="sobre" class="sec">
+  <div class="wrap">
+    <div class="sobre-g">
+      <div class="sobre-text">
+        <span class="lbl rv">Sobre mim</span>
+        <h2 class="stit rv">Designer com <span>visão</span> estratégica</h2>
+        <p class="rv">Sou um designer especializado na criação de identidades visuais, materiais publicitários e interfaces digitais. Minha paixão é desenvolver soluções visuais que conectem marcas com seus públicos de forma criativa e eficaz.</p>
+        <p class="rv">Utilizo as melhores práticas de UI/UX para garantir que cada projeto não apenas tenha um design atraente, mas também ofereça uma excelente experiência de usuário. Da concepção ao handoff, cada decisão é fundamentada em pesquisa e empatia.</p>
+        <p class="rv">Ao longo da minha trajetória, atuei em setores como financeiro, segurança privada, previdência, saúde e turismo corporativo — construindo um portfólio diverso que demonstra adaptabilidade e profundidade técnica.</p>
+        <div class="sobre-tags rv">
+          <span class="tag">UI/UX Design</span>
+          <span class="tag">Branding</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Design Editorial</span>
+          <span class="tag">Social Media</span>
+          <span class="tag">Motion Design</span>
+        </div>
+      </div>
+      <div class="stats-g rvr">
+        <div class="stat-c rv">
+          <div class="stat-n" data-target="9">0</div>
+          <div class="stat-l">Projetos no Portfólio</div>
+        </div>
+        <div class="stat-c rv">
+          <div class="stat-n" data-target="3">0</div>
+          <div class="stat-l">Anos de Experiência</div>
+        </div>
+        <div class="stat-c rv">
+          <div class="stat-n" data-target="5">0</div>
+          <div class="stat-l">Setores Atendidos</div>
+        </div>
+        <div class="stat-c rv">
+          <div class="stat-n" data-target="6">0</div>
+          <div class="stat-l">Ferramentas Dominadas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HABILIDADES ===== -->
+<section id="habilidades" class="sec">
+  <div class="wrap">
+    <span class="lbl rv">Skills</span>
+    <h2 class="stit rv">Ferramentas &amp; <span>Habilidades</span></h2>
+    <div class="skills-g">
+      <div class="skill-grp rvl">
+        <h3>Design Tools</h3>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">🎨</span>Figma</div>
+              <span class="skill-pct">95%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">📷</span>Adobe Photoshop</div>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">✏️</span>Adobe Illustrator</div>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">📰</span>Adobe InDesign</div>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">🎬</span>After Effects</div>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-grp rvr">
+        <h3>Design Skills</h3>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">📱</span>UI/UX Design</div>
+              <span class="skill-pct">92%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="92"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">💎</span>Branding &amp; Identidade</div>
+              <span class="skill-pct">92%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="92"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">📖</span>Design Editorial</div>
+              <span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">🔍</span>UX Research</div>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-hd">
+              <div class="skill-nm"><span class="skill-ic">✨</span>Motion Design</div>
+              <span class="skill-pct">72%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="72"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJETOS ===== -->
+<section id="projetos" class="sec">
+  <div class="wrap">
+    <span class="lbl rv">Portfólio</span>
+    <h2 class="stit rv">Projetos <span>Selecionados</span></h2>
+    <div class="filter-bar rv">
+      <button class="fbtn act" data-f="all">Todos</button>
+      <button class="fbtn" data-f="ui-ux">UI/UX</button>
+      <button class="fbtn" data-f="branding">Branding</button>
+      <button class="fbtn" data-f="editorial">Editorial</button>
+      <button class="fbtn" data-f="ux-research">UX Research</button>
+    </div>
+    <div class="proj-g" id="pgrid"></div>
+  </div>
+</section>
+
+<!-- ===== PROCESSO UX ===== -->
+<section id="processo" class="sec">
+  <div class="wrap">
+    <span class="lbl rv">Metodologia</span>
+    <h2 class="stit rv">Processo de <span>Design</span></h2>
+    <div class="proc-intro rv">
+      <p>Cada projeto começa com perguntas, não com pixels. Aplico metodologias como Double Diamond e Design Thinking para garantir que as soluções visuais sejam fundamentadas em dados reais e nas genuínas necessidades dos usuários.</p>
+    </div>
+    <div class="proc-wrap">
+      <div class="proc-line"></div>
+      <div class="proc-steps">
+        <div class="pstep rv">
+          <div class="pstep-ic">🔭<div class="pstep-n">01</div></div>
+          <h3>Descoberta</h3>
+          <p>Imersão no problema, pesquisa com usuários, análise competitiva e compreensão profunda do contexto de negócio.</p>
+          <div class="arts">
+            <span class="art">Desk Research</span>
+            <span class="art">Entrevistas</span>
+            <span class="art">Benchmarking</span>
+          </div>
+        </div>
+        <div class="pstep rv">
+          <div class="pstep-ic">🎯<div class="pstep-n">02</div></div>
+          <h3>Definição</h3>
+          <p>Síntese de insights, criação de personas, mapeamento da jornada e definição clara do problema a resolver.</p>
+          <div class="arts">
+            <span class="art">Matriz CSD</span>
+            <span class="art">Personas</span>
+            <span class="art">Value Canvas</span>
+          </div>
+        </div>
+        <div class="pstep rv">
+          <div class="pstep-ic">⚡<div class="pstep-n">03</div></div>
+          <h3>Prototipagem</h3>
+          <p>Geração de ideias com Crazy Eights, wireframes, protótipo navegável e design system estruturado no Figma.</p>
+          <div class="arts">
+            <span class="art">Crazy Eights</span>
+            <span class="art">Protótipo Figma</span>
+            <span class="art">Design System</span>
+          </div>
+        </div>
+        <div class="pstep rv">
+          <div class="pstep-ic">🚀<div class="pstep-n">04</div></div>
+          <h3>Entrega</h3>
+          <p>Testes de usabilidade, iteração com base em feedback real, handoff e documentação completa para desenvolvimento.</p>
+          <div class="arts">
+            <span class="art">Teste de Usabilidade</span>
+            <span class="art">Handoff</span>
+            <span class="art">Documentação</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section id="contato" class="sec">
+  <div class="wrap">
+    <div class="cont-g">
+      <div class="cont-info">
+        <span class="lbl rv">Contato</span>
+        <h2 class="stit rv">Vamos criar algo <span>incrível</span> juntos?</h2>
+        <p class="rv">Disponível para projetos freelance e oportunidades full time remotas. Seja um briefing completo ou apenas uma ideia inicial — adoraria ouvir sobre seu projeto.</p>
+        <div class="soc-links rv">
+          <a href="https://www.behance.net/luanfischer" target="_blank" rel="noopener" class="soc-link">
+            <div class="soc-ic" style="background:rgba(26,35,126,.15);color:#90CAF9;font-size:.85rem">Be</div>
+            <div>
+              <div class="soc-tx">behance.net/luanfischer</div>
+              <div class="soc-lb">Portfólio Completo</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/luanavilafischer" target="_blank" rel="noopener" class="soc-link">
+            <div class="soc-ic" style="background:rgba(10,102,194,.15);color:#70B5F9;font-size:.8rem">in</div>
+            <div>
+              <div class="soc-tx">linkedin.com/in/luanavilafischer</div>
+              <div class="soc-lb">Conexões Profissionais</div>
+            </div>
+          </a>
+          <a href="mailto:luanfischer51@gmail.com" class="soc-link">
+            <div class="soc-ic" style="background:rgba(230,81,0,.15);color:var(--pri)">✉</div>
+            <div>
+              <div class="soc-tx">luanfischer51@gmail.com</div>
+              <div class="soc-lb">E-mail Direto</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="c-form rvr">
+        <form onsubmit="return false">
+          <div class="fg">
+            <label class="flbl" for="cn">Nome</label>
+            <input type="text" id="cn" class="finp" placeholder="Seu nome completo">
+          </div>
+          <div class="fg">
+            <label class="flbl" for="ce">E-mail</label>
+            <input type="email" id="ce" class="finp" placeholder="seu@email.com">
+          </div>
+          <div class="fg">
+            <label class="flbl" for="cm">Mensagem</label>
+            <textarea id="cm" class="finp" placeholder="Conte-me sobre seu projeto..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-pri" style="width:100%;justify-content:center">
+            Enviar Mensagem
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <p>© 2026 Luan Fischer · Lages, SC, Brasil</p>
+      <p>"Design não começa na tela — começa na compreensão profunda das pessoas."</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="m-ov" id="mov" onclick="mclose2()"></div>
+<div class="m-pan" id="mpan">
+  <div class="m-thumb"><div class="m-tg" id="mtg"></div>
+    <button class="m-cls" onclick="mclose2()">✕</button>
+  </div>
+  <div class="m-cnt" id="mcnt"></div>
+</div>
+
+<script>
+/* ===== DATA ===== */
+const PROJECTS = [
+  {id:1,num:'01',cats:['branding','ui-ux'],
+    title:'Banco da Família',
+    sub:'Ecossistema Visual Completo',
+    tags:['Branding','Social Media','Motion','Eventos'],
+    tools:['Photoshop','Illustrator','InDesign','After Effects','Figma'],
+    grad:'linear-gradient(135deg,#E65100 0%,#BF360C 35%,#1A237E 100%)',
+    badges:[],
+    desc:'Ecossistema visual completo para o Banco da Família, instituição financeira cooperativa com 27 anos de história e R$ 2,9 bilhões em crédito concedido. Abrange desde o ecossistema digital (YouTube thumbnails, Instagram, blog) até a presença física em eventos corporativos e produtos premium.',
+    challenge:'Unificar a linguagem visual de uma instituição financeira em suportes completamente diferentes — de thumbnails para YouTube a rótulos de vinho corporativo — transmitindo sempre confiança, proximidade e inovação.',
+    solution:'Sistema visual coerente para todas as plataformas: carrosséis educativos com até 10 slides, stories animados em After Effects com micro-interações, produtos físicos com adaptação CMYK fidedigna, e identidade completa para o Conexão BF — evento de 3 dias com backdrops, totens, sinalização e motion.',
+    behance:'https://www.behance.net/gallery/245220673/Banco-da-Familia',
+    views:'11 apreciações · 22 visualizações · Mar/2026'},
+  {id:2,num:'02',cats:['ui-ux'],
+    title:'Layout de Site | Revista SSP',
+    sub:'UI/UX para Publicação Especializada em Segurança',
+    tags:['UI/UX','Web Design','Figma'],
+    tools:['Figma','Photoshop','Illustrator'],
+    grad:'linear-gradient(135deg,#0D47A1 0%,#1565C0 45%,#006064 100%)',
+    badges:[{type:'star',text:'⭐ Destaque Behance — 3.1K views'}],
+    desc:'Layout de site completo para a Revista SSP, publicação especializada no mercado de segurança privada. O projeto mais visto e mais apreciado do portfólio, com 44 apreciações e mais de 3.100 visualizações — validação expressiva de qualidade na comunidade de design do Behance.',
+    challenge:'Criar uma experiência de leitura digital que competisse com grandes portais jornalísticos, mantendo a identidade sólida do segmento de segurança privada, com dark mode como escolha primária para transmitir autoridade e seriedade.',
+    solution:'Dark mode como design padrão, grid responsivo com hierarquia de conteúdo clara (destaque / secundário / lista), cards com fotografia de impacto, microinterações documentadas em GIF para handoff, e componentes padronizados no Figma para escalabilidade. Prototipagem navegável completa com guia de estilos.',
+    behance:'https://www.behance.net/gallery/195861841/Layout-de-Site-Revista-SSP',
+    views:'44 apreciações · 3.131 visualizações · Abr/2024'},
+  {id:3,num:'03',cats:['ui-ux'],
+    title:'Landing Page | Pedrosa Previdência',
+    sub:'UI/UX + CRO com Psicologia Cognitiva Aplicada',
+    tags:['UI/UX','CRO','Landing Page','Figma'],
+    tools:['Figma','Photoshop'],
+    grad:'linear-gradient(135deg,#1A237E 0%,#311B92 50%,#4A148C 100%)',
+    badges:[],
+    desc:'Design de interface focado em performance (CRO) para escritório de planejamento previdenciário. Aplicação de princípios de psicologia cognitiva — Aversão à Perda (Kahneman), Analogia Médica e Arco Emocional — para transformar ansiedade financeira em decisão de contato.',
+    challenge:'Vender um serviço complexo (cálculo e planejamento previdenciário) para um público que teme o resultado e acha que "já é tarde demais" para planejar. O desafio central foi simplificar o "juridiquês" previdenciário e converter visitantes em leads qualificados.',
+    solution:'LP estruturada no funil AIDA: hero com linguagem de aversão à perda, analogia da "Consulta Médica" para reduzir fricção cognitiva, arco emocional visual (homem preocupado → homem sorrindo) que narra a transformação, e formulário simplificado com apenas 3 campos para minimizar atrito na conversão.',
+    behance:'https://www.behance.net/gallery/195854523/Landing-Page-Planejamento-Previdenciario',
+    views:'5 apreciações · 37 visualizações · Abr/2024'},
+  {id:4,num:'04',cats:['branding'],
+    title:'Manual de Identidade Visual | SSP',
+    sub:'Branding Completo — Fundação do Ecossistema SSP',
+    tags:['Branding','Logo Design','Manual de Marca'],
+    tools:['Illustrator','Photoshop','CorelDraw'],
+    grad:'linear-gradient(135deg,#1B5E20 0%,#2E7D32 50%,#004D40 100%)',
+    badges:[],
+    desc:'Manual de Identidade Visual e Corporativa completo para a SSP. Este projeto é a fundação visual de todo o ecossistema SSP: o site da revista (Proj. 02), a landing page (Proj. 07), a identidade CSP (Proj. 05) e as quatro edições da Revista SSP foram todos construídos sobre as bases definidas aqui.',
+    challenge:'Criar uma identidade visual bem documentada que garantisse consistência em todos os pontos de contato da marca SSP, mesmo com múltiplos colaboradores e suportes completamente diferentes — do digital à sinalização ambiental.',
+    solution:'Manual completo com: concepção e conceito do logo (3 alternativas com justificativa), todas as variações (positivo, negativo, monocromático), paleta HEX/RGB/CMYK/Pantone, tipografia institucional, área de proteção, papelaria corporativa, uniformes, apliacações digitais e sinalização ambiental. Serviu como base para 5 projetos subsequentes.',
+    behance:'https://www.behance.net/gallery/184271115/Manual-de-Identidade-Visual-SSP',
+    views:'1 apreciação · 20 visualizações · Nov/2023'},
+  {id:5,num:'05',cats:['branding'],
+    title:'Identidade Visual | CSP',
+    sub:'Branding para Plataforma Educacional de Segurança Privada',
+    tags:['Branding','Logo Design','Illustrator'],
+    tools:['Illustrator'],
+    grad:'linear-gradient(135deg,#4A148C 0%,#6A1B9A 55%,#1A237E 100%)',
+    badges:[],
+    desc:'Manual de Identidade Visual para a CSP (Cursos de Segurança Privada), vertical educacional do grupo SSP. Projeto irmão da identidade SSP — o desafio foi criar uma marca com autonomia e clareza próprias, mas que dialogasse harmonicamente com o ecossistema maior.',
+    challenge:'Criar uma marca simultaneamente independente e parte de um ecossistema maior. Diferenciar a CSP educacional da SSP editorial, mas manter coerência de família de marcas, comunicando especificamente educação, crescimento profissional e capacitação.',
+    solution:'Exploração de metáforas visuais de crescimento e proteção. Paleta própria, derivada mas distinta da SSP principal, criando hierarquia clara de marca. Sistema que um aluno reconhece como "seu" mesmo sem conhecer a relação com o grupo. Tipografia institucional definida para materiais didáticos digitais e impressos.',
+    behance:'https://www.behance.net/gallery/194934113/Identidade-Visual-CSP',
+    views:'1 apreciação · 16 visualizações · Mar/2024'},
+  {id:6,num:'06',cats:['editorial'],
+    title:'Revista SSP — 4 Edições',
+    sub:'Design Editorial: Piloto, 1ª, 2ª e 3ª Edição',
+    tags:['Editorial','InDesign','Publicação'],
+    tools:['InDesign','Illustrator','Photoshop'],
+    grad:'linear-gradient(135deg,#B71C1C 0%,#C62828 40%,#E65100 100%)',
+    badges:[],
+    desc:'Desenvolvimento editorial completo das quatro primeiras edições da Revista SSP. O maior projeto editorial do portfólio, representando a capacidade de manter qualidade e consistência ao longo de múltiplas edições com crescente complexidade — da piloto (Nov/2023) à terceira edição (Out/2024).',
+    challenge:'Criar e manter um sistema visual de publicação especializada ao longo de quatro edições, evoluindo o design sem perder consistência, incluindo artigos, reportagens, entrevistas, infográficos e preparação para impressão e PDF interativo.',
+    solution:'Sistema de grid e estilos de parágrafo no InDesign, tratamento de fotografia editorial, infográficos originais por edição, preparação em CMYK com sangria e marcas de corte (PDF/X), versão digital com hyperlinks. Evolução gradual: piloto (conceituação) → 1ª/2ª (consolidação) → 3ª (maturidade e maior complexidade).',
+    views:'4 publicações: Piloto (Nov/23) · 1ª e 2ª Edição (Mar/24) · 3ª Edição (Out/24)'},
+  {id:7,num:'07',cats:['ui-ux'],
+    title:'Landing Page | Revista SSP',
+    sub:'UI/UX — Conversão de Assinantes Digitais',
+    tags:['UI/UX','Landing Page','CRO','Figma'],
+    tools:['Figma'],
+    grad:'linear-gradient(135deg,#006064 0%,#00838F 50%,#0277BD 100%)',
+    badges:[],
+    desc:'Landing page de conversão para captação de assinantes digitais da Revista SSP. Projeto complementar ao site (Proj. 02), mas com objetivo único: converter visitantes em assinantes. Elimina toda distração e foca exclusivamente no funil de assinatura.',
+    challenge:'Criar uma página de objetivo único e alta persuasão dentro da identidade visual já consolidada da marca SSP, maximizando a taxa de conversão de visitantes em assinantes digitais da publicação.',
+    solution:'Zero pontos de saída além do CTA de assinatura, benefícios apresentados de forma escaneável com comparação de planos, prova social com depoimentos e número de leitores ativos, e CTA repetido em 3 momentos do scroll (início, meio e fim da página) com consistência total ao design system SSP.',
+    behance:'https://www.behance.net/gallery/197104433/Layout-de-Landing-Page-RevistaSSP',
+    views:'25 visualizações · Out/2024'},
+  {id:8,num:'08',cats:['ui-ux','ux-research'],
+    title:'Tripideias — App de Viagens',
+    sub:'UX/UI Mobile B2B2C — Double Diamond Completo',
+    tags:['UX Design','UI Design','Mobile','Research'],
+    tools:['Figma','FigJam'],
+    grad:'linear-gradient(135deg,#004D40 0%,#00695C 40%,#00897B 100%)',
+    badges:[{type:'ux',text:'UX Process'}],
+    desc:'App mobile B2B2C para agência de viagens corporativas. Projeto completo do processo Double Diamond — da pesquisa quantitativa ao protótipo testado com usuários. 5 rodadas de teste de usabilidade com 80% de taxa de sucesso. Finalizado em design e pronto para handoff.',
+    challenge:'No modelo B2B2C, o serviço precisava ser customizado individualmente para cada colaborador, consumindo tempo do time de vendas. Múltiplos pedidos individuais e lentidão na elaboração de orçamentos impactavam negativamente as vendas.',
+    solution:'Double Diamond completo: proto-persona e personas, análise competitiva, Canvas de Proposta de Valor, workshop Crazy Eights com PM e devs, 3 fluxos de interação para tarefas críticas (cadastro, criação de pacote, pagamento), protótipo navegável no Figma e 5 rodadas de teste com usuários reais. Pontos de falha identificados e endereçados em iteração pós-teste.',
+    views:'Finalizado · Pronto para Handoff ao Dev'},
+  {id:9,num:'09',cats:['ux-research'],
+    title:'AluraMed — UX Research',
+    sub:'Pesquisa Qualitativa para App de Telemedicina',
+    tags:['UX Research','Mobile','Telemedicina'],
+    tools:['Figma','FigJam','Notion'],
+    grad:'linear-gradient(135deg,#880E4F 0%,#AD1457 50%,#C2185B 100%)',
+    badges:[{type:'ux',text:'UX Process'}],
+    desc:'Pesquisa qualitativa completa para a AluraMed, empresa de telemedicina que ajuda médicos a otimizar seu tempo. O projeto documentou toda a UX Research necessária para validar a implementação de um novo campo de registro de atendimentos no app e orientar o design da solução.',
+    challenge:'Validar a oportunidade de implementar uma nova funcionalidade e orientar o design da solução — compreendendo profundamente como médicos integram o app em sua rotina profissional e identificando gaps funcionais reais.',
+    solution:'Processo estruturado em 2 fases: Imersão (Desk Research sobre telemedicina no Brasil, análise competitiva, Matriz CSD) e Pesquisa com Usuários (entrevistas semiestruturadas com médicos recrutados da base AluraMed, afinização de insights no FigJam, persona detalhada, User Journey Map). Descoberta crítica: médicos usavam Google Docs por ausência de campo de registro no app. Repositório de pesquisas entregue no Notion.',
+    views:'Pesquisa Concluída · Repositório Entregue ao Time'}
+];
+
+/* ===== RENDER PROJECTS ===== */
+function renderProjects(filter='all'){
+  const grid=document.getElementById('pgrid');
+  grid.innerHTML='';
+  PROJECTS.forEach((p,i)=>{
+    const vis=filter==='all'||p.cats.includes(filter);
+    const el=document.createElement('div');
+    el.className='proj-c rv'+(vis?'':' hide');
+    el.dataset.pid=p.id;
+    el.style.transitionDelay=(i*.07)+'s';
+    el.onclick=()=>openM(p);
+    const bdgs=p.badges.map(b=>`<span class="bdg bdg-${b.type==='star'?'star':'ux'}">${b.text}</span>`).join('');
+    const tags=p.tags.map(t=>`<span class="ptag">${t}</span>`).join('');
+    el.innerHTML=`
+      <div class="proj-thumb">
+        <div class="proj-tg" style="background:${p.grad}"></div>
+        <div class="proj-ov"><button class="proj-ovb">Ver Detalhes</button></div>
+        <span class="proj-num">${p.num}</span>
+        <div class="proj-bdgs">${bdgs}</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-tit">${p.title}</div>
+        <p class="proj-sub">${p.sub}</p>
+        <div class="proj-tags">${tags}</div>
+      </div>`;
+    grid.appendChild(el);
+  });
+  document.querySelectorAll('.proj-c.rv').forEach(el=>obs.observe(el));
+  addHoverCursor();
+}
+
+/* ===== FILTER ===== */
+document.querySelectorAll('.fbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('act'));
+    btn.classList.add('act');
+    const f=btn.dataset.f;
+    document.querySelectorAll('.proj-c').forEach(c=>{
+      const pid=parseInt(c.dataset.pid);
+      const p=PROJECTS.find(x=>x.id===pid);
+      (f==='all'||p.cats.includes(f))?c.classList.remove('hide'):c.classList.add('hide');
+    });
+  });
+});
+
+/* ===== MODAL ===== */
+function openM(p){
+  document.getElementById('mtg').style.background=p.grad;
+  const tools=p.tools.map(t=>`<span class="m-tool">${t}</span>`).join('');
+  const tags=p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  const beh=p.behance?`<a href="${p.behance}" target="_blank" rel="noopener" class="btn btn-pri">Ver no Behance <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>`:'';
+  document.getElementById('mcnt').innerHTML=`
+    <div class="m-num">${p.num} / 09</div>
+    <h2 class="m-tit">${p.title}</h2>
+    <div class="m-tags">${tags}</div>
+    <div class="m-sec"><h4>Sobre o Projeto</h4><p>${p.desc}</p></div>
+    <div class="m-sec"><h4>Desafio</h4><p>${p.challenge}</p></div>
+    <div class="m-sec"><h4>Solução</h4><p>${p.solution}</p></div>
+    <div class="m-sec"><h4>Ferramentas</h4><div class="m-tools">${tools}</div></div>
+    <div class="m-acts">${beh}<button class="btn btn-out" onclick="mclose2()">Fechar</button></div>
+    <p class="m-views">${p.views||''}</p>`;
+  document.getElementById('mov').classList.add('open');
+  document.getElementById('mpan').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function mclose2(){
+  document.getElementById('mov').classList.remove('open');
+  document.getElementById('mpan').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')mclose2()});
+
+/* ===== INTERSECTION OBSERVER ===== */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      // skill bars
+      e.target.querySelectorAll('.skill-fill[data-w]').forEach(f=>{
+        setTimeout(()=>{f.style.width=f.dataset.w+'%'},150);
+      });
+      // counters
+      e.target.querySelectorAll('[data-target]').forEach(el=>counter(el));
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+
+// Also observe skill fills directly (when parent is already visible)
+const skillObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      setTimeout(()=>{e.target.style.width=e.target.dataset.w+'%'},200);
+      skillObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+
+const ctrObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){counter(e.target);ctrObs.unobserve(e.target);}
+  });
+},{threshold:.5});
+
+function counter(el){
+  const tgt=parseInt(el.dataset.target);
+  let s=null;
+  const step=ts=>{
+    if(!s)s=ts;
+    const p=Math.min((ts-s)/1400,1);
+    const e2=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(e2*tgt);
+    if(p<1)requestAnimationFrame(step);else el.textContent=tgt;
+  };
+  requestAnimationFrame(step);
+}
+
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
+document.querySelectorAll('.skill-fill[data-w]').forEach(el=>skillObs.observe(el));
+document.querySelectorAll('[data-target]').forEach(el=>ctrObs.observe(el));
+
+/* ===== TYPEWRITER ===== */
+const ROLES=['UI/UX Designer','Brand Designer','UX Researcher','Motion Designer'];
+let ri=0,ci=0,del=false;
+const tel=document.getElementById('typed');
+function tw(){
+  const cur=ROLES[ri];
+  del?(tel.textContent=cur.slice(0,--ci)):(tel.textContent=cur.slice(0,++ci));
+  let d=del?55:100;
+  if(!del&&ci===cur.length){d=2200;del=true;}
+  else if(del&&ci===0){del=false;ri=(ri+1)%ROLES.length;d=450;}
+  setTimeout(tw,d);
+}tw();
+
+/* ===== HERO CANVAS PARTICLES ===== */
+const cv=document.getElementById('hcanvas');
+const cx=cv.getContext('2d');
+function rz(){cv.width=window.innerWidth;cv.height=window.innerHeight;}
+rz();window.addEventListener('resize',rz);
+class Pt{
+  constructor(){this.r();}
+  r(){this.x=Math.random()*cv.width;this.y=Math.random()*cv.height;
+    this.s=Math.random()*1.8+.4;this.vx=(Math.random()-.5)*.35;
+    this.vy=(Math.random()-.5)*.35;this.a=Math.random()*.45+.08;
+    this.col=Math.random()>.75?'#E65100':'#FFFFFF';}
+  u(){this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>cv.width||this.y<0||this.y>cv.height)this.r();}
+  d(){cx.beginPath();cx.arc(this.x,this.y,this.s,0,6.28);
+    cx.fillStyle=this.col;cx.globalAlpha=this.a;cx.fill();cx.globalAlpha=1;}
+}
+const pts=Array.from({length:110},()=>new Pt());
+function anim(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<95){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);
+        cx.strokeStyle='#E65100';cx.globalAlpha=(1-d/95)*.07;cx.lineWidth=.5;cx.stroke();cx.globalAlpha=1;}
+    }
+    pts[i].u();pts[i].d();
+  }
+  requestAnimationFrame(anim);
+}anim();
+
+/* ===== NAVBAR ===== */
+const nav=document.getElementById('nav');
+const nls=document.querySelectorAll('#nlinks a');
+const secs=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('sc',window.scrollY>50);
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-110)cur=s.id;});
+  nls.forEach(l=>{l.classList.toggle('act',l.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ===== THEME ===== */
+let dark=true;
+document.getElementById('thmbtn').addEventListener('click',()=>{
+  dark=!dark;
+  document.documentElement.dataset.theme=dark?'dark':'light';
+  document.getElementById('thmbtn').textContent=dark?'🌙':'☀️';
+});
+
+/* ===== MOBILE MENU ===== */
+document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mmenu').classList.add('open'));
+document.getElementById('mmx').addEventListener('click',mclose);
+function mclose(){document.getElementById('mmenu').classList.remove('open');}
+
+/* ===== CUSTOM CURSOR ===== */
+const cur=document.getElementById('cur'),cuf=document.getElementById('curf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+function trackF(){
+  fx+=(mx-fx)*.12;fy+=(my-fy)*.12;
+  cuf.style.left=fx+'px';cuf.style.top=fy+'px';
+  requestAnimationFrame(trackF);
+}trackF();
+function addHoverCursor(){
+  document.querySelectorAll('a,button,.proj-c,.fbtn').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.classList.add('hov');cuf.classList.add('hov');});
+    el.addEventListener('mouseleave',()=>{cur.classList.remove('hov');cuf.classList.remove('hov');});
+  });
+}
+addHoverCursor();
+
+/* ===== INIT ===== */
+renderProjects();
+</script>
+</body>
+</html>
