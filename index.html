@@ -425,7 +425,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         </div>
       </div>
       <div class="stats-g rvr">
-        <div class="stat-c rv"><div class="stat-n" data-target="8">0</div><div class="stat-l">Projetos no Portfólio</div></div>
+        <div class="stat-c rv"><div class="stat-n" data-target="9">0</div><div class="stat-l">Projetos no Portfólio</div></div>
         <div class="stat-c rv"><div class="stat-n" data-target="3">0</div><div class="stat-l">Anos de Experiência</div></div>
         <div class="stat-c rv"><div class="stat-n" data-target="5">0</div><div class="stat-l">Setores Atendidos</div></div>
         <div class="stat-c rv"><div class="stat-n" data-target="6">0</div><div class="stat-l">Ferramentas Dominadas</div></div>
@@ -815,6 +815,39 @@ const PROJECTS = [
      'A Matriz CSD é uma ferramenta poderosa para estruturar o que você não sabe antes de entrar em campo — evita que o pesquisador confirme o que já acredita e mantém o foco nas incertezas reais.',
      'Documentar tudo em um repositório Notion estruturado transforma a pesquisa em ativo de produto: as descobertas ficam acessíveis para o time de design e desenvolvimento em qualquer etapa futura.',
    ]},
+  {id:9,num:'09',cats:['ui-ux'],
+   title:'Landing Page | Alessandra Breda',sub:'LP de Alta Conversão para Mentoria Premium — MPR',
+   tags:['UI/UX','Landing Page','Copywriting','Branding'],
+   tools:['Figma','HTML/CSS'],
+   cover:'assets/alessandra/cover.jpg',
+   badges:[],
+   desc:'Landing page completa para a Mentoria MPR — Mulheres Plenas e Reinantes, de Alessandra Breda. Projeto real de cliente: página de captação para mentoria premium voltada a mulheres empresárias que querem crescer nos negócios sem desequilibrar fé, família e casamento.',
+   challenge:'Comunicar uma transformação profunda e premium para um público exigente — empresárias, profissionais liberais e mulheres do agro — sem cair em linguagem genérica de autoajuda. A identidade visual precisava transmitir sofisticação, fé e autoridade ao mesmo tempo.',
+   solution:'Paleta Cream/Navy/Gold com tipografia editorial (Playfair Display + Cormorant Garamond) para transmitir sofisticação e femininidade premium. Estrutura de LP em 9 seções com progressão emocional: Dor → Quebra de crença → Solução → Para quem é → Quem conduz → CTA. Copywriting e design integrados para garantir coesão total entre mensagem e estética.',
+   views:'Projeto Real · Cliente Ativo',
+   youtube:null,
+   gallery:[
+     {lbl:'Hero — Impacto Imediato',desc:'Foto editorial + headline emocional + CTA para diagnóstico',icon:'👑'},
+     {lbl:'Seção Dor',desc:'Espelhamento das responsabilidades que pesam — conexão emocional',icon:'⚖️'},
+     {lbl:'Quebra de Crença',desc:'Desconstrução da falsa escolha entre negócios e vida pessoal',icon:'💡'},
+     {lbl:'Os 4 Pilares',desc:'Fé · Família · Negócios · Postura — a proposta de valor central',icon:'🏛️'},
+     {lbl:'O que Muda',desc:'8 transformações concretas que a mentoria proporciona',icon:'✦'},
+     {lbl:'Para Quem É / Não É',desc:'Qualificação do lead: inclui e exclui com clareza',icon:'🎯'},
+     {lbl:'Sobre Alessandra',desc:'Bio da mentora com foto editorial e credenciais',icon:'👤'},
+     {lbl:'CTA Final',desc:'Formulário de diagnóstico gratuito com fundo Navy/Gold',icon:'✉️'},
+   ],
+   personas:[
+     {name:'Mulher Empresária / Profissional Liberal',
+      pain:'Cresceu nos negócios mas sente que fé, casamento ou família estão saindo do lugar. Carrega tudo sozinha e está esgotada de apagar incêndios sem avançar de verdade.',
+      ux:'Linguagem que a enxerga sem julgamento, proposta que combina crescimento profissional e ordem interior — sem ter que escolher entre uma coisa e outra.'},
+   ],
+   metodologia:'LP estruturada com base em princípios de Copywriting de Conversão e Design Emocional: (1) Espelhamento — a seção de dor usa a linguagem e as responsabilidades reais da persona para gerar identificação imediata; (2) Quebra de crença — desconstrói a ideia de que é preciso escolher entre negócios e vida pessoal antes de apresentar a solução; (3) Proposta de valor em pilares — 4 pilares claros (Fé, Família, Negócios, Postura) facilitam a compreensão e o alinhamento com a oferta; (4) Qualificação do lead — seção "Para quem é / não é" filtra quem realmente está pronta para a mentoria premium; (5) CTA de baixo atrito — diagnóstico gratuito como porta de entrada, reduzindo a barreira da primeira conversão.',
+   learnings:[
+     'Copywriting e design precisam ser criados juntos — quando a mensagem e a estética são desenvolvidas separadamente, a LP perde coesão e o lead sente a inconsistência antes mesmo de ler o texto.',
+     'Para um produto premium com jornada emocional complexa (fé + negócios + família), a estrutura da LP importa tanto quanto o copy: a ordem das seções define o ritmo da transformação percebida.',
+     'A paleta Cream/Navy/Gold não foi escolhida por estética — cada cor tem função semiótica: Cream para acolhimento, Navy para autoridade, Gold para aspiração e propósito.',
+     'Qualificar o lead dentro da própria LP (seção "Para quem não é") reduz objeções antes da conversa de venda e atrai quem está genuinamente pronto para o processo.',
+   ]},
 ];
 
 
@@ -927,7 +960,7 @@ function openM(p){
     </div>`:'';
 
   document.getElementById('mcnt').innerHTML=`
-    <div class="m-num">${p.num} / 08</div>
+    <div class="m-num">${p.num} / 09</div>
     <h2 class="m-tit">${p.title}</h2>
     <div class="m-tags">${tags}</div>
     <div class="m-sec gal-wrap">
