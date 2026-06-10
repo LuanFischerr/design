@@ -425,7 +425,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         </div>
       </div>
       <div class="stats-g rvr">
-        <div class="stat-c rv"><div class="stat-n" data-target="9">0</div><div class="stat-l">Projetos no Portfólio</div></div>
+        <div class="stat-c rv"><div class="stat-n" data-target="8">0</div><div class="stat-l">Projetos no Portfólio</div></div>
         <div class="stat-c rv"><div class="stat-n" data-target="3">0</div><div class="stat-l">Anos de Experiência</div></div>
         <div class="stat-c rv"><div class="stat-n" data-target="5">0</div><div class="stat-l">Setores Atendidos</div></div>
         <div class="stat-c rv"><div class="stat-n" data-target="6">0</div><div class="stat-l">Ferramentas Dominadas</div></div>
@@ -472,7 +472,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <div class="filter-bar rv">
       <button class="fbtn act" data-f="all">Todos</button>
       <button class="fbtn" data-f="ui-ux">UI/UX</button>
-      <button class="fbtn" data-f="branding">Branding</button>
       <button class="fbtn" data-f="ux-research">UX Research</button>
     </div>
     <div class="proj-g" id="pgrid"></div>
@@ -611,39 +610,41 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 ================================================================ */
 
 const PROJECTS = [
-  {id:1,num:'01',cats:['branding','ui-ux'],
-   title:'Banco da Família',sub:'Redesign Digital + Ecossistema Visual Completo',
-   tags:['UX Design','Web Design','Branding','Social Media','Motion'],
-   tools:['Photoshop','Illustrator','InDesign','After Effects','Figma'],
+  {id:1,num:'01',cats:['ui-ux'],
+   title:'Banco da Família',sub:'Redesign de Site — UX/UI para Cooperativa Financeira',
+   tags:['UX Design','Web Design','UI Design','Figma'],
+   tools:['Figma','Photoshop'],
    grad:'linear-gradient(135deg,#E65100 0%,#BF360C 35%,#1A237E 100%)',
    cover:'assets/banco-da-familia/86-banco-da-famaa-lia-1-1.jpg',
    badges:[],
-   desc:'Redesign digital e ecossistema visual completo para o Banco da Família, cooperativa financeira com 27 anos de história e R$ 2,9 bilhões em crédito concedido. O projeto transformou um portal institucional transacional em uma ferramenta de conversão e conexão emocional, abrangendo desde o redesign do site até o ecossistema completo de redes sociais, eventos corporativos e produtos físicos premium.',
+   desc:'Redesign do site institucional do Banco da Família, cooperativa financeira com 27 anos de história e R$ 2,9 bilhões em crédito concedido. O projeto transformou um portal transacional em uma ferramenta de conversão e conexão emocional, aplicando UX estratégico para comunicar autoridade, humanizar a marca e criar uma jornada B2B dedicada à captação de novos franqueados.',
    challenge:'O site anterior focava excessivamente no transacional — "pegar dinheiro" — com arquitetura de informação rasa (apenas "Você", "Negócio", "Agro"), ausência de prova social (milhões de vidas impactadas invisíveis) e nenhuma estratégia para atração de novos franqueados, um pilar estratégico de crescimento completamente ignorado.',
-   solution:'Redesign estruturado em AIDA: hero com impacto emocional e vídeo, seção de autoridade com números reais (2,9 bi em crédito, 450+ colaboradores), expansão do portfólio de produtos (BF Solar, BF Saneamento, BF Telemedicina, BF Agro), humanização por fotografia documental e nova jornada B2B dedicada a franqueados. Ecossistema visual coerente: carrosséis de até 10 slides, stories animados em After Effects, produtos físicos com adaptação CMYK e identidade completa para o Conexão BF.',
+   solution:'Redesign estruturado em AIDA: hero com impacto emocional e vídeo, seção de autoridade com números reais (2,9 bi em crédito, 450+ colaboradores), expansão do portfólio de produtos (BF Solar, BF Saneamento, BF Telemedicina, BF Agro), humanização por fotografia documental e nova jornada B2B dedicada a franqueados.',
    personas:[
      {name:'Dona Maria — A Microempreendedora',pain:'Precisa de crédito rápido, mas tem medo de burocracia bancária tradicional.',ux:'Seções "Histórias que Transformam" e fotos de pessoas reais geram identificação. BF Microcrédito em destaque.'},
      {name:'Seu João — O Produtor Rural',pain:'Busca financiamento para safra ou maquinário. Precisa de robustez e clareza.',ux:'Destaque para BF Agro e imagens que remetem ao campo, transmitindo confiança.'},
      {name:'Roberto — O Investidor/Franqueado',pain:'Busca modelo de negócio sólido com propósito ESG.',ux:'Nova seção "Seja um Franqueado" com dados de rentabilidade (2,9 bi em crédito, 27 anos de história).'},
    ],
    metodologia:'Engenharia Reversa de UX: análise heurística do site atual, mapeamento de personas inferidas a partir da oferta de produtos, redesign de alta fidelidade com Long Scrolling e Storytelling, e aplicação de UI moderna com espaço em branco (Whitespace) para transmitir modernidade e leveza.',
-   learnings:['Documentação reversa reforça que boas decisões de design, mesmo intuitivas, são baseadas em heurísticas sólidas — documentá-las a posteriori ajuda a defender o projeto para stakeholders.','Equilibrar emoção (histórias de vida) com razão (números financeiros) na mesma interface é o maior desafio — e o maior diferencial — do design para o setor financeiro.'],
+   learnings:['Documentação reversa reforça que boas decisões de design, mesmo intuitivas, são baseadas em heurísticas sólidas — documentá-las a posteriori ajuda a defendê-las para stakeholders.','Equilibrar emoção (histórias de vida) com razão (números financeiros) na mesma interface é o maior desafio — e o maior diferencial — do design para o setor financeiro.'],
    views:'11 apreciações · 22 visualizações · Mar/2026',
    youtube:null,
-   sections:[
-     {title:'Ecossistema Digital — YouTube & Blog',
-      desc:'Identidades visuais de impacto para miniaturas de vídeos e capas de blog, garantindo destaque no feed e consistência da marca.',
-      images:['1-banco-da-famaa-lia-1-3.jpg','6-banco-da-famaa-lia-1-3.jpg','11-banco-da-famaa-lia-1-3.jpg','16-banco-da-famaa-lia-1-3.jpg','21-banco-da-famaa-lia-1-3.jpg','26-banco-da-famaa-lia-1-3.jpg','31-banco-da-famaa-lia-1-3.jpg','36-banco-da-famaa-lia-1-3.jpg']},
-     {title:'Redes Sociais — Posts, Carrosséis e Stories',
-      desc:'Carrosséis estratégicos focados em educação financeira e retenção, stories dinâmicos e posts de feed que reforçam a autoridade da marca. Cada layout equilibra estética e funcionalidade para o ritmo ágil do Instagram.',
-      images:['41-banco-da-famaa-lia-1-5.jpg','44-banco-da-famaa-lia-1-5.jpg','47-banco-da-famaa-lia-1-5.jpg','50-banco-da-famaa-lia-1-2.jpg','53-banco-da-famaa-lia-1-1.jpg','56-banco-da-famaa-lia-1-2.jpg','59-banco-da-famaa-lia-1-2.jpg','62-banco-da-famaa-lia-2-1.jpg','65-banco-da-famaa-lia-1-5.jpg','68-banco-da-famaa-lia-2-1.jpg','71-banco-da-famaa-lia-5-8.jpg']},
-     {title:'Peças Físicas — Brindes e Produtos Premium',
-      desc:'Rótulos personalizados para vinhos e embalagens para brindes com acabamentos premium e adaptação CMYK para impressão.',
-      images:['76-banco-da-famaa-lia-14-7.jpg','81-banco-da-famaa-lia-5-8.jpg']},
-     {title:'Conexão BF — Identidade do Evento Corporativo',
-      desc:'Ecossistema visual completo para o evento de três dias: backdrops, totens, banners, sinalização e motion graphics transformando o espaço físico em extensão da marca.',
-      images:['86-banco-da-famaa-lia-1-1.jpg','91-banco-da-famaa-lia-1.jpg','94-banco-da-famaa-lia-1.jpg','97-banco-da-famaa-lia-1-1.jpg','102-banco-da-famaa-lia-1.jpg','105-banco-da-famaa-lia-1.jpg','108-banco-da-famaa-lia-1-1.jpg','113-banco-da-famaa-lia-1-1.jpg','118-banco-da-famaa-lia-1-1.jpg','123-banco-da-famaa-lia-1-1.jpg','128-banco-da-famaa-lia-1-1.jpg','133-banco-da-famaa-lia-1.jpg']},
-   ]},
+   gallery:[
+     {lbl:'Hero — Impacto Emocional',desc:'Vídeo institucional e headline com proposta de valor clara acima da dobra',icon:'🏦'},
+     {lbl:'Autoridade & Prova Social',desc:'2,9 bi em crédito, 27 anos e 450+ colaboradores como âncoras de confiança',icon:'📊'},
+     {lbl:'Portfólio de Produtos',desc:'BF Solar, BF Agro, BF Telemedicina — expansão visual de serviços',icon:'🌟'},
+     {lbl:'Humanização & Storytelling',desc:'Fotografia documental mostrando vidas reais impactadas pelo crédito',icon:'👥'},
+     {lbl:'Jornada B2B — Franqueados',desc:'Nova seção estratégica para captação de parceiros com dados de rentabilidade',icon:'🤝'},
+     {lbl:'Responsividade',desc:'Experiência consistente em mobile e desktop',icon:'📱'},
+   ],
+   styleGuide:{colors:[
+     {name:'Laranja BF',hex:'#EC6726',role:'Primary CTA'},
+     {name:'Laranja BF 2',hex:'#F07E26',role:'Primary Hover'},
+     {name:'Azul BF',hex:'#1F3C90',role:'Brand Blue'},
+     {name:'Azul BF 2',hex:'#273476',role:'Brand Dark'},
+     {name:'Cinza Escuro',hex:'#343333',role:'Texto'},
+     {name:'Cinza Claro',hex:'#DADADA',role:'Background/Borda'},
+   ]}},
   {id:2,num:'02',cats:['ui-ux'],
    title:'Layout de Site | Revista SSP',sub:'Portal Digital para Publicação Especializada em Segurança',
    tags:['UI/UX','Web Design','Portal de Notícias','Figma'],
@@ -691,43 +692,7 @@ const PROJECTS = [
       images:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg'],
       dir:'proj-03'},
    ]},
-  {id:4,num:'04',cats:['branding'],
-   title:'Manual de Identidade Visual | SSP',sub:'Branding Completo — Fundação do Ecossistema SSP',
-   tags:['Branding','Logo Design','Manual de Marca'],
-   tools:['Illustrator','Photoshop','CorelDraw'],
-   grad:'linear-gradient(135deg,#1B5E20 0%,#2E7D32 50%,#004D40 100%)',
-   cover:'assets/proj-04/01.jpg',
-   badges:[],
-   desc:'Manual de Identidade Visual completo para a SSP — fundação visual de todo o ecossistema: site (Proj.02), Landing Page (Proj.07) e a CSP (Proj.05) foram construídos sobre as bases definidas aqui. A estratégia visual foi construída para evocar autoridade e urgência, pilares da segurança privada.',
-   challenge:'Criar uma identidade visual robusta e bem documentada para garantir consistência em todos os pontos de contato da marca — do impresso ao digital — com múltiplos colaboradores e suportes completamente diferentes entre si.',
-   solution:'Manual completo: logo e variações, paleta HEX/RGB/CMYK/Pantone, tipografia, área de proteção, papelaria, uniformes, aplicações digitais e sinalização ambiental. Paleta Cromática: Vermelho Sangue para impacto visual e chamada de CTAs, Preto para sobriedade necessária. Escudo incorporado como elemento central, reforçando a ideia de proteção e defesa.',
-   views:'1 apreciação · 20 visualizações · Nov/2023',
-   youtube:null,
-   sections:[
-     {title:'Manual de Identidade Visual — SSP',
-      desc:'Manual completo que fundou o ecossistema visual da SSP. Documenta logo e variações, paleta HEX/RGB/CMYK/Pantone, tipografia, área de proteção, papelaria, uniformes, aplicações digitais e sinalização ambiental.',
-      images:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg','11.jpg','12.jpg','13.jpg'],
-      dir:'proj-04'},
-   ]},
-  {id:5,num:'05',cats:['branding'],
-   title:'Identidade Visual | CSP',sub:'Branding para Plataforma Educacional de Segurança Privada',
-   tags:['Branding','Logo Design','Illustrator'],
-   tools:['Illustrator'],
-   grad:'linear-gradient(135deg,#4A148C 0%,#6A1B9A 55%,#1A237E 100%)',
-   cover:'assets/proj-05/01.png',
-   badges:[],
-   desc:'Manual de Identidade Visual para a CSP (Cursos de Segurança Privada), vertical educacional do grupo SSP. Marca com autonomia própria que dialoga harmonicamente com o ecossistema maior, comunicando educação, crescimento profissional e capacitação.',
-   challenge:'Criar uma marca simultaneamente independente e parte de um ecossistema maior. A CSP precisava de identidade distinta da SSP para ser reconhecida pelo aluno como uma marca educacional — não apenas um sub-produto da marca mãe.',
-   solution:'Metáforas visuais de crescimento e proteção. Paleta própria, derivada mas distinta da SSP, criando hierarquia clara de marca. Sistema reconhecível pelo aluno independentemente do grupo, garantindo autonomia visual sem perder a coerência do ecossistema.',
-   views:'1 apreciação · 16 visualizações · Mar/2024',
-   youtube:null,
-   sections:[
-     {title:'Identidade Visual — CSP',
-      desc:'Manual de Identidade Visual para a vertical educacional do grupo SSP. Paleta própria derivada mas distinta da SSP, com metáforas visuais de crescimento e proteção.',
-      images:['01.png','02.png','03.png','04.png','05.png','06.png','07.png','08.png','09.png','10.png','11.png','12.png'],
-      dir:'proj-05'},
-   ]},
-  {id:6,num:'06',cats:['ui-ux'],
+  {id:4,num:'04',cats:['ui-ux'],
    title:'Landing Page | Revista SSP',sub:'Captação de Assinantes — Topo do Funil de Conteúdo',
    tags:['UI/UX','Landing Page','CRO','Figma'],
    tools:['Figma'],
@@ -746,7 +711,7 @@ const PROJECTS = [
       images:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'],
       dir:'proj-07'},
    ]},
-  {id:7,num:'07',cats:['ui-ux','ux-research'],
+  {id:5,num:'05',cats:['ui-ux','ux-research'],
    title:'Tripideias — App de Viagens',sub:'UX/UI Mobile B2B2C — Double Diamond Completo',
    tags:['UX Design','UI Design','Mobile','Research'],
    tools:['Figma','FigJam'],
@@ -782,7 +747,7 @@ const PROJECTS = [
      'Entender o valor da ideia em relação aos concorrentes de mercado antes de desenhar a solução é indispensável — a análise competitiva moldou diretamente a proposta de valor.',
      'O que faria diferente: envolveria os stakeholders desde a fase de pesquisa, não apenas na cocriação da solução, para alinhar expectativas mais cedo e reduzir retrabalho.',
    ]},
-  {id:8,num:'08',cats:['ux-research'],
+  {id:6,num:'06',cats:['ux-research'],
    title:'AluraMed — UX Research',sub:'Pesquisa Qualitativa para App de Telemedicina',
    tags:['UX Research','Mobile','Telemedicina'],
    tools:['Figma','FigJam','Notion'],
@@ -815,7 +780,7 @@ const PROJECTS = [
      'A Matriz CSD é uma ferramenta poderosa para estruturar o que você não sabe antes de entrar em campo — evita que o pesquisador confirme o que já acredita e mantém o foco nas incertezas reais.',
      'Documentar tudo em um repositório Notion estruturado transforma a pesquisa em ativo de produto: as descobertas ficam acessíveis para o time de design e desenvolvimento em qualquer etapa futura.',
    ]},
-  {id:9,num:'09',cats:['ui-ux'],
+  {id:7,num:'07',cats:['ui-ux'],
    title:'Landing Page | Alessandra Breda',sub:'LP de Alta Conversão para Mentoria Premium — MPR',
    tags:['UI/UX','Landing Page','Copywriting','Branding'],
    tools:['Figma','HTML/CSS'],
@@ -847,6 +812,26 @@ const PROJECTS = [
      'Para um produto premium com jornada emocional complexa (fé + negócios + família), a estrutura da LP importa tanto quanto o copy: a ordem das seções define o ritmo da transformação percebida.',
      'A paleta Cream/Navy/Gold não foi escolhida por estética — cada cor tem função semiótica: Cream para acolhimento, Navy para autoridade, Gold para aspiração e propósito.',
      'Qualificar o lead dentro da própria LP (seção "Para quem não é") reduz objeções antes da conversa de venda e atrai quem está genuinamente pronto para o processo.',
+   ]},
+  {id:8,num:'08',cats:['ui-ux'],
+   title:'Landing Page | Prandi',sub:'LP Comercial B2B — Conversão para Empresa de Serviços',
+   tags:['UI/UX','Landing Page','B2B','CRO'],
+   tools:['Figma'],
+   grad:'linear-gradient(135deg,#0D47A1 0%,#1565C0 50%,#283593 100%)',
+   cover:null,
+   badges:[],
+   desc:'Landing page comercial B2B para a Prandi, com estrutura de 10 seções estratégicas cobrindo toda a jornada do lead — da proposta de valor à conversão. O projeto foi desenvolvido no Figma Make, com foco em comunicar autoridade, diferenciais competitivos e provas sociais para converter visitantes qualificados em contatos.',
+   challenge:'Comunicar a proposta de valor de uma empresa de serviços B2B de forma clara e convincente, apresentando diferenciais competitivos, portfólio de serviços e provas sociais (clientes e cases) em uma única página que guie o visitante até a decisão de contato.',
+   solution:'Estrutura B2B completa em 10 seções com progressão estratégica: Hero com proposta imediata, Sobre a empresa, Diferenciais, Serviços detalhados, Galeria de cases, Clientes/parceiros, Soluções, Stakes (por que agir agora) e CTA repetido em múltiplos pontos do scroll. WhatsApp Float para facilitar o contato imediato.',
+   views:'Projeto Real · Entregue',
+   youtube:null,
+   gallery:[
+     {lbl:'Hero — Proposta de Valor',desc:'Headline de impacto com CTA principal acima da dobra',icon:'🏢'},
+     {lbl:'Sobre a Empresa',desc:'Apresentação institucional com credibilidade e posicionamento',icon:'📋'},
+     {lbl:'Diferenciais Competitivos',desc:'Por que escolher a Prandi — argumentação estratégica',icon:'⭐'},
+     {lbl:'Portfólio de Serviços',desc:'Serviços detalhados com descrição clara e visual',icon:'🛠️'},
+     {lbl:'Galeria & Clientes',desc:'Prova social com cases reais e logos de clientes',icon:'🤝'},
+     {lbl:'Stakes & CTA Final',desc:'Argumentação de urgência e pontos de conversão ao longo do scroll',icon:'🎯'},
    ]},
 ];
 
@@ -959,8 +944,22 @@ function openM(p){
       ${p.learnings.map(l=>`<p style="margin-bottom:.75rem;padding-left:.85rem;border-left:2px solid var(--pri)">${l}</p>`).join('')}
     </div>`:'';
 
+  const styleGuideSection=p.styleGuide?`
+    <div class="m-sec">
+      <h4>Style Guide — Cores</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem">
+        ${p.styleGuide.colors.map(c=>`
+          <div style="flex:1;min-width:80px;max-width:130px">
+            <div style="height:52px;border-radius:var(--rsm);background:${c.hex};margin-bottom:.45rem;border:1px solid rgba(128,128,128,.15)"></div>
+            <div style="font-size:.78rem;font-weight:700;color:var(--txt)">${c.name}</div>
+            <div style="font-size:.72rem;color:var(--muted);font-family:monospace">${c.hex}</div>
+            <div style="font-size:.7rem;color:var(--dim)">${c.role}</div>
+          </div>`).join('')}
+      </div>
+    </div>`:'';
+
   document.getElementById('mcnt').innerHTML=`
-    <div class="m-num">${p.num} / 09</div>
+    <div class="m-num">${p.num} / 08</div>
     <h2 class="m-tit">${p.title}</h2>
     <div class="m-tags">${tags}</div>
     <div class="m-sec gal-wrap">
@@ -975,6 +974,7 @@ function openM(p){
     <div class="m-sec"><h4>Ferramentas</h4><div class="m-tools">${tools}</div></div>
     ${ytSection}
     ${learningsSection}
+    ${styleGuideSection}
     <div class="m-acts"><button class="btn btn-out" onclick="mclose2()">Fechar</button></div>
     <p class="m-views">${p.views||''}</p>`;
 
