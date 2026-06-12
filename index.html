@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -657,8 +657,8 @@ const PROJECTS = [
    tools:['Figma','Photoshop','Illustrator'],
    grad:'linear-gradient(135deg,#0D47A1 0%,#1565C0 45%,#006064 100%)',
    cover:'assets/proj-02/01.gif',
-   badges:[{type:'star',text:'⭐ Destaque Behance — 3.1K views'}],
-   desc:'Design do portal digital da Revista SSP — parte do ecossistema de mídia completo construído do zero para o setor de segurança privada. O portal priorizou leiturabilidade e retenção de conteúdo, complementando a Landing Page (captação) e a revista impressa (produto). Projeto com 44 apreciações e mais de 3.100 visualizações no Behance.',
+   badges:[],
+   desc:'Design do portal digital da Revista SSP — parte do ecossistema de mídia completo construído do zero para o setor de segurança privada. O portal priorizou leiturabilidade e retenção de conteúdo, complementando a Landing Page (captação) e a revista impressa (produto).',
    challenge:'O setor de Segurança Privada carecia de fontes de informação centralizadas e modernas. Profissionais consumiam conteúdo de forma fragmentada em redes sociais, sem um hub confiável. O desafio era criar um canal que unisse a profundidade de uma revista com a agilidade de um portal, servindo dois perfis distintos: o profissional ativo no celular e o gestor estratégico no desktop.',
    solution:'Portal focado em leiturabilidade: transição para fundo branco/cinza claro (padrão G1/CNN), reduzindo fadiga visual em leituras longas. Grid de notícias em "Manchete + Feed" para escaneabilidade rápida, menu hamburger responsivo e tipografia escalável. Consistência omnichannel: mesma família tipográfica da revista e grid inspirado na diagramação de página dupla, criando familiaridade para o leitor que migra de um meio para o outro.',
    personas:[
@@ -982,7 +982,7 @@ function openM(p){
     ${learningsSection}
     ${styleGuideSection}
     <div class="m-acts"><button class="btn btn-out" onclick="mclose2()">Fechar</button></div>
-    <p class="m-views">${p.views||''}</p>`;
+    `;
 
   curGallery=allImgs;
   document.getElementById('mov').classList.add('open');
@@ -1152,12 +1152,13 @@ window.addEventListener('scroll',()=>{
 /* ================================================================
    THEME TOGGLE
 ================================================================ */
-let dark=true;
+let dark=false;
 document.getElementById('thmbtn').addEventListener('click',()=>{
   dark=!dark;
   document.documentElement.dataset.theme=dark?'dark':'light';
   document.getElementById('thmbtn').textContent=dark?'🌙':'☀️';
 });
+document.getElementById('thmbtn').textContent='☀️';
 
 /* ================================================================
    MOBILE MENU
