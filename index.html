@@ -818,7 +818,21 @@ const PROJECTS = [
      'Para um produto premium com jornada emocional complexa (fé + negócios + família), a estrutura da LP importa tanto quanto o copy: a ordem das seções define o ritmo da transformação percebida.',
      'A paleta Cream/Navy/Gold não foi escolhida por estética — cada cor tem função semiótica: Cream para acolhimento, Navy para autoridade, Gold para aspiração e propósito.',
      'Qualificar o lead dentro da própria LP (seção "Para quem não é") reduz objeções antes da conversa de venda e atrai quem está genuinamente pronto para o processo.',
-   ]},
+   ],
+   styleGuide:{
+     colors:[
+       {name:'Navy',hex:'#0d1f35',role:'Autoridade · fundo escuro'},
+       {name:'Gold',hex:'#C9A84C',role:'Aspiração · premium'},
+       {name:'Cream',hex:'#FAF7F2',role:'Acolhimento · fundo claro'},
+       {name:'Gold Light',hex:'#E8D49A',role:'Gradiente dourado'},
+       {name:'Gold Dark',hex:'#B8942A',role:'Gradiente dourado'},
+       {name:'Branco',hex:'#FFFFFF',role:'Fundos de seção'},
+     ],
+     typography:[
+       {name:'Playfair Display',style:'Serif · 400/500/600 · Itálico',role:'Títulos, headings, quotes'},
+       {name:'Jost',style:'Sans-serif geométrica · 300–700',role:'Corpo, labels, CTAs'},
+     ]
+   }},
   {id:8,num:'08',cats:['ui-ux'],
    title:'Landing Page | Prandi',sub:'LP Comercial B2B — Estruturas Pré-Moldadas de Concreto',
    tags:['UI/UX','Landing Page','B2B','CRO'],
@@ -962,6 +976,16 @@ function openM(p){
             <div style="font-size:.7rem;color:var(--dim)">${c.role}</div>
           </div>`).join('')}
       </div>
+      ${p.styleGuide.typography?`
+      <h4 style="margin-top:1.25rem">Style Guide — Tipografia</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem">
+        ${p.styleGuide.typography.map(t=>`
+          <div style="flex:1;min-width:160px;background:var(--card);border-radius:var(--rsm);padding:.75rem 1rem;border:1px solid rgba(128,128,128,.12)">
+            <div style="font-size:.78rem;font-weight:700;color:var(--txt)">${t.name}</div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.25rem">${t.style}</div>
+            <div style="font-size:.7rem;color:var(--dim);margin-top:.2rem">${t.role}</div>
+          </div>`).join('')}
+      </div>`:''}
     </div>`:'';
 
   document.getElementById('mcnt').innerHTML=`
