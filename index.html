@@ -216,6 +216,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .m-live-wrap iframe{display:block;width:100%;height:520px;border:none}
 .m-figma-wrap{border-radius:var(--rsm);overflow:hidden;border:1px solid var(--bdr);margin-bottom:.75rem}
 .m-figma-wrap iframe{display:block;width:100%;height:680px;border:none}
+.m-notion-card{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border-radius:var(--rsm);border:1px solid var(--bdr);background:var(--card)}
+.m-notion-ic{font-size:1.75rem;flex-shrink:0}
+.m-notion-info{flex:1;min-width:0}
+.m-notion-title{font-size:.85rem;font-weight:600;color:var(--txt)}
+.m-notion-sub{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+.m-notion-btn{flex-shrink:0;padding:.5rem 1rem;border-radius:var(--rsm);background:var(--pri);color:#fff;font-size:.75rem;font-weight:700;text-decoration:none;letter-spacing:.04em;white-space:nowrap;transition:opacity var(--tr)}
+.m-notion-btn:hover{opacity:.85}
 .m-live-bar{display:flex;align-items:center;justify-content:space-between;padding:.6rem .9rem;background:var(--card);border-top:1px solid var(--bdr)}
 .m-live-bar span{font-size:.72rem;color:var(--dim);letter-spacing:.04em}
 .m-live-bar a{font-size:.72rem;font-weight:700;color:var(--pri);text-decoration:none;letter-spacing:.04em}
@@ -624,6 +631,8 @@ const PROJECTS = [
    tools:['Figma','Photoshop'],
    grad:'linear-gradient(135deg,#E65100 0%,#BF360C 35%,#1A237E 100%)',
    cover:'assets/site-bf/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/OX3dkicXhUecZM48dBbSry/Site-Novo-BF?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/OX3dkicXhUecZM48dBbSry/Site-Novo-BF?node-id=0-1',
    badges:[],
    desc:'Redesign do site institucional do Banco da Família, cooperativa financeira com 27 anos de história e R$ 2,9 bilhões em crédito concedido. O projeto transformou um portal transacional em uma ferramenta de conversão e conexão emocional, aplicando UX estratégico para comunicar autoridade, humanizar a marca e criar uma jornada B2B dedicada à captação de novos franqueados.',
    challenge:'O site anterior focava excessivamente no transacional — "pegar dinheiro" — com arquitetura de informação rasa (apenas "Você", "Negócio", "Agro"), ausência de prova social (milhões de vidas impactadas invisíveis) e nenhuma estratégia para atração de novos franqueados, um pilar estratégico de crescimento completamente ignorado.',
@@ -691,6 +700,8 @@ const PROJECTS = [
    tools:['Figma','Photoshop'],
    grad:'linear-gradient(135deg,#1A237E 0%,#311B92 50%,#4A148C 100%)',
    cover:'assets/proj-03/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/Mn7kuvEIBhrRSGLHSDE8Og/Landing-Page-Planejamento-Tribut%C3%A1rio?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/Mn7kuvEIBhrRSGLHSDE8Og/Landing-Page-Planejamento-Tribut%C3%A1rio?node-id=0-1',
    badges:[],
    desc:'Landing page de alta conversão (CRO) para escritório de advocacia previdenciária. O projeto aplicou Psicologia Cognitiva para transformar a ansiedade de trabalhadores próximos à aposentadoria em decisão de contato — simplificando o juridiquês e convertendo visitantes que acreditam que "já é tarde demais" em leads qualificados.',
    challenge:'Vender planejamento previdenciário para trabalhadores de 50-60 anos com medo de aposentar com salário mínimo. Três barreiras centrais: falta de clareza sobre o valor do serviço, linguagem técnica que afasta o público comum, e a crença de que é caro ou que já passou do prazo para agir.',
@@ -736,6 +747,8 @@ const PROJECTS = [
    grad:'linear-gradient(135deg,#004D40 0%,#00695C 40%,#00897B 100%)',
    figmaUrl:'https://embed.figma.com/design/XtebDfP2AlefDfIkuCBYfl/TripIdeias--Forma%C3%A7%C3%A3o-UX-Alura-?embed-host=share&footer=false&node-id=36-544',
    figmaLink:'https://www.figma.com/design/XtebDfP2AlefDfIkuCBYfl/TripIdeias--Forma%C3%A7%C3%A3o-UX-Alura-?node-id=36-544',
+   figjamUrl:'https://embed.figma.com/board/PyCzTpP0Ll49LcuuBUCBVo/Projeto-do-curso-UX-Alura?embed-host=share&footer=false&node-id=0-1',
+   figjamLink:'https://www.figma.com/board/PyCzTpP0Ll49LcuuBUCBVo/Projeto-do-curso-UX-Alura?node-id=0-1',
    badges:[{type:'ux',text:'UX Process'}],
    desc:'App mobile B2B2C para agência de viagens corporativas fictícia que vende pacotes turísticos personalizados. Processo Double Diamond completo — da imersão ao handoff — com 5 rodadas de teste de usabilidade e 80% de taxa de sucesso.',
    challenge:'Modelo B2B2C gerava fricção em três frentes: lentidão na elaboração de orçamentos impactando vendas, atendimento demorado pela personalização individual de cada pacote, e necessidade de múltiplos pedidos separados para cada colaborador da empresa cliente.',
@@ -770,6 +783,7 @@ const PROJECTS = [
   {id:6,num:'06',cats:['ux-research'],
    title:'AluraMed — UX Research',sub:'Pesquisa Qualitativa para App de Telemedicina',
    tags:['UX Research','Mobile','Telemedicina'],
+   notionUrl:'https://luanfischer.notion.site/AluraMed-111a55ddffb2801bb8d8c2aa031bcfd2',
    tools:['Figma','FigJam','Notion'],
    grad:'linear-gradient(135deg,#880E4F 0%,#AD1457 50%,#C2185B 100%)',
    badges:[{type:'ux',text:'UX Process'}],
@@ -850,6 +864,8 @@ const PROJECTS = [
    tools:['Figma'],
    grad:'linear-gradient(135deg,#7B0000 0%,#C62828 50%,#212121 100%)',
    cover:'assets/prandi/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/geG4BTF4CtbCgj16f9pjjo/Landing-Page-Comercial-Prandi?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/geG4BTF4CtbCgj16f9pjjo/Landing-Page-Comercial-Prandi?node-id=0-1',
    badges:[],
    desc:'Landing page para a Prandi — empresa especializada em estruturas pré-moldadas de concreto com +20 anos de mercado e +500 obras executadas. O projeto comunica solidez técnica e confiabilidade para um público B2B exigente: construtoras, engenheiros e gestores de obras que tomam decisões de compra racionais com base em prova técnica e experiência comprovada.',
    challenge:'Converter visitantes B2B que precisam de confiança antes de qualquer contato. No setor de construção, decisões de compra são complexas e de alto valor — o cliente não contata sem antes verificar experiência real, casos de obra e capacidade técnica. A LP precisava substituir uma conversa de vendas completa em uma única página.',
@@ -1012,6 +1028,29 @@ function openM(p){
           <span>Design interativo</span>
           <a href="${p.figmaLink}" target="_blank" rel="noopener">Abrir no Figma ↗</a>
         </div>
+      </div>
+    </div>`:''}
+    ${p.figjamUrl?`
+    <div class="m-sec">
+      <h4>Documentação da Pesquisa — FigJam</h4>
+      <div class="m-figma-wrap">
+        <iframe src="${p.figjamUrl}" title="${p.title} — FigJam" allowfullscreen></iframe>
+        <div class="m-live-bar">
+          <span>Board interativo</span>
+          <a href="${p.figjamLink}" target="_blank" rel="noopener">Abrir no FigJam ↗</a>
+        </div>
+      </div>
+    </div>`:''}
+    ${p.notionUrl?`
+    <div class="m-sec">
+      <h4>Documentação Completa</h4>
+      <div class="m-notion-card">
+        <div class="m-notion-ic">📋</div>
+        <div class="m-notion-info">
+          <div class="m-notion-title">Repositório de Pesquisa — AluraMed</div>
+          <div class="m-notion-sub">Base de conhecimento completa: entrevistas, síntese de insights, personas e user journey map</div>
+        </div>
+        <a href="${p.notionUrl}" target="_blank" rel="noopener" class="m-notion-btn">Abrir no Notion ↗</a>
       </div>
     </div>`:''}
     <div class="m-sec gal-wrap">
