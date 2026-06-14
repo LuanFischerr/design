@@ -214,6 +214,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .gal-wrap{margin-bottom:1.75rem}
 .m-live-wrap{border-radius:var(--rsm);overflow:hidden;border:1px solid var(--bdr);margin-bottom:.75rem;position:relative}
 .m-live-wrap iframe{display:block;width:100%;height:520px;border:none}
+.m-figma-wrap{border-radius:var(--rsm);overflow:hidden;border:1px solid var(--bdr);margin-bottom:.75rem}
+.m-figma-wrap iframe{display:block;width:100%;height:680px;border:none}
 .m-live-bar{display:flex;align-items:center;justify-content:space-between;padding:.6rem .9rem;background:var(--card);border-top:1px solid var(--bdr)}
 .m-live-bar span{font-size:.72rem;color:var(--dim);letter-spacing:.04em}
 .m-live-bar a{font-size:.72rem;font-weight:700;color:var(--pri);text-decoration:none;letter-spacing:.04em}
@@ -662,7 +664,9 @@ const PROJECTS = [
    tags:['UI/UX','Web Design','Portal de Notícias','Figma'],
    tools:['Figma','Photoshop','Illustrator'],
    grad:'linear-gradient(135deg,#0D47A1 0%,#1565C0 45%,#006064 100%)',
-   cover:'assets/proj-02/01.gif',
+   cover:'assets/proj-02/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/hI1gnRCO26QN4B1ubz48FB/Site-RevistaSSP?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/hI1gnRCO26QN4B1ubz48FB/Site-RevistaSSP?node-id=0-1',
    badges:[],
    desc:'Design do portal digital da Revista SSP — parte do ecossistema de mídia completo construído do zero para o setor de segurança privada. O portal priorizou leiturabilidade e retenção de conteúdo, complementando a Landing Page (captação) e a revista impressa (produto).',
    challenge:'O setor de Segurança Privada carecia de fontes de informação centralizadas e modernas. Profissionais consumiam conteúdo de forma fragmentada em redes sociais, sem um hub confiável. O desafio era criar um canal que unisse a profundidade de uma revista com a agilidade de um portal, servindo dois perfis distintos: o profissional ativo no celular e o gestor estratégico no desktop.',
@@ -709,7 +713,9 @@ const PROJECTS = [
    tags:['UI/UX','Landing Page','CRO','Figma'],
    tools:['Figma'],
    grad:'linear-gradient(135deg,#006064 0%,#00838F 50%,#0277BD 100%)',
-   cover:'assets/proj-07/01.jpg',
+   cover:'assets/proj-07/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/GVfIR9iJcp4sQRTDiy4EfK/Landing-Page-RevistaSSP-2--Copy-?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/GVfIR9iJcp4sQRTDiy4EfK/Landing-Page-RevistaSSP-2--Copy-?node-id=0-1',
    badges:[],
    desc:'Landing page para captação de assinantes digitais da Revista SSP — topo do funil de conteúdo da marca: Redes Sociais → Landing Page → Revista → Portal. Objetivo único: converter visitantes em assinantes, eliminando toda distração e focando 100% na oferta.',
    challenge:'Criar uma página de conversão com a identidade visual "pesada" da SSP (vermelho vibrante, alto contraste) sem comprometer a experiência e a taxa de conversão. Diferente do portal (retenção/leitura), a LP precisava de urgência e ação imediata.',
@@ -728,6 +734,8 @@ const PROJECTS = [
    tags:['UX Design','UI Design','Mobile','Research'],
    tools:['Figma','FigJam'],
    grad:'linear-gradient(135deg,#004D40 0%,#00695C 40%,#00897B 100%)',
+   figmaUrl:'https://embed.figma.com/design/XtebDfP2AlefDfIkuCBYfl/TripIdeias--Forma%C3%A7%C3%A3o-UX-Alura-?embed-host=share&footer=false&node-id=36-544',
+   figmaLink:'https://www.figma.com/design/XtebDfP2AlefDfIkuCBYfl/TripIdeias--Forma%C3%A7%C3%A3o-UX-Alura-?node-id=36-544',
    badges:[{type:'ux',text:'UX Process'}],
    desc:'App mobile B2B2C para agência de viagens corporativas fictícia que vende pacotes turísticos personalizados. Processo Double Diamond completo — da imersão ao handoff — com 5 rodadas de teste de usabilidade e 80% de taxa de sucesso.',
    challenge:'Modelo B2B2C gerava fricção em três frentes: lentidão na elaboração de orçamentos impactando vendas, atendimento demorado pela personalização individual de cada pacote, e necessidade de múltiplos pedidos separados para cada colaborador da empresa cliente.',
@@ -995,6 +1003,17 @@ function openM(p){
     <div class="m-num">${p.num} / 08</div>
     <h2 class="m-tit">${p.title}</h2>
     <div class="m-tags">${tags}</div>
+    ${p.figmaUrl?`
+    <div class="m-sec">
+      <h4>Protótipo no Figma</h4>
+      <div class="m-figma-wrap">
+        <iframe src="${p.figmaUrl}" title="${p.title} — Figma" allowfullscreen></iframe>
+        <div class="m-live-bar">
+          <span>Design interativo</span>
+          <a href="${p.figmaLink}" target="_blank" rel="noopener">Abrir no Figma ↗</a>
+        </div>
+      </div>
+    </div>`:''}
     <div class="m-sec gal-wrap">
       <h4>${p.liveUrl?'Landing Page ao Vivo':'Galeria do Projeto'}</h4>
       ${p.liveUrl?`
