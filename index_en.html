@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luan Fischer — UI/UX Designer & UX Researcher</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D0D1A'/%3E%3Crect width='32' height='32' rx='7' fill='none' stroke='%23E65100' stroke-width='1.5'/%3E%3Ctext x='16' y='22.5' font-family='Inter%2CArial%2Csans-serif' font-size='13' font-weight='900' fill='%23E65100' text-anchor='middle' letter-spacing='-0.5'%3ELF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0D0D1A;--bg2:#13131F;--bgc:#1A1A2E;
+  --pri:#E65100;--pril:#FF7043;--sec:#1A237E;
+  --txt:#FFFFFF;--muted:#BBBBCC;--dim:#6666AA;
+  --bdr:rgba(255,255,255,0.07);--bdrhov:rgba(230,81,0,0.4);
+  --tr:0.3s ease;--sh:0 20px 60px rgba(0,0,0,0.5);
+  --shc:0 8px 32px rgba(0,0,0,0.35);--r:16px;--rsm:8px;
+}
+[data-theme="light"]{
+  --bg:#F4F4F8;--bg2:#EAEAF0;--bgc:#FFFFFF;
+  --txt:#0D0D1A;--muted:#44445A;--dim:#888899;
+  --bdr:rgba(0,0,0,0.07);--bdrhov:rgba(230,81,0,0.3);
+  --sh:0 20px 60px rgba(0,0,0,0.08);--shc:0 8px 32px rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);
+  line-height:1.6;overflow-x:hidden;transition:background var(--tr),color var(--tr)}
+@media(hover:hover){body{cursor:none}}
+
+/* ===== CURSOR ===== */
+.cur,.curf{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;
+  transform:translate(-50%,-50%)}
+.cur{width:10px;height:10px;background:var(--pri);transition:transform .15s ease}
+.curf{width:38px;height:38px;border:2px solid var(--pri);opacity:.45;z-index:9998;
+  transition:transform .4s ease,width .3s,height .3s,opacity .3s}
+.cur.hov{transform:translate(-50%,-50%) scale(2)}
+.curf.hov{width:64px;height:64px;opacity:.2}
+@media(hover:none){.cur,.curf{display:none}}
+
+/* ===== LAYOUT ===== */
+.wrap{max-width:1280px;margin:0 auto;padding:0 2rem}
+.sec{padding:120px 0}
+.lbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--pri);margin-bottom:.9rem}
+.stit{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.025em;margin-bottom:1.5rem}
+.stit span{color:var(--pri)}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.875rem 2rem;
+  border-radius:100px;font-family:inherit;font-weight:700;font-size:.9rem;
+  letter-spacing:.01em;cursor:pointer;text-decoration:none;border:none;
+  transition:all var(--tr);outline:none;line-height:1}
+.btn-pri{background:var(--pri);color:#fff}
+.btn-pri:hover{background:var(--pril);transform:translateY(-2px);
+  box-shadow:0 14px 32px rgba(230,81,0,.38)}
+.btn-out{background:transparent;color:var(--txt);border:2px solid var(--bdr)}
+.btn-out:hover{border-color:var(--pri);color:var(--pri);transform:translateY(-2px)}
+.btn-sm{padding:.5rem 1.25rem;font-size:.8rem}
+
+/* ===== REVEAL ===== */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.rvl{opacity:0;transform:translateX(-36px);transition:opacity .7s ease,transform .7s ease}
+.rvr{opacity:0;transform:translateX(36px);transition:opacity .7s ease,transform .7s ease}
+.rv.on,.rvl.on,.rvr.on{opacity:1;transform:none}
+
+/* ===== NAVBAR ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.25rem 0;transition:all var(--tr)}
+.nav.sc{background:rgba(13,13,26,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bdr);padding:.85rem 0}
+[data-theme="light"] .nav.sc{background:rgba(244,244,248,.92)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:900;font-size:1.25rem;color:var(--txt);text-decoration:none;letter-spacing:-.03em}
+.nav-logo span{color:var(--pri)}
+.nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;
+  padding:.5rem 1rem;border-radius:100px;transition:all var(--tr)}
+.nav-links a:hover{color:var(--txt);background:var(--bdr)}
+.nav-links a.act{color:var(--pri);background:rgba(230,81,0,.1)}
+.nav-act{display:flex;align-items:center;gap:.75rem}
+.thm-tgl{display:flex;align-items:center;width:64px;height:32px;padding:4px;border-radius:100px;cursor:pointer;background:#18181b;border:1px solid #3f3f46;transition:background .3s,border-color .3s;flex-shrink:0;outline:none;user-select:none}
+[data-theme="light"] .thm-tgl{background:#fff;border-color:#e4e4e7}
+[data-theme="dark"] .thm-tgl{background:#18181b;border-color:#3f3f46}
+.thm-inner{display:flex;justify-content:space-between;align-items:center;width:100%}
+.thm-a,.thm-b{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;transition:transform .3s ease,background-color .3s ease;flex-shrink:0}
+.thm-a svg,.thm-b svg{width:14px;height:14px}
+.thm-a .ic-lt,.thm-b .ic-lt{display:none}
+.thm-a .ic-dk,.thm-b .ic-dk{display:block}
+.thm-a{background:#3f3f46;color:#fff}
+.thm-b{background:transparent;color:#71717a}
+[data-theme="light"] .thm-a{background:#e4e4e7;color:#374151;transform:translateX(32px)}
+[data-theme="light"] .thm-b{color:#000;transform:translateX(-32px)}
+[data-theme="light"] .thm-a .ic-dk,[data-theme="light"] .thm-b .ic-dk{display:none}
+[data-theme="light"] .thm-a .ic-lt,[data-theme="light"] .thm-b .ic-lt{display:block}
+[data-theme="dark"] .thm-a{background:#3f3f46;color:#fff;transform:translateX(0)}
+[data-theme="dark"] .thm-b{background:transparent;color:#71717a;transform:translateX(0)}
+[data-theme="dark"] .thm-a .ic-dk,[data-theme="dark"] .thm-b .ic-dk{display:block}
+[data-theme="dark"] .thm-a .ic-lt,[data-theme="dark"] .thm-b .ic-lt{display:none}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem}
+.hbg span{display:block;width:24px;height:2px;background:var(--txt);border-radius:2px;transition:all var(--tr)}
+
+/* ===== MOBILE MENU ===== */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:999;
+  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:2.2rem;font-weight:800;color:var(--txt);text-decoration:none;transition:color var(--tr)}
+.mob-menu a:hover{color:var(--pri)}
+.mob-x{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;font-size:1.5rem;color:var(--txt);cursor:pointer}
+
+/* ===== HERO ===== */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+#hcanvas{position:absolute;inset:0;z-index:0}
+.hero-grad{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 20% 50%,rgba(230,81,0,.07) 0%,transparent 60%),
+  radial-gradient(ellipse 60% 80% at 80% 30%,rgba(26,35,126,.12) 0%,transparent 60%)}
+.hero-cnt{position:relative;z-index:1;padding-top:80px}
+.hero-eyb{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.hero-eyb .eline{width:40px;height:2px;background:var(--pri)}
+.hero-eyb span{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--pri)}
+.hero-name{font-size:clamp(3.5rem,10vw,8.5rem);font-weight:900;letter-spacing:-.04em;line-height:.95;margin-bottom:1.5rem}
+.hero-name .fn{display:block;color:var(--txt)}
+.hero-name .ln{display:block;color:transparent;-webkit-text-stroke:2px var(--pri)}
+.hero-role{font-size:clamp(1.1rem,2.5vw,1.75rem);font-weight:300;color:var(--muted);margin-bottom:2rem;min-height:2.5rem}
+.hero-role .typed{color:var(--txt);font-weight:600}
+.cursor-blink{display:inline-block;width:3px;height:1.1em;background:var(--pri);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-desc{max-width:520px;margin-bottom:3rem;font-size:1rem;line-height:1.8;color:var(--muted)}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:var(--dim);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;z-index:1}
+.hero-scroll .sline{width:1px;height:50px;background:linear-gradient(to bottom,var(--pri),transparent);
+  animation:sdown 1.8s ease-in-out infinite}
+@keyframes sdown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}
+  51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero-badge{position:absolute;top:50%;right:6%;transform:translateY(-50%);width:170px;height:170px;display:flex;align-items:center;justify-content:center}
+.badge-ring{position:absolute;inset:0;border:1.5px solid var(--pri);border-radius:50%;opacity:.25;animation:spin 22s linear infinite}
+.badge-svg{position:absolute;inset:0;animation:spin 22s linear infinite}
+.badge-svg textPath{fill:var(--dim);font-size:10.5px;letter-spacing:2.5px;font-family:'Inter',sans-serif}
+.badge-ctr{font-size:.65rem;font-weight:800;color:var(--pri);text-align:center;letter-spacing:.06em;line-height:1.6}
+.badge-ctr .star{font-size:1.6rem;display:block;line-height:1}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ===== TAG ===== */
+.tag{display:inline-flex;align-items:center;padding:.3rem .85rem;background:rgba(230,81,0,.1);
+  color:var(--pri);border:1px solid rgba(230,81,0,.22);border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.04em}
+
+/* ===== SOBRE ===== */
+#sobre{background:var(--bg2)}
+.sobre-g{max-width:680px}
+.sobre-text p{color:var(--muted);margin-bottom:1.25rem;font-size:1rem;line-height:1.85}
+.sobre-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+
+/* ===== HABILIDADES ===== */
+#habilidades{background:var(--bg)}
+.sk-list{max-width:520px;margin:3rem auto 0}
+.sk-hdr{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
+.sk-hdr-line{height:1px;width:48px;background:var(--bdr)}
+.sk-hdr-lbl{font-size:.625rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+.sk-items{display:flex;flex-direction:column;gap:.25rem}
+.sk-row{cursor:default}
+.sk-inner{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1rem;margin:0 -1rem;border-radius:.5rem;background:transparent;transition:background .5s cubic-bezier(.16,1,.3,1)}
+.sk-row:hover .sk-inner{background:var(--bgc)}
+.sk-left{display:flex;align-items:center;gap:1rem}
+.sk-bar-v{height:20px;width:2px;border-radius:100px;background:var(--pri);transform:scaleY(.5);opacity:0;transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .5s cubic-bezier(.16,1,.3,1)}
+.sk-row:hover .sk-bar-v{transform:scaleY(1);opacity:1}
+.sk-name{font-size:1rem;font-weight:500;color:var(--muted);transform:translateX(-20px);transition:color .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.sk-row:hover .sk-name{color:var(--txt);transform:translateX(0)}
+.sk-right{display:flex;align-items:center;gap:1rem}
+.sk-track{position:relative;width:96px;height:4px;border-radius:100px;overflow:hidden;background:var(--bdr)}
+.sk-fill{position:absolute;inset:0 auto 0 0;width:0%;border-radius:100px;background:linear-gradient(90deg,var(--pri),var(--pril));transition:width .7s cubic-bezier(.16,1,.3,1) 0ms}
+.sk-row:hover .sk-fill{width:var(--level);transition-delay:100ms}
+.sk-shine{position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:translateX(-100%);transition:transform .7s ease-out 0ms}
+.sk-row:hover .sk-shine{transform:translateX(100%);transition-delay:300ms}
+.sk-pct{font-size:.8rem;font-weight:500;font-variant-numeric:tabular-nums;width:2.5rem;text-align:right;color:var(--muted);opacity:0;transform:translateY(8px);filter:blur(2px);transition:all .5s cubic-bezier(.16,1,.3,1) 0ms}
+.sk-row:hover .sk-pct{color:var(--txt);opacity:1;transform:translateY(0);filter:blur(0);transition-delay:50ms}
+.sk-div{height:1px;margin:0 1rem;background:var(--bdr);opacity:.3;transition:opacity .5s}
+.sk-row:hover .sk-div,.sk-row:hover+.sk-row .sk-div{opacity:0}
+.sk-foot{display:flex;align-items:center;gap:.75rem;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--bdr);opacity:.5}
+.sk-dot{width:6px;height:6px;border-radius:50%;background:var(--pri);flex-shrink:0;animation:sk-pulse 2s ease-in-out infinite}
+.sk-hint{font-size:.6875rem;color:var(--muted);letter-spacing:.05em}
+@keyframes sk-pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* ===== PROJETOS ===== */
+#projetos{background:var(--bg2)}
+.filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.fbtn{padding:.5rem 1.3rem;border:1px solid var(--bdr);background:transparent;color:var(--muted);font-family:inherit;font-size:.85rem;font-weight:500;border-radius:100px;cursor:pointer;transition:all var(--tr)}
+.fbtn:hover{color:var(--txt);border-color:rgba(255,255,255,.2)}
+.fbtn.act{background:var(--pri);border-color:var(--pri);color:#fff}
+.proj-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.proj-c{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;transition:all var(--tr);cursor:pointer;position:relative}
+.proj-c:hover{border-color:var(--bdrhov);transform:translateY(-6px);box-shadow:var(--shc)}
+.proj-c.hide{display:none}
+.proj-thumb{position:relative;aspect-ratio:4/5;overflow:hidden}
+.proj-tg{width:100%;height:100%;transition:transform .5s ease}
+.proj-tg-img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform .5s ease}
+.proj-c:hover .proj-tg,.proj-c:hover .proj-tg-img{transform:scale(1.06)}
+.proj-ov{position:absolute;inset:0;background:rgba(13,13,26,.72);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--tr);backdrop-filter:blur(4px)}
+.proj-c:hover .proj-ov{opacity:1}
+.proj-ovb{padding:.75rem 1.5rem;background:var(--pri);color:#fff;border-radius:100px;font-weight:700;font-size:.875rem;border:none;cursor:pointer;font-family:inherit;transition:background var(--tr)}
+.proj-ovb:hover{background:var(--pril)}
+.proj-num{position:absolute;top:1rem;left:1rem;font-size:.7rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.1em;background:rgba(0,0,0,.35);padding:.25rem .65rem;border-radius:100px}
+.proj-bdgs{position:absolute;top:1rem;right:1rem;display:flex;flex-direction:column;gap:.35rem;align-items:flex-end}
+.bdg{font-size:.62rem;font-weight:700;padding:.25rem .65rem;border-radius:100px;line-height:1}
+.bdg-star{background:#FFD700;color:#333}
+.bdg-ux{background:rgba(26,35,126,.88);color:#90CAF9;border:1px solid rgba(144,202,249,.3)}
+.proj-body{padding:1.5rem}
+.proj-tit{font-size:1rem;font-weight:700;line-height:1.3;margin-bottom:.25rem}
+.proj-sub{font-size:.78rem;color:var(--dim);margin:0}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
+.ptag{font-size:.68rem;font-weight:600;color:var(--dim);background:var(--bdr);padding:.2rem .6rem;border-radius:100px}
+
+/* ===== PROJECT MODAL ===== */
+.m-ov{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:2000;opacity:0;pointer-events:none;transition:opacity var(--tr);backdrop-filter:blur(6px)}
+.m-ov.open{opacity:1;pointer-events:all}
+.m-pan{position:fixed;top:0;right:0;width:min(680px,100vw);height:100vh;background:var(--bg);z-index:2001;overflow-y:auto;transform:translateX(100%);transition:transform .42s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;border-left:1px solid var(--bdr)}
+.m-pan.open{transform:translateX(0)}
+.m-thumb{height:240px;position:relative;flex-shrink:0}
+.m-tg{width:100%;height:100%}
+.m-cls{position:absolute;top:1rem;right:1rem;width:40px;height:40px;background:rgba(0,0,0,.55);border:none;border-radius:50%;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--tr);font-family:inherit}
+.m-cls:hover{background:var(--pri)}
+.m-cnt{padding:2rem;flex:1}
+.m-num{font-size:.7rem;font-weight:700;letter-spacing:.15em;color:var(--pri);margin-bottom:.4rem}
+.m-tit{font-size:1.65rem;font-weight:900;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.2}
+.m-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+.m-sec{margin-bottom:1.75rem}
+.m-sec h4{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--bdr)}
+.m-sec p{font-size:.93rem;line-height:1.85;color:var(--muted)}
+.m-tools{display:flex;flex-wrap:wrap;gap:.5rem}
+.m-tool{padding:.4rem 1rem;background:var(--bgc);border:1px solid var(--bdr);border-radius:100px;font-size:.8rem;font-weight:500;color:var(--muted)}
+.m-acts{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--bdr)}
+.m-views{font-size:.72rem;color:var(--dim);margin-top:.75rem}
+
+/* ===== IMAGE GALLERY (inside modal) ===== */
+.gal-wrap{margin-bottom:1.75rem}
+.m-live-wrap{border-radius:var(--rsm);overflow:hidden;border:1px solid var(--bdr);margin-bottom:.75rem;position:relative}
+.m-live-wrap iframe{display:block;width:100%;height:520px;border:none}
+.m-figma-wrap{border-radius:var(--rsm);overflow:hidden;border:1px solid var(--bdr);margin-bottom:.75rem}
+.m-figma-wrap iframe{display:block;width:100%;height:680px;border:none}
+.m-notion-card{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border-radius:var(--rsm);border:1px solid var(--bdr);background:var(--card)}
+.m-notion-ic{font-size:1.75rem;flex-shrink:0}
+.m-notion-info{flex:1;min-width:0}
+.m-notion-title{font-size:.85rem;font-weight:600;color:var(--txt)}
+.m-notion-sub{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+.m-notion-btn{flex-shrink:0;padding:.5rem 1rem;border-radius:var(--rsm);background:var(--pri);color:#fff;font-size:.75rem;font-weight:700;text-decoration:none;letter-spacing:.04em;white-space:nowrap;transition:opacity var(--tr)}
+.m-notion-btn:hover{opacity:.85}
+.m-live-bar{display:flex;align-items:center;justify-content:space-between;padding:.6rem .9rem;background:var(--card);border-top:1px solid var(--bdr)}
+.m-live-bar span{font-size:.72rem;color:var(--dim);letter-spacing:.04em}
+.m-live-bar a{font-size:.72rem;font-weight:700;color:var(--pri);text-decoration:none;letter-spacing:.04em}
+.m-live-bar a:hover{text-decoration:underline}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem}
+.gal-item{border-radius:var(--rsm);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3;border:1px solid var(--bdr);transition:all var(--tr)}
+.gal-item:hover{border-color:var(--bdrhov);transform:scale(1.02)}
+.gal-bg{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;transition:filter .3s}
+.gal-item:hover .gal-bg{filter:brightness(1.1)}
+.gal-icon{font-size:1.5rem;opacity:.7}
+.gal-lbl{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.75);text-align:center;padding:0 .5rem;line-height:1.3}
+.gal-hover{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--tr);backdrop-filter:blur(2px)}
+.gal-item:hover .gal-hover{opacity:1}
+.gal-hover span{font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.05em}
+/* Sectioned real-image gallery */
+.gal-section{margin-bottom:2rem}
+.gal-section-hd{margin-bottom:.75rem}
+.gal-section-hd h5{font-size:.88rem;font-weight:700;color:var(--txt);margin-bottom:.35rem}
+.gal-section-hd p{font-size:.78rem;color:var(--muted);line-height:1.55}
+.gal-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem}
+.gal-real-item{border-radius:var(--rsm);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1;border:1px solid var(--bdr);transition:all var(--tr)}
+.gal-real-item:hover{border-color:var(--bdrhov);transform:scale(1.03)}
+.gal-real-item img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .3s}
+.gal-real-item:hover img{filter:brightness(1.1)}
+.gal-real-item .gal-hover{position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--tr);backdrop-filter:blur(2px)}
+.gal-real-item:hover .gal-hover{opacity:1}
+/* Lightbox real image */
+.lb-img-real{max-width:88vw;max-height:72vh;border-radius:var(--rsm);object-fit:contain;display:none}
+.lb.has-img .lb-bg{display:none!important}
+.lb.has-img .lb-img-real{display:block}
+
+/* Image lightbox */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:3000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
+.lb.open{display:flex}
+.lb-img{max-width:90vw;max-height:75vh;border-radius:var(--rsm);overflow:hidden;position:relative}
+.lb-bg{width:100%;height:100%;min-width:360px;min-height:270px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.75rem;border-radius:var(--rsm)}
+.lb-icon{font-size:3rem;opacity:.6}
+.lb-lbl{font-size:1rem;font-weight:600;color:rgba(255,255,255,.8)}
+.lb-desc{font-size:.85rem;color:rgba(255,255,255,.5);text-align:center}
+.lb-nav{display:flex;align-items:center;gap:1.5rem}
+.lb-nav button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;width:44px;height:44px;border-radius:50%;font-size:1.1rem;cursor:pointer;transition:all var(--tr);font-family:inherit}
+.lb-nav button:hover{background:var(--pri);border-color:var(--pri)}
+.lb-counter{font-size:.85rem;color:rgba(255,255,255,.5);min-width:80px;text-align:center}
+.lb-cls{position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.1);border:none;color:#fff;width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;transition:background var(--tr);font-family:inherit;display:flex;align-items:center;justify-content:center}
+.lb-cls:hover{background:var(--pri)}
+
+/* YouTube placeholder */
+.yt-wrap{position:relative;width:100%;padding-bottom:56.25%;background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--rsm);overflow:hidden;cursor:pointer}
+.yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.yt-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:var(--bgc)}
+.yt-ph-icon{width:64px;height:64px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;padding-left:4px}
+.yt-ph-lbl{font-size:.85rem;color:var(--muted);text-align:center}
+.yt-ph-sub{font-size:.72rem;color:var(--dim);text-align:center}
+
+
+/* ===== PROCESSO ===== */
+#processo{background:var(--bg2)}
+.proc-intro{max-width:640px;margin-bottom:4rem}
+.proc-intro p{font-size:1.05rem;color:var(--muted);line-height:1.85}
+.proc-wrap{position:relative}
+.proc-line{position:absolute;top:3.5rem;left:calc(12.5% + 8px);right:calc(12.5% + 8px);height:2px;background:linear-gradient(90deg,var(--pri),var(--sec));opacity:.2}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.pstep{text-align:center}
+.pstep-ic{width:72px;height:72px;background:var(--bgc);border:2px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin:0 auto 1.5rem;position:relative;z-index:1;transition:all var(--tr)}
+.pstep:hover .pstep-ic{border-color:var(--pri);background:rgba(230,81,0,.08);transform:scale(1.1);box-shadow:0 0 32px rgba(230,81,0,.18)}
+.pstep-n{position:absolute;top:-8px;right:-8px;width:24px;height:24px;background:var(--pri);border-radius:50%;font-size:.68rem;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center}
+.pstep h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem}
+.pstep p{font-size:.875rem;color:var(--muted);line-height:1.75}
+.arts{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;margin-top:1rem}
+.art{font-size:.65rem;font-weight:600;padding:.2rem .55rem;background:rgba(26,35,126,.18);color:#90CAF9;border-radius:100px;border:1px solid rgba(26,35,126,.38)}
+[data-theme="light"] .art{background:rgba(26,35,126,.1);color:#1A237E;border-color:rgba(26,35,126,.3)}
+
+/* ===== CONTATO ===== */
+#contato{background:var(--bg)}
+.cont-g{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cont-info p{color:var(--muted);font-size:1.02rem;margin-bottom:2.5rem;line-height:1.85}
+.soc-links{display:flex;flex-direction:column;gap:1rem}
+.soc-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.5rem;background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--rsm);text-decoration:none;color:var(--txt);transition:all var(--tr)}
+.soc-link:hover{border-color:var(--bdrhov);transform:translateX(6px)}
+.soc-ic{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;font-weight:800}
+.soc-tx{font-size:.875rem;font-weight:500;color:var(--muted)}
+.soc-lb{font-size:.72rem;color:var(--dim)}
+.c-form{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--r);padding:2.5rem}
+.fg{margin-bottom:1.5rem}
+.flbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem}
+.finp{width:100%;padding:.875rem 1.25rem;background:var(--bg);border:1px solid var(--bdr);border-radius:var(--rsm);font-family:inherit;font-size:.95rem;color:var(--txt);transition:border-color var(--tr);outline:none}
+.finp:focus{border-color:var(--pri)}
+.finp::placeholder{color:var(--dim)}
+textarea.finp{resize:vertical;min-height:130px}
+.form-msg{display:none;padding:.75rem 1.25rem;border-radius:var(--rsm);font-size:.875rem;font-weight:600;margin-bottom:1rem;text-align:center}
+.form-msg.ok{background:rgba(76,175,80,.15);color:#81C784;border:1px solid rgba(76,175,80,.3);display:block}
+.form-msg.err{background:rgba(244,67,54,.12);color:#EF9A9A;border:1px solid rgba(244,67,54,.25);display:block}
+
+/* ===== FOOTER ===== */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
+.foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-in p{font-size:.82rem;color:var(--dim)}
+.foot-in p:last-child{font-style:italic}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .proj-g{grid-template-columns:repeat(2,1fr)}
+  .proc-steps{grid-template-columns:repeat(2,1fr)}
+  .proc-line{display:none}
+}
+@media(max-width:768px){
+  .sec{padding:80px 0}
+  .cont-g{grid-template-columns:1fr;gap:3rem}
+  .nav-links{display:none}
+  .hbg{display:flex}
+  .hero-badge{display:none}
+  .proj-g{grid-template-columns:1fr}
+  .proc-steps{grid-template-columns:1fr;gap:2.5rem}
+}
+@media(max-width:480px){
+  .wrap{padding:0 1.25rem}
+  .hero-ctas{flex-direction:column}
+  .m-pan{width:100vw}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="curf" id="curf"></div>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mmenu">
+  <button class="mob-x" id="mmx">✕</button>
+  <a href="#sobre"       onclick="mclose()">About</a>
+  <a href="#habilidades" onclick="mclose()">Skills</a>
+  <a href="#projetos"    onclick="mclose()">Projects</a>
+  <a href="#processo"    onclick="mclose()">UX Process</a>
+  <a href="#contato"     onclick="mclose()">Contact</a>
+</div>
+
+<!-- Navbar -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#hero" class="nav-logo">LF<span>.</span></a>
+    <ul class="nav-links" id="nlinks">
+      <li><a href="#sobre">About</a></li>
+      <li><a href="#habilidades">Skills</a></li>
+      <li><a href="#projetos">Projects</a></li>
+      <li><a href="#processo">UX Process</a></li>
+      <li><a href="#contato">Contact</a></li>
+    </ul>
+    <div class="nav-act">
+      <div class="thm-tgl" id="thmbtn" role="button" tabindex="0" title="Toggle theme">
+        <div class="thm-inner">
+          <div class="thm-a">
+            <svg class="ic-dk" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+            <svg class="ic-lt" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </div>
+          <div class="thm-b">
+            <svg class="ic-dk" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="ic-lt" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+          </div>
+        </div>
+      </div>
+      <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <canvas id="hcanvas"></canvas>
+  <div class="hero-grad"></div>
+  <div class="wrap">
+    <div class="hero-cnt">
+      <div class="hero-eyb rv">
+        <span class="eline"></span>
+        <span>Available for Freelance &amp; Full Time Remote</span>
+      </div>
+      <h1 class="hero-name rv">
+        <span class="fn">Luan</span>
+        <span class="ln">Fischer</span>
+      </h1>
+      <div class="hero-role rv">
+        <span class="typed" id="typed"></span><span class="cursor-blink"></span>
+      </div>
+      <p class="hero-desc rv">
+        UI/UX Designer based in Lages, SC, Brazil. Specialist in digital experiences, high-conversion interfaces and user research — from discovery to handoff.
+      </p>
+      <div class="hero-ctas rv">
+        <a href="#projetos" class="btn btn-pri">
+          View Projects
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#contato" class="btn btn-out">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-badge" aria-hidden="true">
+    <div class="badge-ring"></div>
+    <svg class="badge-svg" viewBox="0 0 170 170">
+      <defs><path id="cp" d="M 85,85 m -65,0 a 65,65 0 1,1 130,0 a 65,65 0 1,1 -130,0"/></defs>
+      <text><textPath href="#cp">UI/UX · UX Research · Product Design · Figma · </textPath></text>
+    </svg>
+    <div class="badge-ctr"><span class="star">✦</span>Design</div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="sline"></div></div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section id="sobre" class="sec">
+  <div class="wrap">
+    <div class="sobre-g">
+      <div class="sobre-text">
+        <span class="lbl rv">About me</span>
+        <h2 class="stit rv">Designer with <span>strategic</span> vision</h2>
+        <p class="rv">I'm a UI/UX Designer specialized in digital interfaces, high-conversion landing pages and user research. My approach combines UX Research data with design decisions that connect businesses and people.</p>
+        <p class="rv">I apply the Double Diamond process — from immersion to handoff — ensuring every solution is grounded in real research, not intuition. Every pixel has a strategic reason.</p>
+        <p class="rv">Throughout my career, I've worked in sectors such as finance, social security, digital health and corporate travel — building a diverse portfolio that demonstrates UX depth and consistent results delivery.</p>
+        <div class="sobre-tags rv">
+          <span class="tag">UI/UX Design</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Product Design</span>
+          <span class="tag">Landing Pages CRO</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Design Systems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HABILIDADES ===== -->
+<section id="habilidades" class="sec">
+  <div class="wrap">
+    <span class="lbl rv">Skills</span>
+    <h2 class="stit rv"><span>Skills</span></h2>
+    <div class="sk-list rv">
+      <div class="sk-hdr">
+        <div class="sk-hdr-line"></div>
+        <span class="sk-hdr-lbl">Expertise</span>
+      </div>
+      <div class="sk-items">
+        <div class="sk-row" style="--level:95%">
+          <div class="sk-inner">
+            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">UI/UX Design</span></div>
+            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">95%</span></div>
+          </div>
+          <div class="sk-div"></div>
+        </div>
+        <div class="sk-row" style="--level:85%">
+          <div class="sk-inner">
+            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">UX Research</span></div>
+            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">85%</span></div>
+          </div>
+          <div class="sk-div"></div>
+        </div>
+        <div class="sk-row" style="--level:92%">
+          <div class="sk-inner">
+            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">Prototyping</span></div>
+            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">92%</span></div>
+          </div>
+          <div class="sk-div"></div>
+        </div>
+        <div class="sk-row" style="--level:90%">
+          <div class="sk-inner">
+            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">CRO &amp; Landing Pages</span></div>
+            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">90%</span></div>
+          </div>
+          <div class="sk-div"></div>
+        </div>
+        <div class="sk-row" style="--level:78%">
+          <div class="sk-inner">
+            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">Design Systems</span></div>
+            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">78%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="sk-foot">
+        <span class="sk-dot"></span>
+        <span class="sk-hint">Hover to explore</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJETOS ===== -->
+<section id="projetos" class="sec">
+  <div class="wrap">
+    <span class="lbl rv">Portfolio</span>
+    <h2 class="stit rv">Selected <span>Projects</span></h2>
+    <div class="filter-bar rv">
+      <button class="fbtn act" data-f="all">All</button>
+      <button class="fbtn" data-f="ui-ux">UI/UX</button>
+      <button class="fbtn" data-f="ux-research">UX Research</button>
+    </div>
+    <div class="proj-g" id="pgrid"></div>
+  </div>
+</section>
+
+
+<!-- ===== PROCESSO UX ===== -->
+<section id="processo" class="sec">
+  <div class="wrap">
+    <span class="lbl rv">Methodology</span>
+    <h2 class="stit rv">Design <span>Process</span></h2>
+    <div class="proc-intro rv">
+      <p>Every project starts with questions, not pixels. I apply methodologies like Double Diamond and Design Thinking to ensure visual solutions are grounded in real data and genuine user needs.</p>
+    </div>
+    <div class="proc-wrap">
+      <div class="proc-line"></div>
+      <div class="proc-steps">
+        <div class="pstep rv">
+          <div class="pstep-ic">🔭<div class="pstep-n">01</div></div>
+          <h3>Discovery</h3>
+          <p>Problem immersion, user research, competitive analysis and deep understanding of the business context.</p>
+          <div class="arts"><span class="art">Desk Research</span><span class="art">Interviews</span><span class="art">Benchmarking</span></div>
+        </div>
+        <div class="pstep rv">
+          <div class="pstep-ic">🎯<div class="pstep-n">02</div></div>
+          <h3>Definition</h3>
+          <p>Insight synthesis, persona creation, journey mapping and clear problem statement definition.</p>
+          <div class="arts"><span class="art">CSD Matrix</span><span class="art">Personas</span><span class="art">Value Canvas</span></div>
+        </div>
+        <div class="pstep rv">
+          <div class="pstep-ic">⚡<div class="pstep-n">03</div></div>
+          <h3>Prototyping</h3>
+          <p>Ideation with Crazy Eights, wireframes, navigable prototype and structured design system in Figma.</p>
+          <div class="arts"><span class="art">Crazy Eights</span><span class="art">Figma Prototype</span><span class="art">Design System</span></div>
+        </div>
+        <div class="pstep rv">
+          <div class="pstep-ic">🚀<div class="pstep-n">04</div></div>
+          <h3>Delivery</h3>
+          <p>Usability testing, iteration based on real feedback, handoff and complete documentation for development.</p>
+          <div class="arts"><span class="art">Usability Testing</span><span class="art">Handoff</span><span class="art">Documentation</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section id="contato" class="sec">
+  <div class="wrap">
+    <div class="cont-g">
+      <div class="cont-info">
+        <span class="lbl rv">Contact</span>
+        <h2 class="stit rv">Let's build something <span>great</span> together?</h2>
+        <p class="rv">Available for freelance projects and full-time remote opportunities. Whether a full brief or just an initial idea — I'd love to hear about your project.</p>
+        <div class="soc-links rv">
+          <a href="https://www.linkedin.com/in/luanavilafischer" target="_blank" rel="noopener" class="soc-link">
+            <div class="soc-ic" style="background:rgba(10,102,194,.15);color:#70B5F9;font-size:.8rem">in</div>
+            <div><div class="soc-tx">linkedin.com/in/luanavilafischer</div><div class="soc-lb">Professional Network</div></div>
+          </a>
+          <a href="mailto:luanavilafischer@gmail.com" class="soc-link">
+            <div class="soc-ic" style="background:rgba(230,81,0,.15);color:var(--pri)">✉</div>
+            <div><div class="soc-tx">luanavilafischer@gmail.com</div><div class="soc-lb">Direct Email</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="c-form rvr">
+        <div class="form-msg" id="fmsg"></div>
+        <form id="cform">
+          <div class="fg">
+            <label class="flbl" for="cn">Name</label>
+            <input type="text" id="cn" class="finp" placeholder="Your full name" required>
+          </div>
+          <div class="fg">
+            <label class="flbl" for="ce">E-mail</label>
+            <input type="email" id="ce" class="finp" placeholder="seu@email.com" required>
+          </div>
+          <div class="fg">
+            <label class="flbl" for="cm">Message</label>
+            <textarea id="cm" class="finp" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-pri" style="width:100%;justify-content:center">
+            Send Message
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <p>© 2026 Luan Fischer · Lages, SC, Brazil</p>
+      <p>"Design doesn't start on screen — it starts with a deep understanding of people."</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Project Modal -->
+<div class="m-ov" id="mov" onclick="mclose2()"></div>
+<div class="m-pan" id="mpan">
+  <div class="m-thumb"><div class="m-tg" id="mtg"></div>
+    <button class="m-cls" onclick="mclose2()">✕</button>
+  </div>
+  <div class="m-cnt" id="mcnt"></div>
+</div>
+
+<!-- Image Lightbox -->
+<div class="lb" id="lb">
+  <button class="lb-cls" onclick="closeLB()">✕</button>
+  <div class="lb-img">
+    <img class="lb-img-real" id="lbimgreal" alt="">
+    <div class="lb-bg" id="lbbg">
+      <div class="lb-icon" id="lbicon">📸</div>
+      <div class="lb-lbl" id="lblbl"></div>
+      <div class="lb-desc" id="lbdesc"></div>
+    </div>
+  </div>
+  <div class="lb-nav">
+    <button onclick="lbNav(-1)">←</button>
+    <span class="lb-counter" id="lbctr"></span>
+    <button onclick="lbNav(1)">→</button>
+  </div>
+</div>
+
+
+<script>
+/* ================================================================
+   DATA
+================================================================ */
+
+const PROJECTS = [
+  {id:5,num:'01',cats:['ui-ux','ux-research'],
+   title:'Tripideias — Travel App',sub:'Mobile B2B2C UX/UI — Complete Double Diamond',
+   tags:['UI/UX Design','Mobile','Research'],
+   tools:['Figma','FigJam'],
+   grad:'linear-gradient(135deg,#004D40 0%,#00695C 40%,#00897B 100%)',
+   cover:'assets/proj-05/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/XtebDfP2AlefDfIkuCBYfl/TripIdeias--Forma%C3%A7%C3%A3o-UX-Alura-?embed-host=share&footer=false&node-id=36-544',
+   figmaLink:'https://www.figma.com/design/XtebDfP2AlefDfIkuCBYfl/TripIdeias--Forma%C3%A7%C3%A3o-UX-Alura-?node-id=36-544',
+   figjamUrl:'https://embed.figma.com/board/PyCzTpP0Ll49LcuuBUCBVo/Projeto-do-curso-UX-Alura?embed-host=share&footer=false&node-id=0-1',
+   figjamLink:'https://www.figma.com/board/PyCzTpP0Ll49LcuuBUCBVo/Projeto-do-curso-UX-Alura?node-id=0-1',
+   notionUrl:'https://luanfischer.notion.site/Tripideias-380a55ddffb280429aaae09bfa7f49f7?pvs=143',
+   badges:[{type:'ux',text:'UX Process'}],
+   desc:'Mobile B2B2C app for a fictional corporate travel agency selling customized tour packages. Complete Double Diamond process — from research to handoff — with 5 usability testing rounds and an 80% success rate.',
+   challenge:'The B2B2C model created friction on three fronts: slow quote generation impacting sales, delayed service due to individual package customization per client, and the need for multiple separate requests for each employee of the client company.',
+   solution:'Double Diamond in 3 stages: (1) Context — quantitative research, proto-persona, personas (employee + manager/buyer), competitor analysis and Value Proposition Canvas; (2) Strategy — UX Canvas aligning user pain points with business objectives; (3) Solution — Crazy Eights with PM and devs, 3 critical flows (signup, package creation and payment), Figma navigable prototype and 5 testing rounds with 80% success rate.',
+   views:'Completed · Ready for Dev Handoff',
+   youtube:null,
+   personas:[
+     {name:'Employee — End User',
+      pain:'Has no visibility of the itinerary, depends on support for any package adjustments, causing waiting and frustration.',
+      ux:'Self-service interface to view, customize and track the travel package without contacting support.'},
+     {name:'Manager — Buyer Client',
+      pain:'Slow quote generation hurts sales; requesting individual packages for each employee multiplies team workload.',
+      ux:'Group purchase flow with centralized settings and single-order approval, accelerating the sales cycle.'},
+   ],
+   metodologia:'Double Diamond structured in three stages: (1) Problem context — quantitative research for proto-persona and representative user personas, competitor analysis and identification of client and user pain points; (2) Value proposition development — Value Proposition Canvas and UX Canvas to align strategic UX vision with business objectives; (3) Solution context — co-creation via Crazy Eights with PM and developers, critical interaction flows, iterative usability testing and navigable prototype for handoff.',
+   learnings:[
+     'Developed structured UX thinking by applying the complete Double Diamond process — from research to prototype — in a real product context with business constraints.',
+     'Understood the importance of recognizing the company\'s UX maturity: the type of intervention must be proportional to the organizational context and product stage.',
+     'Understanding the value of the idea relative to market competitors before designing the solution is essential — competitive analysis directly shaped the value proposition.',
+     'What I\'d do differently: involve stakeholders from the research phase, not just in solution co-creation, to align expectations earlier and reduce rework.',
+   ]},
+  {id:6,num:'02',cats:['ux-research'],
+   title:'AluraMed — UX Research',sub:'Qualitative Research for a Telemedicine App',
+   tags:['UX Research','Mobile'],
+   notionUrl:'https://luanfischer.notion.site/AluraMed-380a55ddffb280b0be39cb1dbfc733a0?pvs=143',
+   tools:['Figma','FigJam','Notion'],
+   grad:'linear-gradient(135deg,#880E4F 0%,#AD1457 50%,#C2185B 100%)',
+   cover:'assets/proj-06/cover.jpg',
+   badges:[{type:'ux',text:'UX Process'}],
+   desc:'Complete UX Research for AluraMed, a fictional telemedicine company helping doctors optimize their time. The goal was to validate and guide the design of a new feature — a patient record field — directly in the app.',
+   challenge:'How to help medical professionals document information quickly and efficiently? It was necessary to understand the current registration process during teleconsultations and identify real functional gaps, without influencing interviewees\' answers.',
+   solution:'Complete UX Research cycle in two stages: (1) Immersion/Desk Research — analysis of telemedicine context in Brazil, benchmarking of direct competitors and CSD Matrix (Certainties, Assumptions and Doubts); (2) Semi-structured interviews with doctor users — critical finding: doctors recorded patient data in Google Docs or Word due to lack of a field in the app, exposing sensitive data. Deliverables: research-based persona, empathy map, User Journey Map, interaction flow and organized Notion repository.',
+   views:'Research Completed · Repository Delivered',
+   youtube:null,
+   personas:[
+     {name:'Gabriela — AluraMed Doctor User',
+      pain:'"Although consultations are conducted through the app, I have to make records in another program, like Google Docs or Word. I\'m uncomfortable not having a safer space to store such valuable and sensitive information."',
+      ux:'Integrated record field in the app, with pre-filled patient data (weight, age, last medication), option to minimize video during consultation and quick prescription generation.'},
+   ],
+   metodologia:'UX Research structured in two research cycles with stakeholder-validated deliverables: (1) Topic immersion — Desk Research on telemedicine in Brazil, direct competitor analysis and CSD Matrix to map what we know, assume and need to discover; (2) User interviews — in-depth semi-structured interviews with doctors, data analysis and affinity clustering in FigJam, validation or refutation of CSD Matrix hypotheses, research-based persona, empathy map and User Journey Map. All artifacts documented in a Notion repository and presented to stakeholders.',
+   learnings:[
+     'Critical finding: the hypothesis that "doctors need space to record information" was REFUTED — they were already recording, but in external tools (Google Docs/Word), exposing sensitive data. The real need was secure in-app integration, not just space.',
+     'In-depth interviews revealed pain points no quantitative research would capture: discomfort with data security and flow interruption during teleconsultations when switching between apps.',
+     'The CSD Matrix is a powerful tool to structure what you don\'t know before going into the field — it prevents researchers from confirming existing beliefs and keeps focus on real uncertainties.',
+     'Documenting everything in a structured Notion repository transforms research into a product asset: findings remain accessible to the design and development team at any future stage.',
+   ]},
+  {id:1,num:'03',cats:['ui-ux'],
+   title:'Banco da Família',sub:'Website Redesign — UX/UI for Financial Cooperative',
+   tags:['UI/UX Design','Web Design','Figma'],
+   tools:['Figma','Photoshop'],
+   grad:'linear-gradient(135deg,#E65100 0%,#BF360C 35%,#1A237E 100%)',
+   cover:'assets/site-bf/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/OX3dkicXhUecZM48dBbSry/Site-Novo-BF?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/OX3dkicXhUecZM48dBbSry/Site-Novo-BF?node-id=0-1',
+   badges:[],
+   desc:'Redesign of the institutional website for Banco da Família, a financial cooperative with 27 years of history and R$2.9 billion in credit granted. The project transformed a transactional portal into a conversion and emotional connection tool, applying strategic UX to communicate authority, humanize the brand and create a B2B journey dedicated to attracting new franchisees.',
+   challenge:'The previous site focused excessively on the transactional — "get money" — with shallow information architecture (only "You", "Business", "Agro"), no social proof (millions of impacted lives invisible) and no strategy for attracting new franchisees, a strategic growth pillar completely overlooked.',
+   solution:'Redesign structured in AIDA: hero with emotional impact and video, authority section with real numbers (R$2.9B in credit, 450+ employees), expanded product portfolio (BF Solar, BF Sanitation, BF Telemedicine, BF Agro), humanization through documentary photography and new B2B journey dedicated to franchisees.',
+   personas:[
+     {name:'Dona Maria — The Microentrepreneur',pain:'Needs quick credit but fears traditional banking bureaucracy.',ux:'"Stories that Transform" sections and real people photos generate identification. BF Microcredit highlighted.'},
+     {name:'Seu João — The Rural Producer',pain:'Seeks financing for harvest or machinery. Needs robustness and clarity.',ux:'BF Agro highlight and field-related imagery conveying trust.'},
+     {name:'Roberto — The Investor/Franchisee',pain:'Seeks a solid business model with ESG purpose.',ux:'New "Become a Franchisee" section with profitability data (R$2.9B in credit, 27 years of history).'},
+   ],
+   metodologia:'UX Reverse Engineering: heuristic analysis of the current site, persona mapping inferred from the product offering, high-fidelity redesign with Long Scrolling and Storytelling, and modern UI with Whitespace to convey modernity and lightness.',
+   learnings:['Reverse documentation reinforces that good design decisions, even intuitive ones, are based on solid heuristics — documenting them after the fact helps defend them to stakeholders.','Balancing emotion (life stories) with reason (financial numbers) on the same interface is the biggest challenge — and the biggest differentiator — of design for the financial sector.'],
+   views:'11 likes · 22 views · Mar/2026',
+   youtube:null,
+   sections:[
+     {title:'Homepage — Hero, Products & Franchisees',
+      desc:'Full homepage view: hero with emotional proposition ("Your bank when you need it, your family every day"), portfolio of 12+ products (BF Agro, Solar, Health…) and new franchisee acquisition section.',
+      images:['24.jpg'],dir:'site-bf'},
+     {title:'Complete Solutions Portfolio',
+      desc:'All Banco da Família solutions visually organized: BF Agro, BF Credi, BF Saúde, BF Solar, BF Reforma, BF Microcrédito, BF Telemedicina and more.',
+      images:['31.jpg'],dir:'site-bf'},
+     {title:'About & Our History',
+      desc:'"Who We Are" page with Mission, Vision and Values + timeline from 1998 with key historical milestones of the cooperative.',
+      images:['37.jpg'],dir:'site-bf'},
+     {title:'Our Team — Board & Council',
+      desc:'Administration and fiscal council section with editorial photos of team members and cooperative leadership.',
+      images:['41.jpg'],dir:'site-bf'},
+   ],
+   styleGuide:{colors:[
+     {name:'BF Orange',hex:'#EC6726',role:'Primary CTA'},
+     {name:'BF Orange 2',hex:'#F07E26',role:'Primary Hover'},
+     {name:'BF Blue',hex:'#1F3C90',role:'Brand Blue'},
+     {name:'BF Dark Blue',hex:'#273476',role:'Brand Dark'},
+     {name:'Dark Gray',hex:'#343333',role:'Text'},
+     {name:'Light Gray',hex:'#DADADA',role:'Background/Border'},
+   ]}},
+  {id:7,num:'04',cats:['ui-ux'],
+   title:'Landing Page | Alessandra Breda',sub:'High-Conversion LP for Premium Mentoring — MPR',
+   tags:['UI/UX Design','Landing Page','Copywriting','Branding'],
+   tools:['Figma','HTML/CSS'],
+   cover:'assets/alessandra/cover.jpg',
+   badges:[],
+   desc:'Complete landing page for the MPR Mentoring — Mulheres Plenas e Reinantes (Fulfilled & Reigning Women), by Alessandra Breda. Real client project: lead generation page for a premium mentoring program aimed at women entrepreneurs who want to grow their businesses without compromising faith, family and marriage.',
+   challenge:'Communicate a deep, premium transformation to a demanding audience — entrepreneurs, liberal professionals and agribusiness women — without falling into generic self-help language. The visual identity needed to convey sophistication, faith and authority simultaneously.',
+   solution:'Cream/Navy/Gold palette with editorial typography (Playfair Display + Cormorant Garamond) to convey sophistication and premium femininity. 9-section LP with emotional progression: Pain → Belief-breaking → Solution → Who it\'s for → Who leads → CTA. Copywriting and design integrated for total cohesion between message and aesthetics.',
+   views:'Real Project · Active Client',
+   youtube:null,
+   liveUrl:'https://luanfischerr.github.io/mpr-landing-page/',
+   sections:[
+     {title:'Hero — Immediate Impact',desc:'Emotional headline, editorial photo of the mentor and low-friction CTA for free diagnosis.',images:['lp1.jpg'],dir:'alessandra'},
+     {title:'Pain & Belief-Breaking Section',desc:'Mirroring the responsibilities that weigh on women and deconstructing the false choice between business and personal life.',images:['lp2.jpg'],dir:'alessandra'},
+     {title:'Breaking Beliefs (Navy)',desc:'Grid of false choices with the central mentoring answer — navy background with golden typography.',images:['lp3.jpg'],dir:'alessandra'},
+     {title:'The 4 Methodology Pillars',desc:'Faith · Family · Business · Posture — sticky structure with detailed breakdown of each MPR pillar.',images:['lp4.jpg'],dir:'alessandra'},
+   ],
+   personas:[
+     {name:'Woman Entrepreneur / Liberal Professional',
+      pain:'Grew in business but feels faith, marriage or family are suffering. Carries everything alone and is exhausted from putting out fires without truly advancing.',
+      ux:'Language that sees her without judgment, a proposal combining professional growth and inner order — without having to choose between one or the other.'},
+   ],
+   metodologia:'LP structured based on Conversion Copywriting and Emotional Design principles: (1) Mirroring — the pain section uses the persona\'s real language and responsibilities to generate immediate identification; (2) Belief-breaking — deconstructs the idea of having to choose between business and personal life before presenting the solution; (3) Value proposition in pillars — 4 clear pillars (Faith, Family, Business, Posture) facilitate understanding and alignment with the offer; (4) Lead qualification — "Who it\'s for / not for" section filters those truly ready for premium mentoring; (5) Low-friction CTA — free diagnosis as entry point, reducing the barrier to first conversion.',
+   learnings:[
+     'Copywriting and design must be created together — when message and aesthetics are developed separately, the LP loses cohesion and the lead feels the inconsistency before even reading the text.',
+     'For a premium product with a complex emotional journey (faith + business + family), the LP structure matters as much as the copy: the order of sections defines the pace of perceived transformation.',
+     'The Cream/Navy/Gold palette was not chosen for aesthetics — each color has a semiotic function: Cream for warmth, Navy for authority, Gold for aspiration and purpose.',
+     'Qualifying the lead within the LP itself ("Who it\'s not for" section) reduces objections before the sales conversation and attracts those genuinely ready for the process.',
+   ],
+   styleGuide:{
+     colors:[
+       {name:'Navy',hex:'#0d1f35',role:'Authority · dark background'},
+       {name:'Gold',hex:'#C9A84C',role:'Aspiration · premium'},
+       {name:'Cream',hex:'#FAF7F2',role:'Warmth · light background'},
+       {name:'Gold Light',hex:'#E8D49A',role:'Golden gradient'},
+       {name:'Gold Dark',hex:'#B8942A',role:'Golden gradient'},
+       {name:'White',hex:'#FFFFFF',role:'Section backgrounds'},
+     ],
+     typography:[
+       {name:'Playfair Display',style:'Serif · 400/500/600 · Italic',role:'Titles, headings, quotes'},
+       {name:'Jost',style:'Geometric sans-serif · 300–700',role:'Body, labels, CTAs'},
+     ]
+   }},
+  {id:8,num:'05',cats:['ui-ux'],
+   title:'Landing Page | Prandi',sub:'B2B Commercial LP — Precast Concrete Structures',
+   tags:['UI/UX Design','Landing Page','B2B','CRO'],
+   tools:['Figma'],
+   grad:'linear-gradient(135deg,#7B0000 0%,#C62828 50%,#212121 100%)',
+   cover:'assets/prandi/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/geG4BTF4CtbCgj16f9pjjo/Landing-Page-Comercial-Prandi?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/geG4BTF4CtbCgj16f9pjjo/Landing-Page-Comercial-Prandi?node-id=0-1',
+   badges:[],
+   desc:'Landing page for Prandi — a company specializing in precast concrete structures with 20+ years in the market and 500+ completed projects. The project communicates technical solidity and reliability to a demanding B2B audience: construction companies, engineers and project managers who make rational purchasing decisions based on technical proof and proven experience.',
+   challenge:'Convert B2B visitors who need trust before any contact. In the construction sector, purchasing decisions are complex and high-value — clients won\'t reach out without first verifying real experience, project cases and technical capacity. The LP needed to replace a complete sales conversation in a single page.',
+   solution:'Progressive authority structure: hero with direct value proposition ("Quality, Speed and Economy") + immediate stats (20+ years, 500+ projects, 100% satisfaction), 9 technical differentiators, detailed services portfolio, completed projects gallery as visual social proof and low-friction CTA ("Request a Quote") reducing first conversion friction.',
+   views:'Real Project · Delivered',
+   youtube:null,
+   sections:[
+     {title:'Full Landing Page — Desktop',
+      desc:'Complete LP view: hero with impact headline, credibility stats, differentiators section, services portfolio, completed projects gallery and final CTA.',
+      images:['01.jpg'],dir:'prandi'},
+     {title:'Section Details & Mobile Version',
+      desc:'Zoom into conversion sections and mobile LP adaptation: expanded differentiators, service cards and footer with multiple contact points.',
+      images:['02.jpg'],dir:'prandi'},
+   ]},
+  {id:2,num:'06',cats:['ui-ux'],
+   title:'Website Layout | SSP Magazine',sub:'Digital Portal for Private Security Specialized Publication',
+   tags:['UI/UX Design','Web Design','Figma'],
+   tools:['Figma','Photoshop','Illustrator'],
+   grad:'linear-gradient(135deg,#0D47A1 0%,#1565C0 45%,#006064 100%)',
+   cover:'assets/proj-02/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/hI1gnRCO26QN4B1ubz48FB/Site-RevistaSSP?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/hI1gnRCO26QN4B1ubz48FB/Site-RevistaSSP?node-id=0-1',
+   badges:[],
+   desc:'Design of the SSP Magazine digital portal — part of a complete media ecosystem built from scratch for the private security sector. The portal prioritized readability and content retention, complementing the Landing Page (acquisition) and the print magazine (product).',
+   challenge:'The Private Security sector lacked centralized, modern information sources. Professionals consumed content in a fragmented way on social networks, without a reliable hub. The challenge was to create a channel uniting the depth of a magazine with the agility of a portal, serving two distinct profiles: the active professional on mobile and the strategic manager on desktop.',
+   solution:'Readability-focused portal: transition to white/light gray background (G1/CNN standard), reducing visual fatigue for long reads. "Headline + Feed" news grid for quick scannability, responsive hamburger menu and scalable typography. Omnichannel consistency: same typeface family as the magazine and grid inspired by double-page layout, creating familiarity for readers migrating from print to digital.',
+   personas:[
+     {name:'The Connected Security Guard',pain:'Active professional, accesses the internet mostly on mobile during breaks. Needs quick information on rights, courses and job openings.',ux:'Smooth mobile navigation, large buttons and accessible reading (good contrast). Hamburger menu for agility.'},
+     {name:'The Security Manager',pain:'Makes strategic decisions on desktop. Seeks analytical depth and visual credibility.',ux:'Efficient search, clear categorization and content visual hierarchy that conveys authority.'},
+   ],
+   metodologia:'360° Design — systemic approach in three phases: (1) Foundation: Branding and Visual Identity (Red/Black palette, shield as symbol); (2) Product: Editorial Design and Magazine Layout; (3) UX Distribution: News Portal (retention) + Acquisition Landing Page (conversion).',
+   learnings:['Branding × UX: adapting a "heavy" brand (strong colors, vibrant red) for a reading interface (light colors) without losing identity requires precise technical decisions on hierarchy and contrast.','Content Flow: understanding the reader\'s journey (Social Media → LP → Magazine → Portal) was crucial to designing the right conversion points at each experience touchpoint.'],
+   views:'44 likes · 3,131 views · Apr/2024',
+   youtube:null,
+   sections:[
+     {title:'Website Layout — SSP Magazine',
+      desc:'News portal with dark mode as primary choice, responsive grid with clear editorial hierarchy (feature/secondary/list) and microinteractions documented in GIF.',
+      images:['01.gif','02.gif','03.gif','04.gif','05.gif','06.gif','07.gif','08.gif','09.jpg'],
+      dir:'proj-02'},
+   ]},
+  {id:4,num:'07',cats:['ui-ux'],
+   title:'Landing Page | SSP Magazine',sub:'Subscriber Acquisition — Top of Content Funnel',
+   tags:['UI/UX Design','Landing Page','CRO','Figma'],
+   tools:['Figma'],
+   grad:'linear-gradient(135deg,#006064 0%,#00838F 50%,#0277BD 100%)',
+   cover:'assets/proj-07/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/GVfIR9iJcp4sQRTDiy4EfK/Landing-Page-RevistaSSP-2--Copy-?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/GVfIR9iJcp4sQRTDiy4EfK/Landing-Page-RevistaSSP-2--Copy-?node-id=0-1',
+   badges:[],
+   desc:'Landing page to acquire digital subscribers for SSP Magazine — the top of the brand\'s content funnel: Social Media → Landing Page → Magazine → Portal. Single objective: convert visitors into subscribers, eliminating all distractions and focusing 100% on the offer.',
+   challenge:'Create a conversion page with SSP\'s "heavy" visual identity (vibrant red, high contrast) without compromising experience and conversion rate. Unlike the portal (retention/reading), the LP needed urgency and immediate action.',
+   solution:'Single attention hierarchy: vibrant red background to highlight the offer, previous issue covers as social proof, action buttons ("Read Issue", "Subscribe") repeated strategically throughout the scroll. Zero exit points beyond the CTA. Simplified form for direct acquisition.',
+   learnings:['The LP and the Portal solve different problems with the same brand: the LP shouts "subscribe", the portal whispers "read". Maintaining visual consistency while completely changing tone is the real omnichannel challenge.'],
+   views:'25 views · Oct/2024',
+   youtube:null,
+   sections:[
+     {title:'Landing Page — SSP Magazine',
+      desc:'Single-objective LP for digital subscriber acquisition. Zero exit points beyond CTA, social proof through previous covers and CTA repeated at 3 scroll points.',
+      images:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'],
+      dir:'proj-07'},
+   ]},
+  {id:3,num:'08',cats:['ui-ux'],
+   title:'Landing Page | Pedrosa Previdência',sub:'CRO with Cognitive Psychology — Turning Anxiety into Action',
+   tags:['UI/UX Design','CRO','Landing Page','UX Writing','Figma'],
+   tools:['Figma','Photoshop'],
+   grad:'linear-gradient(135deg,#1A237E 0%,#311B92 50%,#4A148C 100%)',
+   cover:'assets/proj-03/cover.jpg',
+   figmaUrl:'https://embed.figma.com/design/Mn7kuvEIBhrRSGLHSDE8Og/Landing-Page-Planejamento-Tribut%C3%A1rio?embed-host=share&footer=false&node-id=0-1',
+   figmaLink:'https://www.figma.com/design/Mn7kuvEIBhrRSGLHSDE8Og/Landing-Page-Planejamento-Tribut%C3%A1rio?node-id=0-1',
+   badges:[],
+   desc:'High-conversion landing page (CRO) for a social security law firm. The project applied Cognitive Psychology to transform the anxiety of workers nearing retirement into a decision to contact — simplifying legal jargon and converting visitors who believe "it\'s too late" into qualified leads.',
+   challenge:'Sell pension planning to 50–60-year-old workers afraid of retiring on minimum wage. Three core barriers: lack of clarity about the service\'s value, technical language that alienates the general public, and the belief that it\'s expensive or past the deadline to act.',
+   solution:'AIDA structure with Cognitive Psychology: (1) Loss Aversion in the hero — "Don\'t let poverty knock on your door" activates the fear of losing dignity, more powerful than the desire to gain; (2) Mental Analogy — comparing social security to a "Medical Consultation" (Diagnosis → Treatment) anchors a complex legal concept in something familiar and trustworthy; (3) Visual Emotional Arc — worried man\'s photo at top, smiling photo at bottom, with Pedrosa as the bridge between both states; (4) Direct UX Writing — from "social security benefit analysis according to current legislation" to "learn how to save your retirement"; (5) CTA repeated at 3 scroll points, orange button contrasting with navy background (Von Restorff effect).',
+   personas:[
+     {name:'Carlos — The Worried Worker',pain:'50–60 years old, afraid of retiring on minimum wage after years of good earnings. Feels the government will "screw him over". Barrier: thinks a lawyer is expensive or "it\'s already too late".',ux:'The page should not talk about "laws", but about "future" and "protection". Simple analogies and zero legal jargon.'},
+   ],
+   metodologia:'UX Reverse Engineering with Cognitive Psychology: heuristic analysis of the existing page, mapping of the target audience\'s cognitive barriers, application of Loss Aversion (Kahneman), Mental Analogy Model and AIDA structure adapted for high-friction, emotionally-driven decision services.',
+   learnings:['Analogies work: the "Doctor" metaphor (Diagnosis → Treatment) drastically reduced cognitive friction, making a legal service accessible to those who have never hired a lawyer.','Emotion converts: acknowledging the user\'s fear at the top of the page creates an immediate connection before presenting the technical solution — the emotional sequence matters as much as the content.'],
+   views:'5 likes · 37 views · Apr/2024',
+   youtube:null,
+   sections:[
+     {title:'Landing Page — Pension Planning',
+      desc:'CRO design with applied cognitive psychology. Navy blue background (trust/seriousness) contrasting with orange (attention/action). Streamlined 3-field form to minimize conversion friction.',
+      images:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg'],
+      dir:'proj-03'},
+   ]},
+];
+
+
+/* ================================================================
+   RENDER PROJECTS
+================================================================ */
+function renderProjects(filter='all'){
+  const grid=document.getElementById('pgrid');
+  grid.innerHTML='';
+  PROJECTS.forEach((p,i)=>{
+    const vis=filter==='all'||p.cats.includes(filter);
+    const el=document.createElement('div');
+    el.className='proj-c rv'+(vis?'':' hide');
+    el.dataset.pid=p.id;
+    el.style.transitionDelay=(i*.07)+'s';
+    el.onclick=()=>openM(p);
+    const bdgs=p.badges.map(b=>`<span class="bdg bdg-${b.type==='star'?'star':'ux'}">${b.text}</span>`).join('');
+    const tags=p.tags.map(t=>`<span class="ptag">${t}</span>`).join('');
+    el.innerHTML=`
+      <div class="proj-thumb">
+        ${p.cover
+          ? `<img src="${p.cover}" class="proj-tg-img" alt="${p.title}" loading="lazy">`
+          : `<div class="proj-tg" style="background:${p.grad}"></div>`}
+        <div class="proj-ov"><button class="proj-ovb">Ver Detalhes</button></div>
+        <span class="proj-num">${p.num}</span>
+        <div class="proj-bdgs">${bdgs}</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-tit">${p.title}</div>
+        <p class="proj-sub">${p.sub}</p>
+        <div class="proj-tags">${tags}</div>
+      </div>`;
+    grid.appendChild(el);
+  });
+  document.querySelectorAll('.proj-c.rv').forEach(el=>obs.observe(el));
+  addHov();
+}
+
+
+/* ================================================================
+   PROJECT MODAL
+================================================================ */
+let curGallery=[], curLBIdx=0;
+
+function openM(p){
+  document.getElementById('mtg').style.background=p.grad;
+
+  // Build gallery HTML and curGallery
+  let galHTML='';
+  let allImgs=[];
+  if(p.sections){
+    p.sections.forEach(sec=>{
+      const dir=sec.dir?'assets/'+sec.dir+'/':'assets/banco-da-familia/';
+      let imgs='';
+      sec.images.forEach(fn=>{
+        const idx=allImgs.length;
+        allImgs.push({src:dir+fn,lbl:sec.title,desc:''});
+        imgs+=`<div class="gal-real-item" onclick="openLB(${idx})">
+          <img src="${dir}${fn}" loading="lazy" alt="${sec.title}">
+          <div class="gal-hover"><span>Ampliar ↗</span></div>
+        </div>`;
+      });
+      galHTML+=`<div class="gal-section">
+        <div class="gal-section-hd"><h5>${sec.title}</h5><p>${sec.desc}</p></div>
+        <div class="gal-img-grid">${imgs}</div>
+      </div>`;
+    });
+  } else if(p.gallery){
+    const items=p.gallery.map((g,i)=>`
+      <div class="gal-item" onclick="openLB(${i})">
+        <div class="gal-bg" style="background:${p.grad}">
+          <span class="gal-icon">${g.icon}</span>
+          <span class="gal-lbl">${g.lbl}</span>
+        </div>
+        <div class="gal-hover"><span>Ampliar ↗</span></div>
+      </div>`).join('');
+    galHTML=`<div class="gal-grid">${items}</div>`;
+    allImgs=p.gallery.map(g=>({...g,grad:p.grad}));
+  }
+
+  const tools=p.tools.map(t=>`<span class="m-tool">${t}</span>`).join('');
+  const tags=p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+
+  const personasSection=p.personas?`
+    <div class="m-sec">
+      <h4>Personas</h4>
+      ${p.personas.map(pe=>`
+        <div style="margin-bottom:1rem;padding:.85rem 1rem;background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--rsm)">
+          <div style="font-weight:700;font-size:.88rem;color:var(--txt);margin-bottom:.35rem">${pe.name}</div>
+          <div style="font-size:.82rem;color:var(--muted);margin-bottom:.35rem"><strong style="color:var(--dim)">Dor:</strong> ${pe.pain}</div>
+          <div style="font-size:.82rem;color:var(--muted)"><strong style="color:var(--pri)">Necessidade UX:</strong> ${pe.ux}</div>
+        </div>`).join('')}
+    </div>`:'';
+
+  const metodologiaSection=p.metodologia?`
+    <div class="m-sec"><h4>Metodologia</h4><p>${p.metodologia}</p></div>`:'';
+
+  const ytSection=p.youtube?`
+    <div class="m-sec">
+      <h4>Vídeo do Projeto</h4>
+      <div class="yt-wrap">
+        <iframe src="https://www.youtube.com/embed/${p.youtube}" allowfullscreen></iframe>
+      </div>
+    </div>`:'';
+
+  const learningsSection=p.learnings?`
+    <div class="m-sec">
+      <h4>Aprendizados</h4>
+      ${p.learnings.map(l=>`<p style="margin-bottom:.75rem;padding-left:.85rem;border-left:2px solid var(--pri)">${l}</p>`).join('')}
+    </div>`:'';
+
+  const styleGuideSection=p.styleGuide?`
+    <div class="m-sec">
+      <h4>Style Guide — Cores</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem">
+        ${p.styleGuide.colors.map(c=>`
+          <div style="flex:1;min-width:80px;max-width:130px">
+            <div style="height:52px;border-radius:var(--rsm);background:${c.hex};margin-bottom:.45rem;border:1px solid rgba(128,128,128,.15)"></div>
+            <div style="font-size:.78rem;font-weight:700;color:var(--txt)">${c.name}</div>
+            <div style="font-size:.72rem;color:var(--muted);font-family:monospace">${c.hex}</div>
+            <div style="font-size:.7rem;color:var(--dim)">${c.role}</div>
+          </div>`).join('')}
+      </div>
+      ${p.styleGuide.typography?`
+      <h4 style="margin-top:1.25rem">Style Guide — Tipografia</h4>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem">
+        ${p.styleGuide.typography.map(t=>`
+          <div style="flex:1;min-width:160px;background:var(--card);border-radius:var(--rsm);padding:.75rem 1rem;border:1px solid rgba(128,128,128,.12)">
+            <div style="font-size:.78rem;font-weight:700;color:var(--txt)">${t.name}</div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.25rem">${t.style}</div>
+            <div style="font-size:.7rem;color:var(--dim);margin-top:.2rem">${t.role}</div>
+          </div>`).join('')}
+      </div>`:''}
+    </div>`:'';
+
+  document.getElementById('mcnt').innerHTML=`
+    <div class="m-num">${p.num} / 08</div>
+    <h2 class="m-tit">${p.title}</h2>
+    <div class="m-tags">${tags}</div>
+    ${p.figmaUrl?`
+    <div class="m-sec">
+      <h4>Protótipo no Figma</h4>
+      <div class="m-figma-wrap">
+        <iframe src="${p.figmaUrl}" title="${p.title} — Figma" allowfullscreen></iframe>
+        <div class="m-live-bar">
+          <span>Design interativo</span>
+          <a href="${p.figmaLink}" target="_blank" rel="noopener">Abrir no Figma ↗</a>
+        </div>
+      </div>
+    </div>`:''}
+    ${p.figjamUrl?`
+    <div class="m-sec">
+      <h4>Documentação da Pesquisa — FigJam</h4>
+      <div class="m-figma-wrap">
+        <iframe src="${p.figjamUrl}" title="${p.title} — FigJam" allowfullscreen></iframe>
+        <div class="m-live-bar">
+          <span>Board interativo</span>
+          <a href="${p.figjamLink}" target="_blank" rel="noopener">Abrir no FigJam ↗</a>
+        </div>
+      </div>
+    </div>`:''}
+    ${p.notionUrl?`
+    <div class="m-sec">
+      <h4>Documentação Completa</h4>
+      <div class="m-notion-card">
+        <div class="m-notion-ic">📋</div>
+        <div class="m-notion-info">
+          <div class="m-notion-title">Repositório de Pesquisa — ${p.title}</div>
+          <div class="m-notion-sub">Documentação completa do processo de pesquisa: entrevistas, síntese de insights, personas e artefatos</div>
+        </div>
+        <a href="${p.notionUrl}" target="_blank" rel="noopener" class="m-notion-btn">Abrir no Notion ↗</a>
+      </div>
+    </div>`:''}
+    ${p.liveUrl||galHTML?`<div class="m-sec gal-wrap">
+      <h4>${p.liveUrl?'Landing Page ao Vivo':'Galeria do Projeto'}</h4>
+      ${p.liveUrl?`
+      <div class="m-live-wrap">
+        <iframe src="${p.liveUrl}" title="${p.title}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+        <div class="m-live-bar">
+          <span>Projeto interativo</span>
+          <a href="${p.liveUrl}" target="_blank" rel="noopener">Abrir em nova aba ↗</a>
+        </div>
+      </div>`:galHTML}
+    </div>`:''}
+    <div class="m-sec"><h4>Sobre o Projeto</h4><p>${p.desc}</p></div>
+    <div class="m-sec"><h4>Desafio</h4><p>${p.challenge}</p></div>
+    <div class="m-sec"><h4>Solução</h4><p>${p.solution}</p></div>
+    ${personasSection}
+    ${metodologiaSection}
+    <div class="m-sec"><h4>Ferramentas</h4><div class="m-tools">${tools}</div></div>
+    ${ytSection}
+    ${learningsSection}
+    ${styleGuideSection}
+    <div class="m-acts"><button class="btn btn-out" onclick="mclose2()">Fechar</button></div>
+    `;
+
+  curGallery=allImgs;
+  document.getElementById('mov').classList.add('open');
+  document.getElementById('mpan').classList.add('open');
+  document.body.style.overflow='hidden';
+  addHov();
+}
+
+function mclose2(){
+  document.getElementById('mov').classList.remove('open');
+  document.getElementById('mpan').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* ================================================================
+   IMAGE LIGHTBOX
+================================================================ */
+function openLB(idx){
+  curLBIdx=idx;
+  renderLB();
+  document.getElementById('lb').classList.add('open');
+}
+function closeLB(){const lb=document.getElementById('lb');lb.classList.remove('open','has-img');}
+function lbNav(d){
+  curLBIdx=(curLBIdx+d+curGallery.length)%curGallery.length;
+  renderLB();
+}
+function renderLB(){
+  const g=curGallery[curLBIdx];
+  const lb=document.getElementById('lb');
+  const imgEl=document.getElementById('lbimgreal');
+  document.getElementById('lbctr').textContent=`${curLBIdx+1} / ${curGallery.length}`;
+  document.getElementById('lblbl').textContent=g.lbl||'';
+  document.getElementById('lbdesc').textContent=g.desc||'';
+  if(g.src){
+    lb.classList.add('has-img');
+    imgEl.src=g.src;
+    imgEl.alt=g.lbl||'';
+  } else {
+    lb.classList.remove('has-img');
+    document.getElementById('lbbg').style.background=g.grad||'';
+    document.getElementById('lbicon').textContent=g.icon||'📸';
+  }
+}
+
+/* ================================================================
+   FILTER
+================================================================ */
+document.querySelectorAll('.fbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('act'));
+    btn.classList.add('act');
+    const f=btn.dataset.f;
+    document.querySelectorAll('.proj-c').forEach(c=>{
+      const pid=parseInt(c.dataset.pid);
+      const p=PROJECTS.find(x=>x.id===pid);
+      (f==='all'||p.cats.includes(f))?c.classList.remove('hide'):c.classList.add('hide');
+    });
+  });
+});
+
+
+/* ================================================================
+   INTERSECTION OBSERVER
+================================================================ */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
+
+/* ================================================================
+   TYPEWRITER
+================================================================ */
+const ROLES=['UI/UX Designer','UX Researcher','Product Designer','CRO Specialist'];
+let ri=0,ci=0,del=false;
+const tel=document.getElementById('typed');
+function tw(){
+  const cur=ROLES[ri];
+  del?(tel.textContent=cur.slice(0,--ci)):(tel.textContent=cur.slice(0,++ci));
+  let d=del?55:100;
+  if(!del&&ci===cur.length){d=2200;del=true;}
+  else if(del&&ci===0){del=false;ri=(ri+1)%ROLES.length;d=450;}
+  setTimeout(tw,d);
+}tw();
+
+/* ================================================================
+   HERO CANVAS PARTICLES
+================================================================ */
+const cv=document.getElementById('hcanvas');
+const cx=cv.getContext('2d');
+function rz(){cv.width=window.innerWidth;cv.height=window.innerHeight;}
+rz();window.addEventListener('resize',rz);
+class Pt{
+  constructor(){this.r();}
+  r(){this.x=Math.random()*cv.width;this.y=Math.random()*cv.height;
+    this.s=Math.random()*1.8+.4;this.vx=(Math.random()-.5)*.35;
+    this.vy=(Math.random()-.5)*.35;this.a=Math.random()*.45+.08;
+    this.col=Math.random()>.75?'#E65100':'#FFFFFF';}
+  u(){this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>cv.width||this.y<0||this.y>cv.height)this.r();}
+  d(){cx.beginPath();cx.arc(this.x,this.y,this.s,0,6.28);
+    cx.fillStyle=this.col;cx.globalAlpha=this.a;cx.fill();cx.globalAlpha=1;}
+}
+const pts=Array.from({length:110},()=>new Pt());
+function anim(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<95){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);
+        cx.strokeStyle='#E65100';cx.globalAlpha=(1-d/95)*.07;cx.lineWidth=.5;cx.stroke();cx.globalAlpha=1;}
+    }
+    pts[i].u();pts[i].d();
+  }
+  requestAnimationFrame(anim);
+}anim();
+
+/* ================================================================
+   NAVBAR
+================================================================ */
+const nav=document.getElementById('nav');
+const nls=document.querySelectorAll('#nlinks a');
+const secs=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('sc',window.scrollY>50);
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-110)cur=s.id;});
+  nls.forEach(l=>{l.classList.toggle('act',l.getAttribute('href')==='#'+cur);});
+},{passive:true});
+
+/* ================================================================
+   THEME TOGGLE
+================================================================ */
+let dark=false;
+const thmbtn=document.getElementById('thmbtn');
+thmbtn.addEventListener('click',()=>{
+  dark=!dark;
+  document.documentElement.dataset.theme=dark?'dark':'light';
+});
+thmbtn.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();thmbtn.click();}
+});
+
+/* ================================================================
+   MOBILE MENU
+================================================================ */
+document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mmenu').classList.add('open'));
+document.getElementById('mmx').addEventListener('click',mclose);
+function mclose(){document.getElementById('mmenu').classList.remove('open');}
+
+/* ================================================================
+   CONTACT FORM — MAILTO
+================================================================ */
+document.getElementById('cform').addEventListener('submit',function(e){
+  e.preventDefault();
+  const n=document.getElementById('cn').value.trim();
+  const em=document.getElementById('ce').value.trim();
+  const msg=document.getElementById('cm').value.trim();
+  const fmsg=document.getElementById('fmsg');
+  if(!n||!em||!msg){
+    fmsg.textContent='Por favor, preencha todos os campos.';
+    fmsg.className='form-msg err';
+    return;
+  }
+  const subj=encodeURIComponent(`Portfólio — Mensagem de ${n}`);
+  const body=encodeURIComponent(`Nome: ${n}\nE-mail: ${em}\n\n${msg}`);
+  window.location.href=`mailto:luanavilafischer@gmail.com?subject=${subj}&body=${body}`;
+  fmsg.textContent='Seu cliente de e-mail foi aberto com a mensagem pronta para envio!';
+  fmsg.className='form-msg ok';
+  this.reset();
+});
+
+/* ================================================================
+   CUSTOM CURSOR
+================================================================ */
+const cur=document.getElementById('cur'),cuf=document.getElementById('curf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+function trackF(){
+  fx+=(mx-fx)*.12;fy+=(my-fy)*.12;
+  cuf.style.left=fx+'px';cuf.style.top=fy+'px';
+  requestAnimationFrame(trackF);
+}trackF();
+function addHov(){
+  document.querySelectorAll('a,button,.proj-c,.fbtn,.gal-item,.gal-real-item,.lb-nav button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.classList.add('hov');cuf.classList.add('hov');});
+    el.addEventListener('mouseleave',()=>{cur.classList.remove('hov');cuf.classList.remove('hov');});
+  });
+}
+addHov();
+
+/* ================================================================
+   KEYBOARD NAVIGATION
+================================================================ */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeLB();mclose2();
+  }
+  if(document.getElementById('lb').classList.contains('open')){
+    if(e.key==='ArrowLeft')lbNav(-1);
+    if(e.key==='ArrowRight')lbNav(1);
+  }
+});
+
+/* ================================================================
+   INIT
+================================================================ */
+renderProjects();
+</script>
+</body>
+</html>
