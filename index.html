@@ -149,7 +149,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 
 /* ===== HABILIDADES ===== */
 #habilidades{background:var(--bg)}
-.skills-g{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.skills-g{display:grid;grid-template-columns:1fr;gap:3rem;margin-top:3rem;max-width:640px;margin-left:auto;margin-right:auto}
 .skill-grp h3{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--bdr)}
 .skill-items{display:flex;flex-direction:column;gap:1.5rem}
 .skill-item{display:flex;flex-direction:column;gap:.5rem}
@@ -293,6 +293,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .pstep p{font-size:.875rem;color:var(--muted);line-height:1.75}
 .arts{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;margin-top:1rem}
 .art{font-size:.65rem;font-weight:600;padding:.2rem .55rem;background:rgba(26,35,126,.18);color:#90CAF9;border-radius:100px;border:1px solid rgba(26,35,126,.38)}
+[data-theme="light"] .art{background:rgba(26,35,126,.1);color:#1A237E;border-color:rgba(26,35,126,.3)}
 
 /* ===== CONTATO ===== */
 #contato{background:var(--bg)}
@@ -443,7 +444,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         <div class="stat-c rv"><div class="stat-n" data-target="8">0</div><div class="stat-l">Projetos no Portfólio</div></div>
         <div class="stat-c rv"><div class="stat-n" data-target="3">0</div><div class="stat-l">Anos de Experiência</div></div>
         <div class="stat-c rv"><div class="stat-n" data-target="5">0</div><div class="stat-l">Setores Atendidos</div></div>
-        <div class="stat-c rv"><div class="stat-n" data-target="6">0</div><div class="stat-l">Ferramentas Dominadas</div></div>
+        <div class="stat-c rv"><div class="stat-n" data-target="5">0</div><div class="stat-l">Habilidades de Design</div></div>
       </div>
     </div>
   </div>
@@ -453,19 +454,9 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 <section id="habilidades" class="sec">
   <div class="wrap">
     <span class="lbl rv">Skills</span>
-    <h2 class="stit rv">Ferramentas &amp; <span>Habilidades</span></h2>
+    <h2 class="stit rv"><span>Habilidades</span></h2>
     <div class="skills-g">
-      <div class="skill-grp rvl">
-        <h3>Design Tools</h3>
-        <div class="skill-items">
-          <div class="skill-item"><div class="skill-hd"><div class="skill-nm"><span class="skill-ic">🎨</span>Figma</div><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
-          <div class="skill-item"><div class="skill-hd"><div class="skill-nm"><span class="skill-ic">📷</span>Adobe Photoshop</div><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
-          <div class="skill-item"><div class="skill-hd"><div class="skill-nm"><span class="skill-ic">✏️</span>Adobe Illustrator</div><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
-          <div class="skill-item"><div class="skill-hd"><div class="skill-nm"><span class="skill-ic">📰</span>Adobe InDesign</div><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
-          <div class="skill-item"><div class="skill-hd"><div class="skill-nm"><span class="skill-ic">🎬</span>After Effects</div><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
-        </div>
-      </div>
-      <div class="skill-grp rvr">
+      <div class="skill-grp rv">
         <h3>Design Skills</h3>
         <div class="skill-items">
           <div class="skill-item"><div class="skill-hd"><div class="skill-nm"><span class="skill-ic">📱</span>UI/UX Design</div><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
@@ -543,17 +534,13 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         <h2 class="stit rv">Vamos criar algo <span>incrível</span> juntos?</h2>
         <p class="rv">Disponível para projetos freelance e oportunidades full time remotas. Seja um briefing completo ou apenas uma ideia inicial — adoraria ouvir sobre seu projeto.</p>
         <div class="soc-links rv">
-          <a href="https://www.behance.net/luanfischer" target="_blank" rel="noopener" class="soc-link">
-            <div class="soc-ic" style="background:rgba(26,35,126,.15);color:#90CAF9;font-size:.85rem">Be</div>
-            <div><div class="soc-tx">behance.net/luanfischer</div><div class="soc-lb">Portfólio Completo</div></div>
-          </a>
           <a href="https://www.linkedin.com/in/luanavilafischer" target="_blank" rel="noopener" class="soc-link">
             <div class="soc-ic" style="background:rgba(10,102,194,.15);color:#70B5F9;font-size:.8rem">in</div>
             <div><div class="soc-tx">linkedin.com/in/luanavilafischer</div><div class="soc-lb">Conexões Profissionais</div></div>
           </a>
-          <a href="mailto:luanfischer51@gmail.com" class="soc-link">
+          <a href="mailto:luanavilafischer@gmail.com" class="soc-link">
             <div class="soc-ic" style="background:rgba(230,81,0,.15);color:var(--pri)">✉</div>
-            <div><div class="soc-tx">luanfischer51@gmail.com</div><div class="soc-lb">E-mail Direto</div></div>
+            <div><div class="soc-tx">luanavilafischer@gmail.com</div><div class="soc-lb">E-mail Direto</div></div>
           </a>
         </div>
       </div>
@@ -627,7 +614,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 const PROJECTS = [
   {id:5,num:'01',cats:['ui-ux','ux-research'],
    title:'Tripideias — App de Viagens',sub:'UX/UI Mobile B2B2C — Double Diamond Completo',
-   tags:['UX Design','UI Design','Mobile','Research'],
+   tags:['UI/UX Design','Mobile','Research'],
    tools:['Figma','FigJam'],
    grad:'linear-gradient(135deg,#004D40 0%,#00695C 40%,#00897B 100%)',
    cover:'assets/proj-05/cover.jpg',
@@ -659,7 +646,7 @@ const PROJECTS = [
    ]},
   {id:6,num:'02',cats:['ux-research'],
    title:'AluraMed — UX Research',sub:'Pesquisa Qualitativa para App de Telemedicina',
-   tags:['UX Research','Mobile','Telemedicina'],
+   tags:['UX Research','Mobile'],
    notionUrl:'https://luanfischer.notion.site/AluraMed-111a55ddffb2801bb8d8c2aa031bcfd2',
    tools:['Figma','FigJam','Notion'],
    grad:'linear-gradient(135deg,#880E4F 0%,#AD1457 50%,#C2185B 100%)',
@@ -684,7 +671,7 @@ const PROJECTS = [
    ]},
   {id:1,num:'03',cats:['ui-ux'],
    title:'Banco da Família',sub:'Redesign de Site — UX/UI para Cooperativa Financeira',
-   tags:['UX Design','Web Design','UI Design','Figma'],
+   tags:['UI/UX Design','Web Design','Figma'],
    tools:['Figma','Photoshop'],
    grad:'linear-gradient(135deg,#E65100 0%,#BF360C 35%,#1A237E 100%)',
    cover:'assets/site-bf/cover.jpg',
@@ -727,7 +714,7 @@ const PROJECTS = [
    ]}},
   {id:7,num:'04',cats:['ui-ux'],
    title:'Landing Page | Alessandra Breda',sub:'LP de Alta Conversão para Mentoria Premium — MPR',
-   tags:['UI/UX','Landing Page','Copywriting','Branding'],
+   tags:['UI/UX Design','Landing Page','Copywriting','Branding'],
    tools:['Figma','HTML/CSS'],
    cover:'assets/alessandra/cover.jpg',
    badges:[],
@@ -771,7 +758,7 @@ const PROJECTS = [
    }},
   {id:8,num:'05',cats:['ui-ux'],
    title:'Landing Page | Prandi',sub:'LP Comercial B2B — Estruturas Pré-Moldadas de Concreto',
-   tags:['UI/UX','Landing Page','B2B','CRO'],
+   tags:['UI/UX Design','Landing Page','B2B','CRO'],
    tools:['Figma'],
    grad:'linear-gradient(135deg,#7B0000 0%,#C62828 50%,#212121 100%)',
    cover:'assets/prandi/cover.jpg',
@@ -793,7 +780,7 @@ const PROJECTS = [
    ]},
   {id:2,num:'06',cats:['ui-ux'],
    title:'Layout de Site | Revista SSP',sub:'Portal Digital para Publicação Especializada em Segurança',
-   tags:['UI/UX','Web Design','Portal de Notícias','Figma'],
+   tags:['UI/UX Design','Web Design','Figma'],
    tools:['Figma','Photoshop','Illustrator'],
    grad:'linear-gradient(135deg,#0D47A1 0%,#1565C0 45%,#006064 100%)',
    cover:'assets/proj-02/cover.jpg',
@@ -819,7 +806,7 @@ const PROJECTS = [
    ]},
   {id:4,num:'07',cats:['ui-ux'],
    title:'Landing Page | Revista SSP',sub:'Captação de Assinantes — Topo do Funil de Conteúdo',
-   tags:['UI/UX','Landing Page','CRO','Figma'],
+   tags:['UI/UX Design','Landing Page','CRO','Figma'],
    tools:['Figma'],
    grad:'linear-gradient(135deg,#006064 0%,#00838F 50%,#0277BD 100%)',
    cover:'assets/proj-07/cover.jpg',
@@ -840,7 +827,7 @@ const PROJECTS = [
    ]},
   {id:3,num:'08',cats:['ui-ux'],
    title:'Landing Page | Pedrosa Previdência',sub:'CRO com Psicologia Cognitiva — Transformando Ansiedade em Ação',
-   tags:['UI/UX','CRO','Landing Page','UX Writing','Figma'],
+   tags:['UI/UX Design','CRO','Landing Page','UX Writing','Figma'],
    tools:['Figma','Photoshop'],
    grad:'linear-gradient(135deg,#1A237E 0%,#311B92 50%,#4A148C 100%)',
    cover:'assets/proj-03/cover.jpg',
@@ -1258,7 +1245,7 @@ document.getElementById('cform').addEventListener('submit',function(e){
   }
   const subj=encodeURIComponent(`Portfólio — Mensagem de ${n}`);
   const body=encodeURIComponent(`Nome: ${n}\nE-mail: ${em}\n\n${msg}`);
-  window.location.href=`mailto:luanfischer51@gmail.com?subject=${subj}&body=${body}`;
+  window.location.href=`mailto:luanavilafischer@gmail.com?subject=${subj}&body=${body}`;
   fmsg.textContent='Seu cliente de e-mail foi aberto com a mensagem pronta para envio!';
   fmsg.className='form-msg ok';
   this.reset();
