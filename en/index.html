@@ -970,7 +970,7 @@ function openM(p){
         allImgs.push({src:dir+fn,lbl:sec.title,desc:''});
         imgs+=`<div class="gal-real-item" onclick="openLB(${idx})">
           <img src="${dir}${fn}" loading="lazy" alt="${sec.title}">
-          <div class="gal-hover"><span>Ampliar ↗</span></div>
+          <div class="gal-hover"><span>Enlarge ↗</span></div>
         </div>`;
       });
       galHTML+=`<div class="gal-section">
@@ -985,7 +985,7 @@ function openM(p){
           <span class="gal-icon">${g.icon}</span>
           <span class="gal-lbl">${g.lbl}</span>
         </div>
-        <div class="gal-hover"><span>Ampliar ↗</span></div>
+        <div class="gal-hover"><span>Enlarge ↗</span></div>
       </div>`).join('');
     galHTML=`<div class="gal-grid">${items}</div>`;
     allImgs=p.gallery.map(g=>({...g,grad:p.grad}));
@@ -1000,17 +1000,17 @@ function openM(p){
       ${p.personas.map(pe=>`
         <div style="margin-bottom:1rem;padding:.85rem 1rem;background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--rsm)">
           <div style="font-weight:700;font-size:.88rem;color:var(--txt);margin-bottom:.35rem">${pe.name}</div>
-          <div style="font-size:.82rem;color:var(--muted);margin-bottom:.35rem"><strong style="color:var(--dim)">Dor:</strong> ${pe.pain}</div>
-          <div style="font-size:.82rem;color:var(--muted)"><strong style="color:var(--pri)">Necessidade UX:</strong> ${pe.ux}</div>
+          <div style="font-size:.82rem;color:var(--muted);margin-bottom:.35rem"><strong style="color:var(--dim)">Pain:</strong> ${pe.pain}</div>
+          <div style="font-size:.82rem;color:var(--muted)"><strong style="color:var(--pri)">UX Need:</strong> ${pe.ux}</div>
         </div>`).join('')}
     </div>`:'';
 
   const metodologiaSection=p.metodologia?`
-    <div class="m-sec"><h4>Metodologia</h4><p>${p.metodologia}</p></div>`:'';
+    <div class="m-sec"><h4>Methodology</h4><p>${p.metodologia}</p></div>`:'';
 
   const ytSection=p.youtube?`
     <div class="m-sec">
-      <h4>Vídeo do Projeto</h4>
+      <h4>Project Video</h4>
       <div class="yt-wrap">
         <iframe src="https://www.youtube.com/embed/${p.youtube}" allowfullscreen></iframe>
       </div>
@@ -1018,13 +1018,13 @@ function openM(p){
 
   const learningsSection=p.learnings?`
     <div class="m-sec">
-      <h4>Aprendizados</h4>
+      <h4>Learnings</h4>
       ${p.learnings.map(l=>`<p style="margin-bottom:.75rem;padding-left:.85rem;border-left:2px solid var(--pri)">${l}</p>`).join('')}
     </div>`:'';
 
   const styleGuideSection=p.styleGuide?`
     <div class="m-sec">
-      <h4>Style Guide — Cores</h4>
+      <h4>Style Guide — Colors</h4>
       <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem">
         ${p.styleGuide.colors.map(c=>`
           <div style="flex:1;min-width:80px;max-width:130px">
@@ -1035,7 +1035,7 @@ function openM(p){
           </div>`).join('')}
       </div>
       ${p.styleGuide.typography?`
-      <h4 style="margin-top:1.25rem">Style Guide — Tipografia</h4>
+      <h4 style="margin-top:1.25rem">Style Guide — Typography</h4>
       <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem">
         ${p.styleGuide.typography.map(t=>`
           <div style="flex:1;min-width:160px;background:var(--card);border-radius:var(--rsm);padding:.75rem 1rem;border:1px solid rgba(128,128,128,.12)">
@@ -1052,55 +1052,55 @@ function openM(p){
     <div class="m-tags">${tags}</div>
     ${p.figmaUrl?`
     <div class="m-sec">
-      <h4>Protótipo no Figma</h4>
+      <h4>Figma Prototype</h4>
       <div class="m-figma-wrap">
         <iframe src="${p.figmaUrl}" title="${p.title} — Figma" allowfullscreen></iframe>
         <div class="m-live-bar">
-          <span>Design interativo</span>
-          <a href="${p.figmaLink}" target="_blank" rel="noopener">Abrir no Figma ↗</a>
+          <span>Interactive design</span>
+          <a href="${p.figmaLink}" target="_blank" rel="noopener">Open in Figma ↗</a>
         </div>
       </div>
     </div>`:''}
     ${p.figjamUrl?`
     <div class="m-sec">
-      <h4>Documentação da Pesquisa — FigJam</h4>
+      <h4>Research Documentation — FigJam</h4>
       <div class="m-figma-wrap">
         <iframe src="${p.figjamUrl}" title="${p.title} — FigJam" allowfullscreen></iframe>
         <div class="m-live-bar">
-          <span>Board interativo</span>
-          <a href="${p.figjamLink}" target="_blank" rel="noopener">Abrir no FigJam ↗</a>
+          <span>Interactive board</span>
+          <a href="${p.figjamLink}" target="_blank" rel="noopener">Open in FigJam ↗</a>
         </div>
       </div>
     </div>`:''}
     ${p.notionUrl?`
     <div class="m-sec">
-      <h4>Documentação Completa</h4>
+      <h4>Complete Documentation</h4>
       <div class="m-notion-card">
         <div class="m-notion-ic">📋</div>
         <div class="m-notion-info">
-          <div class="m-notion-title">Repositório de Pesquisa — ${p.title}</div>
-          <div class="m-notion-sub">Documentação completa do processo de pesquisa: entrevistas, síntese de insights, personas e artefatos</div>
+          <div class="m-notion-title">Research Repository — ${p.title}</div>
+          <div class="m-notion-sub">Complete research process documentation: interviews, insight synthesis, personas and artifacts</div>
         </div>
-        <a href="${p.notionUrl}" target="_blank" rel="noopener" class="m-notion-btn">Abrir no Notion ↗</a>
+        <a href="${p.notionUrl}" target="_blank" rel="noopener" class="m-notion-btn">Open in Notion ↗</a>
       </div>
     </div>`:''}
     ${p.liveUrl||galHTML?`<div class="m-sec gal-wrap">
-      <h4>${p.liveUrl?'Landing Page ao Vivo':'Galeria do Projeto'}</h4>
+      <h4>${p.liveUrl?'Live Landing Page':'Project Gallery'}</h4>
       ${p.liveUrl?`
       <div class="m-live-wrap">
         <iframe src="${p.liveUrl}" title="${p.title}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
         <div class="m-live-bar">
-          <span>Projeto interativo</span>
-          <a href="${p.liveUrl}" target="_blank" rel="noopener">Abrir em nova aba ↗</a>
+          <span>Interactive project</span>
+          <a href="${p.liveUrl}" target="_blank" rel="noopener">Open in new tab ↗</a>
         </div>
       </div>`:galHTML}
     </div>`:''}
-    <div class="m-sec"><h4>Sobre o Projeto</h4><p>${p.desc}</p></div>
-    <div class="m-sec"><h4>Desafio</h4><p>${p.challenge}</p></div>
-    <div class="m-sec"><h4>Solução</h4><p>${p.solution}</p></div>
+    <div class="m-sec"><h4>About the Project</h4><p>${p.desc}</p></div>
+    <div class="m-sec"><h4>Challenge</h4><p>${p.challenge}</p></div>
+    <div class="m-sec"><h4>Solution</h4><p>${p.solution}</p></div>
     ${personasSection}
     ${metodologiaSection}
-    <div class="m-sec"><h4>Ferramentas</h4><div class="m-tools">${tools}</div></div>
+    <div class="m-sec"><h4>Tools</h4><div class="m-tools">${tools}</div></div>
     ${ytSection}
     ${learningsSection}
     ${styleGuideSection}
