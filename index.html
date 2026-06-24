@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luan Fischer — UI/UX Designer & UX Researcher</title>
+<title>Luan Fischer — Product Designer · Front-end · AI-assisted</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D0D1A'/%3E%3Crect width='32' height='32' rx='7' fill='none' stroke='%23E65100' stroke-width='1.5'/%3E%3Ctext x='16' y='22.5' font-family='Inter%2CArial%2Csans-serif' font-size='13' font-weight='900' fill='%23E65100' text-anchor='middle' letter-spacing='-0.5'%3ELF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -181,6 +181,15 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .sk-foot{display:flex;align-items:center;gap:.75rem;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--bdr);opacity:.5}
 .sk-dot{width:6px;height:6px;border-radius:50%;background:var(--pri);flex-shrink:0;animation:sk-pulse 2s ease-in-out infinite}
 .sk-hint{font-size:.6875rem;color:var(--muted);letter-spacing:.05em}
+/* skill category cards */
+.sk-cats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0 0}
+.sk-cat{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--r);padding:2rem 2rem 1.75rem;transition:border-color var(--tr)}
+.sk-cat:hover{border-color:var(--pri)}
+.sk-cat-hd{margin-bottom:1.25rem}
+.sk-cat-title{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pri)}
+.sk-cat-items{display:flex;flex-wrap:wrap;gap:.5rem}
+.sk-chip{font-size:.82rem;padding:.35rem .75rem;background:var(--bg);border:1px solid var(--bdr);border-radius:100px;color:var(--txt);font-weight:500;line-height:1.4}
+@media(max-width:600px){.sk-cats{grid-template-columns:1fr}}
 @keyframes sk-pulse{0%,100%{opacity:.5}50%{opacity:1}}
 
 /* ===== PROJETOS ===== */
@@ -206,6 +215,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .bdg{font-size:.62rem;font-weight:700;padding:.25rem .65rem;border-radius:100px;line-height:1}
 .bdg-star{background:#FFD700;color:#333}
 .bdg-ux{background:rgba(26,35,126,.88);color:#90CAF9;border:1px solid rgba(144,202,249,.3)}
+.bdg-hackathon{background:#fff;color:#B45309;border:2px solid #F59E0B;font-size:.65rem;font-weight:700;letter-spacing:.03em}
 .proj-body{padding:1.5rem}
 .proj-tit{font-size:1rem;font-weight:700;line-height:1.3;margin-bottom:.25rem}
 .proj-sub{font-size:.78rem;color:var(--dim);margin:0}
@@ -306,11 +316,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .proc-intro{max-width:640px;margin-bottom:4rem}
 .proc-intro p{font-size:1.05rem;color:var(--muted);line-height:1.85}
 .proc-wrap{position:relative}
-.proc-line{position:absolute;top:3.5rem;left:calc(12.5% + 8px);right:calc(12.5% + 8px);height:2px;background:linear-gradient(90deg,var(--pri),var(--sec));opacity:.2}
-.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.proc-line{position:absolute;top:3.5rem;left:calc(10% + 8px);right:calc(10% + 8px);height:1px;background:linear-gradient(90deg,var(--pri),var(--sec));opacity:.2}
+.proc-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;position:relative}
 .pstep{text-align:center}
-.pstep-ic{width:72px;height:72px;background:var(--bgc);border:2px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin:0 auto 1.5rem;position:relative;z-index:1;transition:all var(--tr)}
-.pstep:hover .pstep-ic{border-color:var(--pri);background:rgba(230,81,0,.08);transform:scale(1.1);box-shadow:0 0 32px rgba(230,81,0,.18)}
+.pstep-ic{width:64px;height:64px;background:var(--bgc);border:1px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative;z-index:1;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr)}
+.pstep-ic svg{width:22px;height:22px;stroke:var(--muted);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pstep:hover .pstep-ic{border-color:var(--pri);transform:scale(1.08);box-shadow:0 0 24px rgba(230,81,0,.22)}
 .pstep-n{position:absolute;top:-8px;right:-8px;width:24px;height:24px;background:var(--pri);border-radius:50%;font-size:.68rem;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center}
 .pstep h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem}
 .pstep p{font-size:.875rem;color:var(--muted);line-height:1.75}
@@ -419,7 +430,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <div class="hero-cnt">
       <div class="hero-eyb rv">
         <span class="eline"></span>
-        <span>Disponível para Freelance &amp; Full Time Remote</span>
+        <span>Disponível para Full Time · Presencial em Lages/SC ou Remoto</span>
       </div>
       <h1 class="hero-name rv">
         <span class="fn">Luan</span>
@@ -429,7 +440,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         <span class="typed" id="typed"></span><span class="cursor-blink"></span>
       </div>
       <p class="hero-desc rv">
-        UI/UX Designer baseado em Lages, SC, Brasil. Especialista em experiências digitais, interfaces de alta conversão e pesquisa de usuário — do discovery ao handoff.
+        Fecho o ciclo completo — do discovery ao deploy — de forma autônoma e acelerada por IA. Design de produto, front-end e fluxo AI-assisted em uma só pessoa.
       </p>
       <div class="hero-ctas rv">
         <a href="#projetos" class="btn btn-pri">
@@ -447,7 +458,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <div class="badge-ring"></div>
     <svg class="badge-svg" viewBox="0 0 170 170">
       <defs><path id="cp" d="M 85,85 m -65,0 a 65,65 0 1,1 130,0 a 65,65 0 1,1 -130,0"/></defs>
-      <text><textPath href="#cp">UI/UX · UX Research · Product Design · Figma · </textPath></text>
+      <text><textPath href="#cp">Product Design · Front-end · AI-assisted · Deploy · </textPath></text>
     </svg>
     <div class="badge-ctr"><span class="star">✦</span>Design</div>
   </div>
@@ -460,17 +471,20 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <div class="sobre-g">
       <div class="sobre-text">
         <span class="lbl rv">Sobre mim</span>
-        <h2 class="stit rv">Designer com <span>visão</span> estratégica</h2>
-        <p class="rv">Sou UI/UX Designer especializado em interfaces digitais, landing pages de alta conversão e pesquisa de usuário. Minha abordagem combina dados de UX Research com decisões de design que conectam negócios e pessoas.</p>
-        <p class="rv">Aplico o processo Double Diamond — da imersão ao handoff — garantindo que cada solução seja fundamentada em pesquisa real, não em intuição. Cada pixel tem uma razão estratégica.</p>
-        <p class="rv">Ao longo da minha trajetória, atuei em setores como financeiro, previdência, saúde digital e turismo corporativo — construindo um portfólio diverso que demonstra profundidade em UX e entrega consistente de resultados.</p>
+        <h2 class="stit rv">Designer de produto com <span>stack completo</span></h2>
+        <p class="rv">Sou designer de produto com stack completo: do problema de negócio ao código em produção.</p>
+        <p class="rv">Trabalho na interseção entre design, front-end e IA — usando Figma MCP, Claude Code e vibe coding como ferramentas reais de entrega, não como curiosidade. Isso me permite iterar mais rápido, comunicar melhor com times de desenvolvimento e assumir responsabilidade pela entrega ponta a ponta.</p>
+        <p class="rv">Tenho background em editorial, branding e motion, e ao longo dos últimos anos entreguei projetos reais para clientes como Banco da Família, Prandi Pré-Fabricados e Alessandra Breda — desde o discovery até o deploy e manutenção.</p>
+        <p class="rv">Em 2026, desenvolvi e apresentei o SportsHub no HackathOrion (Orion Parque Tecnológico, Lages) — uma plataforma de coleta de dados esportivos para a Fundação de Esportes de Lages. Ficamos em 1º lugar.</p>
         <div class="sobre-tags rv">
-          <span class="tag">UI/UX Design</span>
-          <span class="tag">UX Research</span>
           <span class="tag">Product Design</span>
-          <span class="tag">Landing Pages CRO</span>
-          <span class="tag">Figma</span>
-          <span class="tag">Design Systems</span>
+          <span class="tag">Front-end (HTML/CSS/JS)</span>
+          <span class="tag">Figma MCP</span>
+          <span class="tag">Claude Code</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Design System</span>
+          <span class="tag">CRO</span>
+          <span class="tag">Deploy &amp; Sustentação</span>
         </div>
       </div>
     </div>
@@ -482,50 +496,47 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
   <div class="wrap">
     <span class="lbl rv">Skills</span>
     <h2 class="stit rv"><span>Habilidades</span></h2>
-    <div class="sk-list rv">
-      <div class="sk-hdr">
-        <div class="sk-hdr-line"></div>
-        <span class="sk-hdr-lbl">Expertise</span>
-      </div>
-      <div class="sk-items">
-        <div class="sk-row" style="--level:95%">
-          <div class="sk-inner">
-            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">UI/UX Design</span></div>
-            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">95%</span></div>
-          </div>
-          <div class="sk-div"></div>
-        </div>
-        <div class="sk-row" style="--level:85%">
-          <div class="sk-inner">
-            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">UX Research</span></div>
-            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">85%</span></div>
-          </div>
-          <div class="sk-div"></div>
-        </div>
-        <div class="sk-row" style="--level:92%">
-          <div class="sk-inner">
-            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">Prototipagem</span></div>
-            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">92%</span></div>
-          </div>
-          <div class="sk-div"></div>
-        </div>
-        <div class="sk-row" style="--level:90%">
-          <div class="sk-inner">
-            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">CRO &amp; Landing Pages</span></div>
-            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">90%</span></div>
-          </div>
-          <div class="sk-div"></div>
-        </div>
-        <div class="sk-row" style="--level:78%">
-          <div class="sk-inner">
-            <div class="sk-left"><div class="sk-bar-v"></div><span class="sk-name">Design Systems</span></div>
-            <div class="sk-right"><div class="sk-track"><div class="sk-fill"></div><div class="sk-shine"></div></div><span class="sk-pct">78%</span></div>
-          </div>
+    <div class="sk-cats rv">
+      <div class="sk-cat">
+        <div class="sk-cat-hd"><span class="sk-cat-title">Design &amp; Produto</span></div>
+        <div class="sk-cat-items">
+          <span class="sk-chip">Figma</span>
+          <span class="sk-chip">Prototipagem</span>
+          <span class="sk-chip">Design System</span>
+          <span class="sk-chip">UX Research</span>
+          <span class="sk-chip">CRO</span>
+          <span class="sk-chip">Branding</span>
+          <span class="sk-chip">Motion</span>
         </div>
       </div>
-      <div class="sk-foot">
-        <span class="sk-dot"></span>
-        <span class="sk-hint">Passe o mouse para explorar</span>
+      <div class="sk-cat">
+        <div class="sk-cat-hd"><span class="sk-cat-title">Front-end</span></div>
+        <div class="sk-cat-items">
+          <span class="sk-chip">HTML</span>
+          <span class="sk-chip">CSS</span>
+          <span class="sk-chip">JavaScript</span>
+          <span class="sk-chip">GitHub Pages</span>
+          <span class="sk-chip">Framer (básico)</span>
+        </div>
+      </div>
+      <div class="sk-cat">
+        <div class="sk-cat-hd"><span class="sk-cat-title">AI Workflow</span></div>
+        <div class="sk-cat-items">
+          <span class="sk-chip">Figma MCP</span>
+          <span class="sk-chip">Claude Code</span>
+          <span class="sk-chip">Vibe Coding</span>
+          <span class="sk-chip">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="sk-cat">
+        <div class="sk-cat-hd"><span class="sk-cat-title">Processo</span></div>
+        <div class="sk-cat-items">
+          <span class="sk-chip">Double Diamond</span>
+          <span class="sk-chip">Design Thinking</span>
+          <span class="sk-chip">Discovery</span>
+          <span class="sk-chip">Handoff</span>
+          <span class="sk-chip">Documentação</span>
+        </div>
       </div>
     </div>
   </div>
@@ -538,6 +549,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <h2 class="stit rv">Projetos <span>Selecionados</span></h2>
     <div class="filter-bar rv">
       <button class="fbtn act" data-f="all">Todos</button>
+      <button class="fbtn" data-f="produto-digital">Produto Digital</button>
       <button class="fbtn" data-f="ui-ux">UI/UX</button>
       <button class="fbtn" data-f="ux-research">UX Research</button>
     </div>
@@ -550,36 +562,57 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 <section id="processo" class="sec">
   <div class="wrap">
     <span class="lbl rv">Metodologia</span>
-    <h2 class="stit rv">Processo de <span>Design</span></h2>
+    <h2 class="stit rv">Como <span>trabalho</span></h2>
     <div class="proc-intro rv">
-      <p>Cada projeto começa com perguntas, não com pixels. Aplico metodologias como Double Diamond e Design Thinking para garantir que as soluções visuais sejam fundamentadas em dados reais e nas genuínas necessidades dos usuários.</p>
+      <p>Produto digital não começa no Figma — começa no problema. Meu processo combina método UX com execução técnica e IA para entregar mais rápido sem perder qualidade.</p>
     </div>
     <div class="proc-wrap">
       <div class="proc-line"></div>
       <div class="proc-steps">
         <div class="pstep rv">
-          <div class="pstep-ic">🔭<div class="pstep-n">01</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <div class="pstep-n">01</div>
+          </div>
           <h3>Descoberta</h3>
           <p>Imersão no problema, pesquisa com usuários, análise competitiva e compreensão profunda do contexto de negócio.</p>
           <div class="arts"><span class="art">Desk Research</span><span class="art">Entrevistas</span><span class="art">Benchmarking</span></div>
         </div>
         <div class="pstep rv">
-          <div class="pstep-ic">🎯<div class="pstep-n">02</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div class="pstep-n">02</div>
+          </div>
           <h3>Definição</h3>
           <p>Síntese de insights, criação de personas, mapeamento da jornada e definição clara do problema a resolver.</p>
           <div class="arts"><span class="art">Matriz CSD</span><span class="art">Personas</span><span class="art">Value Canvas</span></div>
         </div>
         <div class="pstep rv">
-          <div class="pstep-ic">⚡<div class="pstep-n">03</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            <div class="pstep-n">03</div>
+          </div>
           <h3>Prototipagem</h3>
           <p>Geração de ideias com Crazy Eights, wireframes, protótipo navegável e design system estruturado no Figma.</p>
           <div class="arts"><span class="art">Crazy Eights</span><span class="art">Protótipo Figma</span><span class="art">Design System</span></div>
         </div>
         <div class="pstep rv">
-          <div class="pstep-ic">🚀<div class="pstep-n">04</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <div class="pstep-n">04</div>
+          </div>
           <h3>Entrega</h3>
           <p>Testes de usabilidade, iteração com base em feedback real, handoff e documentação completa para desenvolvimento.</p>
           <div class="arts"><span class="art">Teste de Usabilidade</span><span class="art">Handoff</span><span class="art">Documentação</span></div>
+        </div>
+        <div class="pstep rv">
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            <div class="pstep-n">05</div>
+          </div>
+          <h3>Sustentação</h3>
+          <p>Deploy, monitoramento, ajustes evolutivos e documentação para garantir que o produto continue funcionando após o go live.</p>
+          <div class="arts"><span class="art">GitHub Pages</span><span class="art">Formspree</span><span class="art">Hostgator</span><span class="art">Domínio</span></div>
         </div>
       </div>
     </div>
@@ -592,8 +625,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <div class="cont-g">
       <div class="cont-info">
         <span class="lbl rv">Contato</span>
-        <h2 class="stit rv">Vamos criar algo <span>incrível</span> juntos?</h2>
-        <p class="rv">Disponível para projetos freelance e oportunidades full time remotas. Seja um briefing completo ou apenas uma ideia inicial — adoraria ouvir sobre seu projeto.</p>
+        <h2 class="stit rv">Vamos construir <span>produto</span> juntos?</h2>
+        <p class="rv">Disponível para full time — presencial em Lages/SC ou remoto. Se você está montando um time de produto — seja para um squad, MVP ou projeto de longa duração — me conta o desafio.</p>
         <div class="soc-links rv">
           <a href="https://www.linkedin.com/in/luanavilafischer" target="_blank" rel="noopener" class="soc-link">
             <div class="soc-ic" style="background:rgba(10,102,194,.15);color:#70B5F9;font-size:.8rem">in</div>
@@ -673,7 +706,37 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 ================================================================ */
 
 const PROJECTS = [
-  {id:5,num:'01',cats:['ui-ux','ux-research'],
+  {id:9,num:'01',cats:['produto-digital','ux-research'],
+   title:'SportsHub',sub:'Plataforma de Dados Esportivos — HackathOrion 2026',
+   tags:['UX Research','Discovery','Prototipagem Figma','Front-end','Pitch Deck'],
+   tools:['Figma','React','Vite'],
+   grad:'linear-gradient(135deg,#c2410c 0%,#F97316 60%,#fb923c 100%)',
+   cover:'assets/sportshub/hub.jpg',
+   badges:[{type:'hackathon',text:'🏆 Hackathon · 1º Lugar'}],
+   desc:'Plataforma de coleta de dados esportivos desenvolvida para a Fundação de Esportes de Lages. Conecta praticantes de esporte, mapeia demandas da comunidade e gera dados para políticas públicas. Desenvolvido no HackathOrion 2026 — Orion Parque Tecnológico, Lages/SC.',
+   challenge:'A Fundação de Esportes de Lages tomava decisões sem dados. Nossa pesquisa com 79 moradores revelou que ~60% já desistiram de um esporte por falta de companhia ou por não saber onde praticar — e a maioria avalia a cidade com nota 1 ou 2 (de 5) na facilidade de encontrar informação sobre locais e horários esportivos.',
+   solution:'Hub digital com feed de eventos esportivos, confirmação de presença e painel de dados para a Fundação — permitindo decisões baseadas em demanda real da comunidade.',
+   views:'1º Lugar · HackathOrion 2026 · Orion Parque Tecnológico, Lages/SC',
+   youtube:null,
+   liveUrl:'https://luanfischerr.github.io/sportshub/',
+   liveLabel:'Protótipo Interativo',
+   personas:[
+     {name:'Praticante de Esporte — Lages/SC (n=79)',
+      pain:'~60% já desistiu de um esporte por falta de companhia ou por não saber onde praticar. A cidade recebe nota 1–2 de 5 na facilidade de encontrar informação sobre locais e horários.',
+      ux:'Feed de eventos por modalidade e localização, confirmação de presença com gamificação (streaks, XP) e perfil social para encontrar companhia de treino.'},
+     {name:'Gestores — Fundação de Esportes de Lages',
+      pain:'Decisões de investimento em infraestrutura sem dados reais de demanda por bairro, modalidade e faixa etária.',
+      ux:'Painel com demanda vs. oferta por bairro, tendências semanais de check-ins, distribuição por modalidade e faixa etária, insights acionáveis e exportação de relatório.'},
+   ],
+   metodologia:'Discovery orientado a dados: (1) Pesquisa quantitativa com 79 moradores de Lages — mapeamento de modalidades, frequência, barreiras e perfil social; (2) Síntese e definição de personas (praticante + gestor público); (3) Prototipagem Figma em alta fidelidade com 4 telas principais (Hub, Perfil, Locais, Fundação); (4) Desenvolvimento front-end e pitch deck para apresentação no hackathon. Dados-chave: 67% praticam esporte; 41% gostariam de conhecer novas pessoas para praticar; 88,6% usariam a plataforma.',
+   learnings:[
+     'Dados de pesquisa são o melhor argumento: a estatística de ~60% de desistência por falta de companhia foi o ponto de virada na apresentação para os jurados.',
+     'Em hackathon, o produto precisa comunicar antes de funcionar. A decisão de priorizar o painel da Fundação (dado acionável para política pública) foi estratégica para o pitch.',
+     'Dois dias de desenvolvimento forçam priorização brutal — o que ficou fora foi uma decisão de produto, não uma limitação técnica.',
+     '88,6% de intenção de uso validou a proposta antes de uma linha de código ser escrita em produção — UX Research como vantagem competitiva real.',
+   ],
+  },
+  {id:5,num:'02',cats:['ui-ux','ux-research'],
    title:'Tripideias — App de Viagens',sub:'UX/UI Mobile B2B2C — Double Diamond Completo',
    tags:['UI/UX Design','Mobile','Research'],
    tools:['Figma','FigJam'],
@@ -705,7 +768,7 @@ const PROJECTS = [
      'Entender o valor da ideia em relação aos concorrentes de mercado antes de desenhar a solução é indispensável — a análise competitiva moldou diretamente a proposta de valor.',
      'O que faria diferente: envolveria os stakeholders desde a fase de pesquisa, não apenas na cocriação da solução, para alinhar expectativas mais cedo e reduzir retrabalho.',
    ]},
-  {id:6,num:'02',cats:['ux-research'],
+  {id:6,num:'03',cats:['ux-research'],
    title:'AluraMed — UX Research',sub:'Pesquisa Qualitativa para App de Telemedicina',
    tags:['UX Research','Mobile'],
    notionUrl:'https://luanfischer.notion.site/AluraMed-380a55ddffb280b0be39cb1dbfc733a0?pvs=143',
@@ -730,7 +793,7 @@ const PROJECTS = [
      'A Matriz CSD é uma ferramenta poderosa para estruturar o que você não sabe antes de entrar em campo — evita que o pesquisador confirme o que já acredita e mantém o foco nas incertezas reais.',
      'Documentar tudo em um repositório Notion estruturado transforma a pesquisa em ativo de produto: as descobertas ficam acessíveis para o time de design e desenvolvimento em qualquer etapa futura.',
    ]},
-  {id:1,num:'03',cats:['ui-ux'],
+  {id:1,num:'04',cats:['ui-ux'],
    title:'Banco da Família',sub:'Redesign de Site — UX/UI para Cooperativa Financeira',
    tags:['UI/UX Design','Web Design','Figma'],
    tools:['Figma','Photoshop'],
@@ -773,7 +836,7 @@ const PROJECTS = [
      {name:'Cinza Escuro',hex:'#343333',role:'Texto'},
      {name:'Cinza Claro',hex:'#DADADA',role:'Background/Borda'},
    ]}},
-  {id:7,num:'04',cats:['ui-ux'],
+  {id:7,num:'05',cats:['ui-ux'],
    title:'Landing Page | Alessandra Breda',sub:'LP de Alta Conversão para Mentoria Premium — MPR',
    tags:['UI/UX Design','Landing Page','Copywriting','Branding'],
    tools:['Figma','HTML/CSS'],
@@ -817,7 +880,7 @@ const PROJECTS = [
        {name:'Jost',style:'Sans-serif geométrica · 300–700',role:'Corpo, labels, CTAs'},
      ]
    }},
-  {id:8,num:'05',cats:['ui-ux'],
+  {id:8,num:'06',cats:['ui-ux'],
    title:'Landing Page | Prandi',sub:'LP Comercial B2B — Estruturas Pré-Moldadas de Concreto',
    tags:['UI/UX Design','Landing Page','B2B','CRO'],
    tools:['Figma'],
@@ -839,7 +902,7 @@ const PROJECTS = [
       desc:'Zoom nas seções de conversão e adaptação mobile da LP: diferenciais expandidos, cards de serviços e footer com múltiplos pontos de contato.',
       images:['02.jpg'],dir:'prandi'},
    ]},
-  {id:2,num:'06',cats:['ui-ux'],
+  {id:2,num:'07',cats:['ui-ux'],
    title:'Layout de Site | Revista SSP',sub:'Portal Digital para Publicação Especializada em Segurança',
    tags:['UI/UX Design','Web Design','Figma'],
    tools:['Figma','Photoshop','Illustrator'],
@@ -865,7 +928,7 @@ const PROJECTS = [
       images:['01.gif','02.gif','03.gif','04.gif','05.gif','06.gif','07.gif','08.gif','09.jpg'],
       dir:'proj-02'},
    ]},
-  {id:4,num:'07',cats:['ui-ux'],
+  {id:4,num:'08',cats:['ui-ux'],
    title:'Landing Page | Revista SSP',sub:'Captação de Assinantes — Topo do Funil de Conteúdo',
    tags:['UI/UX Design','Landing Page','CRO','Figma'],
    tools:['Figma'],
@@ -886,7 +949,7 @@ const PROJECTS = [
       images:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'],
       dir:'proj-07'},
    ]},
-  {id:3,num:'08',cats:['ui-ux'],
+  {id:3,num:'09',cats:['ui-ux'],
    title:'Landing Page | Pedrosa Previdência',sub:'CRO com Psicologia Cognitiva — Transformando Ansiedade em Ação',
    tags:['UI/UX Design','CRO','Landing Page','UX Writing','Figma'],
    tools:['Figma','Photoshop'],
@@ -927,7 +990,7 @@ function renderProjects(filter='all'){
     el.dataset.pid=p.id;
     el.style.transitionDelay=(i*.07)+'s';
     el.onclick=()=>openM(p);
-    const bdgs=p.badges.map(b=>`<span class="bdg bdg-${b.type==='star'?'star':'ux'}">${b.text}</span>`).join('');
+    const bdgs=p.badges.map(b=>`<span class="bdg bdg-${b.type==='star'?'star':b.type==='hackathon'?'hackathon':'ux'}">${b.text}</span>`).join('');
     const tags=p.tags.map(t=>`<span class="ptag">${t}</span>`).join('');
     el.innerHTML=`
       <div class="proj-thumb">
@@ -1047,7 +1110,7 @@ function openM(p){
     </div>`:'';
 
   document.getElementById('mcnt').innerHTML=`
-    <div class="m-num">${p.num} / 08</div>
+    <div class="m-num">${p.num} / 09</div>
     <h2 class="m-tit">${p.title}</h2>
     <div class="m-tags">${tags}</div>
     ${p.figmaUrl?`
@@ -1085,7 +1148,7 @@ function openM(p){
       </div>
     </div>`:''}
     ${p.liveUrl||galHTML?`<div class="m-sec gal-wrap">
-      <h4>${p.liveUrl?'Landing Page ao Vivo':'Galeria do Projeto'}</h4>
+      <h4>${p.liveLabel||(p.liveUrl?'Landing Page ao Vivo':'Galeria do Projeto')}</h4>
       ${p.liveUrl?`
       <div class="m-live-wrap">
         <iframe src="${p.liveUrl}" title="${p.title}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
@@ -1185,7 +1248,7 @@ document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
 /* ================================================================
    TYPEWRITER
 ================================================================ */
-const ROLES=['UI/UX Designer','UX Researcher','Product Designer','CRO Specialist'];
+const ROLES=['Product Designer','Front-end Dev','AI-assisted','Full Stack Design'];
 let ri=0,ci=0,del=false;
 const tel=document.getElementById('typed');
 function tw(){
