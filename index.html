@@ -182,14 +182,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .sk-dot{width:6px;height:6px;border-radius:50%;background:var(--pri);flex-shrink:0;animation:sk-pulse 2s ease-in-out infinite}
 .sk-hint{font-size:.6875rem;color:var(--muted);letter-spacing:.05em}
 /* skill category cards */
-.sk-cats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;max-width:680px;margin:2.5rem auto 0}
-.sk-cat{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--r);padding:1.5rem 1.5rem 1.25rem;transition:border-color var(--tr)}
+.sk-cats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2.5rem 0 0}
+.sk-cat{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--r);padding:2rem 2rem 1.75rem;transition:border-color var(--tr)}
 .sk-cat:hover{border-color:var(--pri)}
-.sk-cat-hd{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
-.sk-cat-icon{font-size:1.1rem;line-height:1}
-.sk-cat-title{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pri)}
-.sk-cat-items{display:flex;flex-wrap:wrap;gap:.45rem}
-.sk-chip{font-size:.78rem;padding:.28rem .65rem;background:var(--bg);border:1px solid var(--bdr);border-radius:100px;color:var(--txt);font-weight:500;line-height:1.4}
+.sk-cat-hd{margin-bottom:1.25rem}
+.sk-cat-title{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pri)}
+.sk-cat-items{display:flex;flex-wrap:wrap;gap:.5rem}
+.sk-chip{font-size:.82rem;padding:.35rem .75rem;background:var(--bg);border:1px solid var(--bdr);border-radius:100px;color:var(--txt);font-weight:500;line-height:1.4}
 @media(max-width:600px){.sk-cats{grid-template-columns:1fr}}
 @keyframes sk-pulse{0%,100%{opacity:.5}50%{opacity:1}}
 
@@ -317,11 +316,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .proc-intro{max-width:640px;margin-bottom:4rem}
 .proc-intro p{font-size:1.05rem;color:var(--muted);line-height:1.85}
 .proc-wrap{position:relative}
-.proc-line{position:absolute;top:3.5rem;left:calc(12.5% + 8px);right:calc(12.5% + 8px);height:2px;background:linear-gradient(90deg,var(--pri),var(--sec));opacity:.2}
-.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.proc-line{position:absolute;top:3.5rem;left:calc(10% + 8px);right:calc(10% + 8px);height:1px;background:linear-gradient(90deg,var(--pri),var(--sec));opacity:.2}
+.proc-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;position:relative}
 .pstep{text-align:center}
-.pstep-ic{width:72px;height:72px;background:var(--bgc);border:2px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin:0 auto 1.5rem;position:relative;z-index:1;transition:all var(--tr)}
-.pstep:hover .pstep-ic{border-color:var(--pri);background:rgba(230,81,0,.08);transform:scale(1.1);box-shadow:0 0 32px rgba(230,81,0,.18)}
+.pstep-ic{width:64px;height:64px;background:var(--bgc);border:1px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative;z-index:1;transition:all var(--tr);color:var(--muted)}
+.pstep-ic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pstep:hover .pstep-ic{border-color:var(--pri);background:rgba(230,81,0,.08);transform:scale(1.08);box-shadow:0 0 28px rgba(230,81,0,.15);color:var(--pri)}
 .pstep-n{position:absolute;top:-8px;right:-8px;width:24px;height:24px;background:var(--pri);border-radius:50%;font-size:.68rem;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center}
 .pstep h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem}
 .pstep p{font-size:.875rem;color:var(--muted);line-height:1.75}
@@ -498,10 +498,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <h2 class="stit rv"><span>Habilidades</span></h2>
     <div class="sk-cats rv">
       <div class="sk-cat">
-        <div class="sk-cat-hd">
-          <span class="sk-cat-icon">🎨</span>
-          <span class="sk-cat-title">Design &amp; Produto</span>
-        </div>
+        <div class="sk-cat-hd"><span class="sk-cat-title">Design &amp; Produto</span></div>
         <div class="sk-cat-items">
           <span class="sk-chip">Figma</span>
           <span class="sk-chip">Prototipagem</span>
@@ -513,10 +510,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         </div>
       </div>
       <div class="sk-cat">
-        <div class="sk-cat-hd">
-          <span class="sk-cat-icon">⚡</span>
-          <span class="sk-cat-title">Front-end</span>
-        </div>
+        <div class="sk-cat-hd"><span class="sk-cat-title">Front-end</span></div>
         <div class="sk-cat-items">
           <span class="sk-chip">HTML</span>
           <span class="sk-chip">CSS</span>
@@ -526,10 +520,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         </div>
       </div>
       <div class="sk-cat">
-        <div class="sk-cat-hd">
-          <span class="sk-cat-icon">🤖</span>
-          <span class="sk-cat-title">AI Workflow</span>
-        </div>
+        <div class="sk-cat-hd"><span class="sk-cat-title">AI Workflow</span></div>
         <div class="sk-cat-items">
           <span class="sk-chip">Figma MCP</span>
           <span class="sk-chip">Claude Code</span>
@@ -538,10 +529,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         </div>
       </div>
       <div class="sk-cat">
-        <div class="sk-cat-hd">
-          <span class="sk-cat-icon">🔄</span>
-          <span class="sk-cat-title">Processo</span>
-        </div>
+        <div class="sk-cat-hd"><span class="sk-cat-title">Processo</span></div>
         <div class="sk-cat-items">
           <span class="sk-chip">Double Diamond</span>
           <span class="sk-chip">Design Thinking</span>
@@ -582,31 +570,46 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
       <div class="proc-line"></div>
       <div class="proc-steps">
         <div class="pstep rv">
-          <div class="pstep-ic">🔭<div class="pstep-n">01</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <div class="pstep-n">01</div>
+          </div>
           <h3>Descoberta</h3>
           <p>Imersão no problema, pesquisa com usuários, análise competitiva e compreensão profunda do contexto de negócio.</p>
           <div class="arts"><span class="art">Desk Research</span><span class="art">Entrevistas</span><span class="art">Benchmarking</span></div>
         </div>
         <div class="pstep rv">
-          <div class="pstep-ic">🎯<div class="pstep-n">02</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div class="pstep-n">02</div>
+          </div>
           <h3>Definição</h3>
           <p>Síntese de insights, criação de personas, mapeamento da jornada e definição clara do problema a resolver.</p>
           <div class="arts"><span class="art">Matriz CSD</span><span class="art">Personas</span><span class="art">Value Canvas</span></div>
         </div>
         <div class="pstep rv">
-          <div class="pstep-ic">⚡<div class="pstep-n">03</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            <div class="pstep-n">03</div>
+          </div>
           <h3>Prototipagem</h3>
           <p>Geração de ideias com Crazy Eights, wireframes, protótipo navegável e design system estruturado no Figma.</p>
           <div class="arts"><span class="art">Crazy Eights</span><span class="art">Protótipo Figma</span><span class="art">Design System</span></div>
         </div>
         <div class="pstep rv">
-          <div class="pstep-ic">🚀<div class="pstep-n">04</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <div class="pstep-n">04</div>
+          </div>
           <h3>Entrega</h3>
           <p>Testes de usabilidade, iteração com base em feedback real, handoff e documentação completa para desenvolvimento.</p>
           <div class="arts"><span class="art">Teste de Usabilidade</span><span class="art">Handoff</span><span class="art">Documentação</span></div>
         </div>
         <div class="pstep rv">
-          <div class="pstep-ic">🔧<div class="pstep-n">05</div></div>
+          <div class="pstep-ic">
+            <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            <div class="pstep-n">05</div>
+          </div>
           <h3>Sustentação</h3>
           <p>Deploy, monitoramento, ajustes evolutivos e documentação para garantir que o produto continue funcionando após o go live.</p>
           <div class="arts"><span class="art">GitHub Pages</span><span class="art">Formspree</span><span class="art">Hostgator</span><span class="art">Domínio</span></div>
@@ -715,6 +718,8 @@ const PROJECTS = [
    solution:'Hub digital com feed de eventos esportivos, confirmação de presença e painel de dados para a Fundação — permitindo decisões baseadas em demanda real da comunidade.',
    views:'1º Lugar · HackathOrion 2026 · Orion Parque Tecnológico, Lages/SC',
    youtube:null,
+   liveUrl:'assets/sportshub/app/index.html',
+   liveLabel:'Protótipo Interativo',
    personas:[
      {name:'Praticante de Esporte — Lages/SC (n=79)',
       pain:'~60% já desistiu de um esporte por falta de companhia ou por não saber onde praticar. A cidade recebe nota 1–2 de 5 na facilidade de encontrar informação sobre locais e horários.',
@@ -730,20 +735,7 @@ const PROJECTS = [
      'Dois dias de desenvolvimento forçam priorização brutal — o que ficou fora foi uma decisão de produto, não uma limitação técnica.',
      '88,6% de intenção de uso validou a proposta antes de uma linha de código ser escrita em produção — UX Research como vantagem competitiva real.',
    ],
-   sections:[
-     {title:'Hub — Feed de Eventos',
-      desc:'Feed principal com eventos esportivos abertos em Lages. Stats em tempo real (atletas ativos, eventos, locais, streak pessoal), busca por modalidade e botão "Confirmar presença" que alimenta o painel da Fundação.',
-      images:['hub.jpg'],dir:'sportshub'},
-     {title:'Locais — Mapa de Campos',
-      desc:'Diretório de locais esportivos com avaliação, check-ins por semana, nível de demanda em tempo real e informações de estrutura. Check-in gera XP e dados para a Fundação.',
-      images:['locais.jpg'],dir:'sportshub'},
-     {title:'Fundação — Painel de Dados',
-      desc:'Dashboard para gestores: demanda vs. oferta por bairro, tendência semanal de check-ins, distribuição por modalidade e faixa etária, e insights acionáveis (lacunas de infraestrutura, bairros com alta demanda não atendida).',
-      images:['fundacao.jpg'],dir:'sportshub'},
-     {title:'Perfil — Comunidade',
-      desc:'Perfil do atleta com histórico de modalidades, streak de atividade, XP acumulado e conexões com outros praticantes — loop de engajamento que resolve a dor de "não ter com quem praticar".',
-      images:['perfil.jpg'],dir:'sportshub'},
-   ]},
+  },
   {id:5,num:'02',cats:['ui-ux','ux-research'],
    title:'Tripideias — App de Viagens',sub:'UX/UI Mobile B2B2C — Double Diamond Completo',
    tags:['UI/UX Design','Mobile','Research'],
@@ -1156,7 +1148,7 @@ function openM(p){
       </div>
     </div>`:''}
     ${p.liveUrl||galHTML?`<div class="m-sec gal-wrap">
-      <h4>${p.liveUrl?'Landing Page ao Vivo':'Galeria do Projeto'}</h4>
+      <h4>${p.liveLabel||(p.liveUrl?'Landing Page ao Vivo':'Galeria do Projeto')}</h4>
       ${p.liveUrl?`
       <div class="m-live-wrap">
         <iframe src="${p.liveUrl}" title="${p.title}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
