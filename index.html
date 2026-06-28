@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luan Fischer — Product Designer · Front-end · AI-assisted</title>
+<title>Luan Fischer — Product Designer · AI-assisted</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D0D1A'/%3E%3Crect width='32' height='32' rx='7' fill='none' stroke='%23E65100' stroke-width='1.5'/%3E%3Ctext x='16' y='22.5' font-family='Inter%2CArial%2Csans-serif' font-size='13' font-weight='900' fill='%23E65100' text-anchor='middle' letter-spacing='-0.5'%3ELF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -376,6 +376,18 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
   .hero-ctas{flex-direction:column}
   .m-pan{width:100vw}
 }
+/* ===== CASE STUDY SECTIONS ===== */
+.cs-photo{width:100%;border-radius:var(--rsm);margin:1rem 0;display:block;max-height:460px;object-fit:cover;object-position:center}
+.cs-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin:1.25rem 0}
+.cs-stat{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--rsm);padding:1rem 1.25rem}
+.cs-n{display:block;font-size:1.75rem;font-weight:800;color:var(--pri);line-height:1.1}
+.cs-lbl{display:block;font-size:.73rem;color:var(--muted);margin-top:.35rem;line-height:1.45}
+.cs-body p{font-size:.875rem;color:var(--txt2);line-height:1.65;margin-bottom:.75rem}
+.cs-body p:last-child{margin-bottom:0}
+.cs-body strong{color:var(--txt);font-weight:600}
+.cs-quote{font-style:italic;color:var(--pri)!important;font-weight:500;padding:.75rem 1rem;border-left:3px solid var(--pri);background:rgba(230,81,0,.06);border-radius:0 var(--rsm) var(--rsm) 0;margin:1rem 0!important}
+.cs-photos-2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1rem 0}
+.cs-photo-item{width:100%;border-radius:var(--rsm);display:block;height:220px;object-fit:cover;object-position:center}
 </style>
 </head>
 <body>
@@ -440,7 +452,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         <span class="typed" id="typed"></span><span class="cursor-blink"></span>
       </div>
       <p class="hero-desc rv">
-        Fecho o ciclo completo — do discovery ao deploy — de forma autônoma e acelerada por IA. Design de produto, front-end e fluxo AI-assisted em uma só pessoa.
+        Fecho o ciclo completo, do discovery ao deploy, de forma autônoma e acelerada por IA. Product design, vibe coding e AI workflow em uma só pessoa.
       </p>
       <div class="hero-ctas rv">
         <a href="#projetos" class="btn btn-pri">
@@ -458,7 +470,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <div class="badge-ring"></div>
     <svg class="badge-svg" viewBox="0 0 170 170">
       <defs><path id="cp" d="M 85,85 m -65,0 a 65,65 0 1,1 130,0 a 65,65 0 1,1 -130,0"/></defs>
-      <text><textPath href="#cp">Product Design · Front-end · AI-assisted · Deploy · </textPath></text>
+      <text><textPath href="#cp">Product Design · AI Workflow · AI-assisted · Deploy · </textPath></text>
     </svg>
     <div class="badge-ctr"><span class="star">✦</span>Design</div>
   </div>
@@ -471,14 +483,14 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <div class="sobre-g">
       <div class="sobre-text">
         <span class="lbl rv">Sobre mim</span>
-        <h2 class="stit rv">Designer de produto com <span>stack completo</span></h2>
-        <p class="rv">Sou designer de produto com stack completo: do problema de negócio ao código em produção.</p>
-        <p class="rv">Trabalho na interseção entre design, front-end e IA — usando Figma MCP, Claude Code e vibe coding como ferramentas reais de entrega, não como curiosidade. Isso me permite iterar mais rápido, comunicar melhor com times de desenvolvimento e assumir responsabilidade pela entrega ponta a ponta.</p>
-        <p class="rv">Tenho background em editorial, branding e motion, e ao longo dos últimos anos entreguei projetos reais para clientes como Banco da Família, Prandi Pré-Fabricados e Alessandra Breda — desde o discovery até o deploy e manutenção.</p>
-        <p class="rv">Em 2026, desenvolvi e apresentei o SportsHub no HackathOrion (Orion Parque Tecnológico, Lages) — uma plataforma de coleta de dados esportivos para a Fundação de Esportes de Lages. Ficamos em 1º lugar.</p>
+        <h2 class="stit rv">Designer de produto com <span>stack aumentado por IA</span></h2>
+        <p class="rv">Sou designer de produto que fecha o ciclo: do problema de negócio ao código em produção, usando IA como ferramenta real de execução.</p>
+        <p class="rv">Trabalho na interseção entre design e AI workflow, usando Figma MCP, Claude Code e vibe coding como ferramentas reais de entrega, não como curiosidade. O código não vem de background técnico tradicional: vem de saber exatamente o que pedir e como validar o resultado. Isso me permite iterar mais rápido, executar sem depender de um dev e assumir responsabilidade pela entrega ponta a ponta.</p>
+        <p class="rv">Tenho background em editorial, branding e motion, e ao longo dos últimos anos entreguei projetos reais para clientes como Banco da Família, Prandi Pré-Fabricados e Alessandra Breda, desde o discovery até o deploy e manutenção.</p>
+        <p class="rv">Em 2026, desenvolvi e apresentei o SportsHub no HackathOrion (Orion Parque Tecnológico, Lages), uma plataforma de coleta de dados esportivos para a Fundação de Esportes de Lages. Ficamos em 1º lugar.</p>
         <div class="sobre-tags rv">
           <span class="tag">Product Design</span>
-          <span class="tag">Front-end (HTML/CSS/JS)</span>
+          <span class="tag">Vibe Coding (HTML/CSS/JS)</span>
           <span class="tag">Figma MCP</span>
           <span class="tag">Claude Code</span>
           <span class="tag">UX Research</span>
@@ -510,7 +522,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         </div>
       </div>
       <div class="sk-cat">
-        <div class="sk-cat-hd"><span class="sk-cat-title">Front-end</span></div>
+        <div class="sk-cat-hd"><span class="sk-cat-title">Front-end com IA</span></div>
         <div class="sk-cat-items">
           <span class="sk-chip">HTML</span>
           <span class="sk-chip">CSS</span>
@@ -564,7 +576,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <span class="lbl rv">Metodologia</span>
     <h2 class="stit rv">Como <span>trabalho</span></h2>
     <div class="proc-intro rv">
-      <p>Produto digital não começa no Figma — começa no problema. Meu processo combina método UX com execução técnica e IA para entregar mais rápido sem perder qualidade.</p>
+      <p>Produto digital não começa no Figma, começa no problema. Meu processo combina método UX com execução técnica e IA para entregar mais rápido sem perder qualidade.</p>
     </div>
     <div class="proc-wrap">
       <div class="proc-line"></div>
@@ -626,7 +638,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
       <div class="cont-info">
         <span class="lbl rv">Contato</span>
         <h2 class="stit rv">Vamos construir <span>produto</span> juntos?</h2>
-        <p class="rv">Disponível para full time — presencial em Lages/SC ou remoto. Se você está montando um time de produto — seja para um squad, MVP ou projeto de longa duração — me conta o desafio.</p>
+        <p class="rv">Disponível para full time, presencial em Lages/SC ou remoto. Se você está montando um time de produto, seja para um squad, MVP ou projeto de longa duração, me conta o desafio.</p>
         <div class="soc-links rv">
           <a href="https://www.linkedin.com/in/luanavilafischer" target="_blank" rel="noopener" class="soc-link">
             <div class="soc-ic" style="background:rgba(10,102,194,.15);color:#70B5F9;font-size:.8rem">in</div>
@@ -667,7 +679,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
   <div class="wrap">
     <div class="foot-in">
       <p>© 2026 Luan Fischer · Lages, SC, Brasil</p>
-      <p>"Design não começa na tela — começa na compreensão profunda das pessoas."</p>
+      <p>"Design não começa na tela, começa na compreensão profunda das pessoas."</p>
     </div>
   </div>
 </footer>
@@ -713,9 +725,9 @@ const PROJECTS = [
    grad:'linear-gradient(135deg,#c2410c 0%,#F97316 60%,#fb923c 100%)',
    cover:'assets/sportshub/hub.jpg',
    badges:[{type:'hackathon',text:'🏆 Hackathon · 1º Lugar'}],
-   desc:'Plataforma de coleta de dados esportivos desenvolvida para a Fundação de Esportes de Lages. Conecta praticantes de esporte, mapeia demandas da comunidade e gera dados para políticas públicas. Desenvolvido no HackathOrion 2026 — Orion Parque Tecnológico, Lages/SC.',
-   challenge:'A Fundação de Esportes de Lages tomava decisões sem dados. Nossa pesquisa com 79 moradores revelou que ~60% já desistiram de um esporte por falta de companhia ou por não saber onde praticar — e a maioria avalia a cidade com nota 1 ou 2 (de 5) na facilidade de encontrar informação sobre locais e horários esportivos.',
-   solution:'Hub digital com feed de eventos esportivos, confirmação de presença e painel de dados para a Fundação — permitindo decisões baseadas em demanda real da comunidade.',
+   desc:'Plataforma de coleta de dados esportivos desenvolvida para a Fundação de Esportes de Lages. Conecta praticantes de esporte, mapeia demandas da comunidade e gera dados para políticas públicas. Desenvolvido no HackathOrion 2026, Orion Parque Tecnológico, Lages/SC.',
+   challenge:'A Fundação de Esportes de Lages tomava decisões sem dados. Nossa pesquisa com 79 moradores revelou que ~60% já desistiram de um esporte por falta de companhia ou por não saber onde praticar, e a maioria avalia a cidade com nota 1 ou 2 (de 5) na facilidade de encontrar informação sobre locais e horários esportivos.',
+   solution:'Hub digital com feed de eventos esportivos, confirmação de presença e painel de dados para a Fundação, permitindo decisões baseadas em demanda real da comunidade.',
    views:'1º Lugar · HackathOrion 2026 · Orion Parque Tecnológico, Lages/SC',
    youtube:null,
    liveUrl:'https://luanfischerr.github.io/sportshub/',
@@ -728,12 +740,52 @@ const PROJECTS = [
       pain:'Decisões de investimento em infraestrutura sem dados reais de demanda por bairro, modalidade e faixa etária.',
       ux:'Painel com demanda vs. oferta por bairro, tendências semanais de check-ins, distribuição por modalidade e faixa etária, insights acionáveis e exportação de relatório.'},
    ],
-   metodologia:'Discovery orientado a dados: (1) Pesquisa quantitativa com 79 moradores de Lages — mapeamento de modalidades, frequência, barreiras e perfil social; (2) Síntese e definição de personas (praticante + gestor público); (3) Prototipagem Figma em alta fidelidade com 4 telas principais (Hub, Perfil, Locais, Fundação); (4) Desenvolvimento front-end e pitch deck para apresentação no hackathon. Dados-chave: 67% praticam esporte; 41% gostariam de conhecer novas pessoas para praticar; 88,6% usariam a plataforma.',
+   metodologia:'Discovery orientado a dados: (1) Pesquisa quantitativa com 79 moradores de Lages, mapeamento de modalidades, frequência, barreiras e perfil social; (2) Síntese e definição de personas (praticante + gestor público); (3) Prototipagem Figma em alta fidelidade com 4 telas principais (Hub, Perfil, Locais, Fundação); (4) Desenvolvimento front-end e pitch deck para apresentação no hackathon. Dados-chave: 67% praticam esporte; 41% gostariam de conhecer novas pessoas para praticar; 88,6% usariam a plataforma.',
    learnings:[
-     'Dados de pesquisa são o melhor argumento: a estatística de ~60% de desistência por falta de companhia foi o ponto de virada na apresentação para os jurados.',
+     'Dados de pesquisa são o melhor argumento: a estatística de 58,1% de desistência por falta de companhia foi o ponto de virada na apresentação para os jurados.',
      'Em hackathon, o produto precisa comunicar antes de funcionar. A decisão de priorizar o painel da Fundação (dado acionável para política pública) foi estratégica para o pitch.',
-     'Dois dias de desenvolvimento forçam priorização brutal — o que ficou fora foi uma decisão de produto, não uma limitação técnica.',
-     '88,6% de intenção de uso validou a proposta antes de uma linha de código ser escrita em produção — UX Research como vantagem competitiva real.',
+     'Dois dias de desenvolvimento forçam priorização brutal: o que ficou fora foi uma decisão de produto, não uma limitação técnica.',
+     '88,6% de intenção de uso validou a proposta antes de uma linha de código ser escrita em produção. UX Research como vantagem competitiva real.',
+   ],
+   casestudy:[
+     {
+       title:'O Evento',
+       body:`<p>HackathOrion 2026 foi um hackathon de 48 horas realizado no <strong>Orion Parque Tecnológico</strong>, em Lages/SC, uma iniciativa da Secretaria de Estado de Inovação de Santa Catarina. Cerca de 80 participantes, organizados em equipes multidisciplinares, desenvolveram soluções tecnológicas para problemas reais da cidade.</p>
+<img src="assets/sportshub/evento-venue.jpg" alt="Vista aérea do HackathOrion 2026" class="cs-photo">
+<p>Nossa equipe de 5 pessoas escolheu o tema de esporte e bem-estar como foco, identificando uma lacuna crítica na gestão pública: a Fundação Municipal de Esportes de Lages tomava decisões sem dados reais sobre o esporte informal praticado pela comunidade.</p>`
+     },
+     {
+       title:'Pesquisa com Usuários — 79 Respostas',
+       body:`<p>Antes de prototipar qualquer tela, conduzimos pesquisa quantitativa com <strong>79 moradores de Lages</strong> via Google Forms, mapeando barreiras, modalidades de interesse e perfil de uso.</p>
+<div class="cs-stats">
+  <div class="cs-stat"><span class="cs-n">88,6%</span><span class="cs-lbl">usariam a plataforma</span></div>
+  <div class="cs-stat"><span class="cs-n">58,1%</span><span class="cs-lbl">já desistiram de um esporte por falta de companhia ou por não saber onde ir</span></div>
+  <div class="cs-stat"><span class="cs-n">30,6%</span><span class="cs-lbl">querem encontrar novas pessoas para praticar</span></div>
+  <div class="cs-stat"><span class="cs-n">1–2/5</span><span class="cs-lbl">nota da cidade na facilidade de encontrar locais e horários esportivos</span></div>
+</div>
+<p><strong>Modalidades mais citadas:</strong> Caminhada, Corrida, Futebol, Vôlei e Ciclismo, todas majoritariamente informais e invisíveis para a Fundação.</p>
+<p><strong>Principais barreiras:</strong> falta de companhia, dificuldade de encontrar locais e horários, tempo disponível. O problema não era falta de interesse, era falta de informação e conexão.</p>
+<p class="cs-quote">"Lages decide sobre esporte no escuro. Vamos trazer clareza para as decisões no esporte?"</p>`
+     },
+     {
+       title:'O Time',
+       body:`<img src="assets/sportshub/evento-time.jpg" alt="Time SportsHub no palco do HackathOrion" class="cs-photo">
+<p>5 pessoas. 48 horas. Do discovery ao pitch: pesquisa quantitativa, síntese de dados, definição de personas, prototipagem Figma em alta fidelidade e desenvolvimento da plataforma React.</p>`
+     },
+     {
+       title:'O Pitch',
+       body:`<div class="cs-photos-2">
+  <img src="assets/sportshub/pitch-wide.jpg" alt="Luan Fischer apresentando o SportsHub no HackathOrion" class="cs-photo-item">
+  <img src="assets/sportshub/pitch-data.jpg" alt="Slide com dados da pesquisa: 58,1% e 30,6%" class="cs-photo-item">
+</div>
+<img src="assets/sportshub/pitch-close.jpg" alt="Luan Fischer no microfone durante o pitch" class="cs-photo">
+<p>A apresentação foi estruturada em torno dos dados de pesquisa, abrindo com o problema central: <em>"A dor não é só da Fundação."</em> Os 58,1% de pessoas que já desistiram de um esporte por falta de companhia transformaram a narrativa de uma feature list em um argumento de impacto social. O protótipo funcional rodando em produção fechou o pitch com credibilidade técnica.</p>`
+     },
+     {
+       title:'Premiação — 1º Lugar',
+       body:`<img src="assets/sportshub/evento-premio.jpg" alt="Cerimônia de premiação 1º Lugar HackathOrion 2026" class="cs-photo">
+<p>O SportsHub venceu o HackathOrion 2026 em <strong>1º lugar</strong>. O diferencial decisivo foi a combinação de dados reais de pesquisa com um protótipo funcional, com a plataforma rodando em produção no momento do pitch. A estatística de 58,1% de desistência por falta de companhia foi o ponto de virada com os jurados.</p>`
+     },
    ],
   },
   {id:5,num:'02',cats:['ui-ux','ux-research'],
@@ -748,9 +800,9 @@ const PROJECTS = [
    figjamLink:'https://www.figma.com/board/PyCzTpP0Ll49LcuuBUCBVo/Projeto-do-curso-UX-Alura?node-id=0-1',
    notionUrl:'https://luanfischer.notion.site/Tripideias-380a55ddffb280429aaae09bfa7f49f7?pvs=143',
    badges:[{type:'ux',text:'UX Process'}],
-   desc:'App mobile B2B2C para agência de viagens corporativas fictícia que vende pacotes turísticos personalizados. Processo Double Diamond completo — da imersão ao handoff — com 5 rodadas de teste de usabilidade e 80% de taxa de sucesso.',
+   desc:'App mobile B2B2C para agência de viagens corporativas fictícia que vende pacotes turísticos personalizados. Processo Double Diamond completo, da imersão ao handoff, com 5 rodadas de teste de usabilidade e 80% de taxa de sucesso.',
    challenge:'Modelo B2B2C gerava fricção em três frentes: lentidão na elaboração de orçamentos impactando vendas, atendimento demorado pela personalização individual de cada pacote, e necessidade de múltiplos pedidos separados para cada colaborador da empresa cliente.',
-   solution:'Double Diamond em 3 etapas: (1) Contextualização — pesquisa quantitativa, proto-persona, personas (colaboradora + gestor buyer), análise de concorrentes e Canvas de Proposta de Valor; (2) Estratégia — UX Canvas alinhando dores de usuário e objetivos de negócio; (3) Solução — Crazy Eights com PM e devs, 3 fluxos críticos (cadastro, criação de pacote e pagamento), protótipo navegável Figma e 5 rodadas de teste com 80% de sucesso.',
+   solution:'Double Diamond em 3 etapas: (1) Contextualização: pesquisa quantitativa, proto-persona, personas (colaboradora + gestor buyer), análise de concorrentes e Canvas de Proposta de Valor; (2) Estratégia: UX Canvas alinhando dores de usuário e objetivos de negócio; (3) Solução: Crazy Eights com PM e devs, 3 fluxos críticos (cadastro, criação de pacote e pagamento), protótipo navegável Figma e 5 rodadas de teste com 80% de sucesso.',
    views:'Finalizado · Pronto para Handoff ao Dev',
    youtube:null,
    personas:[
@@ -761,11 +813,11 @@ const PROJECTS = [
       pain:'Elaboração de orçamentos lenta prejudica as vendas; precisar solicitar pacotes individuais para cada colaborador multiplica o trabalho do time.',
       ux:'Fluxo de compra em grupo com configurações centralizadas e aprovação em um único pedido, acelerando o ciclo de vendas.'},
    ],
-   metodologia:'Double Diamond estruturado em três etapas: (1) Contextualização do problema — pesquisa quantitativa para criação de proto-persona e personas representativas de cada perfil de usuário, análise de concorrentes e identificação das dores de clientes e usuários; (2) Elaboração da proposta de valor — Canvas de Proposta de Valor e UX Canvas para alinhar a visão estratégica de UX com os objetivos do negócio; (3) Contextualização da solução — cocriação via Crazy Eights com PM e desenvolvedores, desenvolvimento de fluxos de interação críticos, testes de usabilidade iterativos e protótipo navegável para handoff.',
+   metodologia:'Double Diamond estruturado em três etapas: (1) Contextualização do problema: pesquisa quantitativa para criação de proto-persona e personas representativas de cada perfil de usuário, análise de concorrentes e identificação das dores de clientes e usuários; (2) Elaboração da proposta de valor: Canvas de Proposta de Valor e UX Canvas para alinhar a visão estratégica de UX com os objetivos do negócio; (3) Contextualização da solução: cocriação via Crazy Eights com PM e desenvolvedores, desenvolvimento de fluxos de interação críticos, testes de usabilidade iterativos e protótipo navegável para handoff.',
    learnings:[
-     'Desenvolvi raciocínio estruturado em UX aplicando o processo Double Diamond completo — da pesquisa ao protótipo — em um contexto de produto real com restrições de negócio.',
+     'Desenvolvi raciocínio estruturado em UX aplicando o processo Double Diamond completo, da pesquisa ao protótipo, em um contexto de produto real com restrições de negócio.',
      'Compreendi a importância de entender a maturidade de UX da empresa: o tipo de intervenção precisa ser proporcional ao contexto organizacional e ao momento do produto.',
-     'Entender o valor da ideia em relação aos concorrentes de mercado antes de desenhar a solução é indispensável — a análise competitiva moldou diretamente a proposta de valor.',
+     'Entender o valor da ideia em relação aos concorrentes de mercado antes de desenhar a solução é indispensável. A análise competitiva moldou diretamente a proposta de valor.',
      'O que faria diferente: envolveria os stakeholders desde a fase de pesquisa, não apenas na cocriação da solução, para alinhar expectativas mais cedo e reduzir retrabalho.',
    ]},
   {id:6,num:'03',cats:['ux-research'],
@@ -776,9 +828,9 @@ const PROJECTS = [
    grad:'linear-gradient(135deg,#880E4F 0%,#AD1457 50%,#C2185B 100%)',
    cover:'assets/proj-06/cover.jpg',
    badges:[{type:'ux',text:'UX Process'}],
-   desc:'UX Research completo para a AluraMed, empresa fictícia de telemedicina que ajuda médicos a otimizar seu tempo. O objetivo era validar e orientar o design de uma nova funcionalidade — campo de registro de atendimentos — diretamente no app.',
+   desc:'UX Research completo para a AluraMed, empresa fictícia de telemedicina que ajuda médicos a otimizar seu tempo. O objetivo era validar e orientar o design de uma nova funcionalidade, campo de registro de atendimentos, diretamente no app.',
    challenge:'Como auxiliar profissionais médicos a documentar informações de forma ágil e eficiente? Era preciso compreender o processo atual de registro durante teleconsultas e identificar gaps funcionais reais, sem influenciar as respostas dos entrevistados.',
-   solution:'Ciclo completo de UX Research em duas etapas: (1) Imersão/Desk Research — análise do contexto da telemedicina no Brasil, benchmarking de concorrentes diretos e Matriz CSD (Certezas, Suposições e Dúvidas); (2) Entrevistas semiestruturadas com médicos usuários — descoberta crítica: médicos registravam dados dos pacientes em Google Docs ou Word por falta de campo no app, expondo dados sensíveis. Entregáveis: persona baseada em pesquisa, mapa de empatia, User Journey Map, fluxo de interação e repositório organizado no Notion.',
+   solution:'Ciclo completo de UX Research em duas etapas: (1) Imersão/Desk Research: análise do contexto da telemedicina no Brasil, benchmarking de concorrentes diretos e Matriz CSD (Certezas, Suposições e Dúvidas); (2) Entrevistas semiestruturadas com médicos usuários. Descoberta crítica: médicos registravam dados dos pacientes em Google Docs ou Word por falta de campo no app, expondo dados sensíveis. Entregáveis: persona baseada em pesquisa, mapa de empatia, User Journey Map, fluxo de interação e repositório organizado no Notion.',
    views:'Pesquisa Concluída · Repositório Entregue',
    youtube:null,
    personas:[
@@ -786,11 +838,11 @@ const PROJECTS = [
       pain:'"Embora os atendimentos sejam realizados no aplicativo, preciso fazer os registros em outro programa, como Google Docs ou Word. Fico desconfortável por não ter um espaço mais seguro para armazenar informações tão valiosas e sensíveis."',
       ux:'Campo de registro integrado ao app, com pré-preenchimento dos dados do paciente (peso, idade, último medicamento), possibilidade de minimizar o vídeo durante a consulta e geração ágil de receituário.'},
    ],
-   metodologia:'UX Research estruturado em dois ciclos de pesquisa com entregáveis validados com stakeholders: (1) Imersão ao tema — Desk Research sobre o funcionamento da telemedicina no Brasil, análise de concorrentes diretos e elaboração da Matriz CSD para mapear o que sabemos, supomos e precisamos descobrir; (2) Entrevistas com usuários — entrevistas semiestruturadas de profundidade com médicos, análise e afinização dos dados no FigJam, validação ou refutação das hipóteses da Matriz CSD, criação de persona baseada em pesquisa, mapa de empatia e User Journey Map. Todos os artefatos foram documentados em um repositório Notion e apresentados para os stakeholders.',
+   metodologia:'UX Research estruturado em dois ciclos de pesquisa com entregáveis validados com stakeholders: (1) Imersão ao tema: Desk Research sobre o funcionamento da telemedicina no Brasil, análise de concorrentes diretos e elaboração da Matriz CSD para mapear o que sabemos, supomos e precisamos descobrir; (2) Entrevistas com usuários: entrevistas semiestruturadas de profundidade com médicos, análise e afinização dos dados no FigJam, validação ou refutação das hipóteses da Matriz CSD, criação de persona baseada em pesquisa, mapa de empatia e User Journey Map. Todos os artefatos foram documentados em um repositório Notion e apresentados para os stakeholders.',
    learnings:[
-     'Descoberta crítica: a hipótese de que "o médico precisa de espaço para registrar informações" foi REFUTADA — eles já registravam, mas em ferramentas externas (Google Docs/Word), expondo dados sensíveis. A necessidade real era integração segura no app, não apenas espaço.',
+     'Descoberta crítica: a hipótese de que "o médico precisa de espaço para registrar informações" foi REFUTADA. Eles já registravam, mas em ferramentas externas (Google Docs/Word), expondo dados sensíveis. A necessidade real era integração segura no app, não apenas espaço.',
      'Entrevistas de profundidade revelaram dores que nenhuma pesquisa quantitativa capturaria: o desconforto com a segurança dos dados e a quebra de fluxo durante as teleconsultas ao alternar entre apps.',
-     'A Matriz CSD é uma ferramenta poderosa para estruturar o que você não sabe antes de entrar em campo — evita que o pesquisador confirme o que já acredita e mantém o foco nas incertezas reais.',
+     'A Matriz CSD é uma ferramenta poderosa para estruturar o que você não sabe antes de entrar em campo: evita que o pesquisador confirme o que já acredita e mantém o foco nas incertezas reais.',
      'Documentar tudo em um repositório Notion estruturado transforma a pesquisa em ativo de produto: as descobertas ficam acessíveis para o time de design e desenvolvimento em qualquer etapa futura.',
    ]},
   {id:1,num:'04',cats:['ui-ux'],
@@ -803,7 +855,7 @@ const PROJECTS = [
    figmaLink:'https://www.figma.com/design/OX3dkicXhUecZM48dBbSry/Site-Novo-BF?node-id=0-1',
    badges:[],
    desc:'Redesign do site institucional do Banco da Família, cooperativa financeira com 27 anos de história e R$ 2,9 bilhões em crédito concedido. O projeto transformou um portal transacional em uma ferramenta de conversão e conexão emocional, aplicando UX estratégico para comunicar autoridade, humanizar a marca e criar uma jornada B2B dedicada à captação de novos franqueados.',
-   challenge:'O site anterior focava excessivamente no transacional — "pegar dinheiro" — com arquitetura de informação rasa (apenas "Você", "Negócio", "Agro"), ausência de prova social (milhões de vidas impactadas invisíveis) e nenhuma estratégia para atração de novos franqueados, um pilar estratégico de crescimento completamente ignorado.',
+   challenge:'O site anterior focava excessivamente no transacional, "pegar dinheiro", com arquitetura de informação rasa (apenas "Você", "Negócio", "Agro"), ausência de prova social (milhões de vidas impactadas invisíveis) e nenhuma estratégia para atração de novos franqueados, um pilar estratégico de crescimento completamente ignorado.',
    solution:'Redesign estruturado em AIDA: hero com impacto emocional e vídeo, seção de autoridade com números reais (2,9 bi em crédito, 450+ colaboradores), expansão do portfólio de produtos (BF Solar, BF Saneamento, BF Telemedicina, BF Agro), humanização por fotografia documental e nova jornada B2B dedicada a franqueados.',
    personas:[
      {name:'Dona Maria — A Microempreendedora',pain:'Precisa de crédito rápido, mas tem medo de burocracia bancária tradicional.',ux:'Seções "Histórias que Transformam" e fotos de pessoas reais geram identificação. BF Microcrédito em destaque.'},
@@ -811,7 +863,7 @@ const PROJECTS = [
      {name:'Roberto — O Investidor/Franqueado',pain:'Busca modelo de negócio sólido com propósito ESG.',ux:'Nova seção "Seja um Franqueado" com dados de rentabilidade (2,9 bi em crédito, 27 anos de história).'},
    ],
    metodologia:'Engenharia Reversa de UX: análise heurística do site atual, mapeamento de personas inferidas a partir da oferta de produtos, redesign de alta fidelidade com Long Scrolling e Storytelling, e aplicação de UI moderna com espaço em branco (Whitespace) para transmitir modernidade e leveza.',
-   learnings:['Documentação reversa reforça que boas decisões de design, mesmo intuitivas, são baseadas em heurísticas sólidas — documentá-las a posteriori ajuda a defendê-las para stakeholders.','Equilibrar emoção (histórias de vida) com razão (números financeiros) na mesma interface é o maior desafio — e o maior diferencial — do design para o setor financeiro.'],
+   learnings:['Documentação reversa reforça que boas decisões de design, mesmo intuitivas, são baseadas em heurísticas sólidas. Documentá-las a posteriori ajuda a defendê-las para stakeholders.','Equilibrar emoção (histórias de vida) com razão (números financeiros) na mesma interface é o maior desafio e o maior diferencial do design para o setor financeiro.'],
    views:'11 apreciações · 22 visualizações · Mar/2026',
    youtube:null,
    sections:[
@@ -842,8 +894,8 @@ const PROJECTS = [
    tools:['Figma','HTML/CSS'],
    cover:'assets/alessandra/cover.jpg',
    badges:[],
-   desc:'Landing page completa para a Mentoria MPR — Mulheres Plenas e Reinantes, de Alessandra Breda. Projeto real de cliente: página de captação para mentoria premium voltada a mulheres empresárias que querem crescer nos negócios sem desequilibrar fé, família e casamento.',
-   challenge:'Comunicar uma transformação profunda e premium para um público exigente — empresárias, profissionais liberais e mulheres do agro — sem cair em linguagem genérica de autoajuda. A identidade visual precisava transmitir sofisticação, fé e autoridade ao mesmo tempo.',
+   desc:'Landing page completa para a Mentoria MPR (Mulheres Plenas e Reinantes), de Alessandra Breda. Projeto real de cliente: página de captação para mentoria premium voltada a mulheres empresárias que querem crescer nos negócios sem desequilibrar fé, família e casamento.',
+   challenge:'Comunicar uma transformação profunda e premium para um público exigente, empresárias, profissionais liberais e mulheres do agro, sem cair em linguagem genérica de autoajuda. A identidade visual precisava transmitir sofisticação, fé e autoridade ao mesmo tempo.',
    solution:'Paleta Cream/Navy/Gold com tipografia editorial (Playfair Display + Cormorant Garamond) para transmitir sofisticação e femininidade premium. Estrutura de LP em 9 seções com progressão emocional: Dor → Quebra de crença → Solução → Para quem é → Quem conduz → CTA. Copywriting e design integrados para garantir coesão total entre mensagem e estética.',
    views:'Projeto Real · Cliente Ativo',
    youtube:null,
@@ -851,19 +903,19 @@ const PROJECTS = [
    sections:[
      {title:'Hero — Impacto Imediato',desc:'Headline emocional, foto editorial da mentora e CTA de baixo atrito para diagnóstico gratuito.',images:['lp1.jpg'],dir:'alessandra'},
      {title:'Seção Dor & Quebra de Crença',desc:'Espelhamento das responsabilidades que pesam e desconstrução da falsa escolha entre negócios e vida pessoal.',images:['lp2.jpg'],dir:'alessandra'},
-     {title:'Quebrando Crenças (Navy)',desc:'Grid de falsas escolhas com a resposta central da mentoria — fundo navy com tipografia dourada.',images:['lp3.jpg'],dir:'alessandra'},
-     {title:'Os 4 Pilares da Metodologia',desc:'Fé · Família · Negócios · Postura — estrutura sticky com detalhamento de cada pilar da MPR.',images:['lp4.jpg'],dir:'alessandra'},
+     {title:'Quebrando Crenças (Navy)',desc:'Grid de falsas escolhas com a resposta central da mentoria, fundo navy com tipografia dourada.',images:['lp3.jpg'],dir:'alessandra'},
+     {title:'Os 4 Pilares da Metodologia',desc:'Fé · Família · Negócios · Postura, estrutura sticky com detalhamento de cada pilar da MPR.',images:['lp4.jpg'],dir:'alessandra'},
    ],
    personas:[
      {name:'Mulher Empresária / Profissional Liberal',
       pain:'Cresceu nos negócios mas sente que fé, casamento ou família estão saindo do lugar. Carrega tudo sozinha e está esgotada de apagar incêndios sem avançar de verdade.',
-      ux:'Linguagem que a enxerga sem julgamento, proposta que combina crescimento profissional e ordem interior — sem ter que escolher entre uma coisa e outra.'},
+      ux:'Linguagem que a enxerga sem julgamento, proposta que combina crescimento profissional e ordem interior, sem ter que escolher entre uma coisa e outra.'},
    ],
-   metodologia:'LP estruturada com base em princípios de Copywriting de Conversão e Design Emocional: (1) Espelhamento — a seção de dor usa a linguagem e as responsabilidades reais da persona para gerar identificação imediata; (2) Quebra de crença — desconstrói a ideia de que é preciso escolher entre negócios e vida pessoal antes de apresentar a solução; (3) Proposta de valor em pilares — 4 pilares claros (Fé, Família, Negócios, Postura) facilitam a compreensão e o alinhamento com a oferta; (4) Qualificação do lead — seção "Para quem é / não é" filtra quem realmente está pronta para a mentoria premium; (5) CTA de baixo atrito — diagnóstico gratuito como porta de entrada, reduzindo a barreira da primeira conversão.',
+   metodologia:'LP estruturada com base em princípios de Copywriting de Conversão e Design Emocional: (1) Espelhamento: a seção de dor usa a linguagem e as responsabilidades reais da persona para gerar identificação imediata; (2) Quebra de crença: desconstrói a ideia de que é preciso escolher entre negócios e vida pessoal antes de apresentar a solução; (3) Proposta de valor em pilares: 4 pilares claros (Fé, Família, Negócios, Postura) facilitam a compreensão e o alinhamento com a oferta; (4) Qualificação do lead: seção "Para quem é / não é" filtra quem realmente está pronta para a mentoria premium; (5) CTA de baixo atrito: diagnóstico gratuito como porta de entrada, reduzindo a barreira da primeira conversão.',
    learnings:[
-     'Copywriting e design precisam ser criados juntos — quando a mensagem e a estética são desenvolvidas separadamente, a LP perde coesão e o lead sente a inconsistência antes mesmo de ler o texto.',
+     'Copywriting e design precisam ser criados juntos: quando a mensagem e a estética são desenvolvidas separadamente, a LP perde coesão e o lead sente a inconsistência antes mesmo de ler o texto.',
      'Para um produto premium com jornada emocional complexa (fé + negócios + família), a estrutura da LP importa tanto quanto o copy: a ordem das seções define o ritmo da transformação percebida.',
-     'A paleta Cream/Navy/Gold não foi escolhida por estética — cada cor tem função semiótica: Cream para acolhimento, Navy para autoridade, Gold para aspiração e propósito.',
+     'A paleta Cream/Navy/Gold não foi escolhida por estética: cada cor tem função semiótica, Cream para acolhimento, Navy para autoridade, Gold para aspiração e propósito.',
      'Qualificar o lead dentro da própria LP (seção "Para quem não é") reduz objeções antes da conversa de venda e atrai quem está genuinamente pronto para o processo.',
    ],
    styleGuide:{
@@ -889,8 +941,8 @@ const PROJECTS = [
    figmaUrl:'https://embed.figma.com/design/geG4BTF4CtbCgj16f9pjjo/Landing-Page-Comercial-Prandi?embed-host=share&footer=false&node-id=0-1',
    figmaLink:'https://www.figma.com/design/geG4BTF4CtbCgj16f9pjjo/Landing-Page-Comercial-Prandi?node-id=0-1',
    badges:[],
-   desc:'Landing page para a Prandi — empresa especializada em estruturas pré-moldadas de concreto com +20 anos de mercado e +500 obras executadas. O projeto comunica solidez técnica e confiabilidade para um público B2B exigente: construtoras, engenheiros e gestores de obras que tomam decisões de compra racionais com base em prova técnica e experiência comprovada.',
-   challenge:'Converter visitantes B2B que precisam de confiança antes de qualquer contato. No setor de construção, decisões de compra são complexas e de alto valor — o cliente não contata sem antes verificar experiência real, casos de obra e capacidade técnica. A LP precisava substituir uma conversa de vendas completa em uma única página.',
+   desc:'Landing page para a Prandi, empresa especializada em estruturas pré-moldadas de concreto com +20 anos de mercado e +500 obras executadas. O projeto comunica solidez técnica e confiabilidade para um público B2B exigente: construtoras, engenheiros e gestores de obras que tomam decisões de compra racionais com base em prova técnica e experiência comprovada.',
+   challenge:'Converter visitantes B2B que precisam de confiança antes de qualquer contato. No setor de construção, decisões de compra são complexas e de alto valor: o cliente não contata sem antes verificar experiência real, casos de obra e capacidade técnica. A LP precisava substituir uma conversa de vendas completa em uma única página.',
    solution:'Estrutura de autoridade progressiva: hero com proposta de valor direta ("Qualidade, Rapidez e Economia") + stats imediatos (+20 anos, +500 obras, 100% satisfação), 9 diferenciais técnicos, portfólio de serviços detalhado, galeria de obras executadas como prova social visual e CTA de baixo atrito ("Solicitar Proposta") que reduz a fricção da primeira conversão.',
    views:'Projeto Real · Entregue',
    youtube:null,
@@ -911,14 +963,14 @@ const PROJECTS = [
    figmaUrl:'https://embed.figma.com/design/hI1gnRCO26QN4B1ubz48FB/Site-RevistaSSP?embed-host=share&footer=false&node-id=0-1',
    figmaLink:'https://www.figma.com/design/hI1gnRCO26QN4B1ubz48FB/Site-RevistaSSP?node-id=0-1',
    badges:[],
-   desc:'Design do portal digital da Revista SSP — parte do ecossistema de mídia completo construído do zero para o setor de segurança privada. O portal priorizou leiturabilidade e retenção de conteúdo, complementando a Landing Page (captação) e a revista impressa (produto).',
+   desc:'Design do portal digital da Revista SSP, parte do ecossistema de mídia completo construído do zero para o setor de segurança privada. O portal priorizou leiturabilidade e retenção de conteúdo, complementando a Landing Page (captação) e a revista impressa (produto).',
    challenge:'O setor de Segurança Privada carecia de fontes de informação centralizadas e modernas. Profissionais consumiam conteúdo de forma fragmentada em redes sociais, sem um hub confiável. O desafio era criar um canal que unisse a profundidade de uma revista com a agilidade de um portal, servindo dois perfis distintos: o profissional ativo no celular e o gestor estratégico no desktop.',
    solution:'Portal focado em leiturabilidade: transição para fundo branco/cinza claro (padrão G1/CNN), reduzindo fadiga visual em leituras longas. Grid de notícias em "Manchete + Feed" para escaneabilidade rápida, menu hamburger responsivo e tipografia escalável. Consistência omnichannel: mesma família tipográfica da revista e grid inspirado na diagramação de página dupla, criando familiaridade para o leitor que migra de um meio para o outro.',
    personas:[
      {name:'O Vigilante Conectado',pain:'Profissional ativo, acessa internet majoritariamente pelo celular durante pausas. Precisa de informações rápidas sobre direitos, cursos e vagas.',ux:'Navegação mobile fluida, botões grandes e leitura acessível (bom contraste). Menu hamburger para agilidade.'},
      {name:'O Gestor de Segurança',pain:'Toma decisões estratégicas no desktop. Busca profundidade de análise e credibilidade visual.',ux:'Busca eficiente, categorização clara e hierarquia visual de conteúdo que transmita autoridade.'},
    ],
-   metodologia:'Design 360° — abordagem sistêmica em três fases: (1) Fundação: Branding e Identidade Visual (paleta Vermelho/Preto, escudo como símbolo); (2) Produto: Design Editorial e Diagramação da Revista; (3) Distribuição UX: Portal de Notícias (retenção) + Landing Page de Captação (conversão).',
+   metodologia:'Design 360°, abordagem sistêmica em três fases: (1) Fundação: Branding e Identidade Visual (paleta Vermelho/Preto, escudo como símbolo); (2) Produto: Design Editorial e Diagramação da Revista; (3) Distribuição UX: Portal de Notícias (retenção) + Landing Page de Captação (conversão).',
    learnings:['Branding × UX: adaptar uma marca "pesada" (cores fortes, vermelho vibrante) para uma interface de leitura (cores leves) sem perder a identidade exige decisões técnicas precisas de hierarquia e contraste.','Fluxo de Conteúdo: entender a jornada do leitor (Redes Sociais → LP → Revista → Portal) foi crucial para desenhar os pontos de conversão corretos em cada touchpoint da experiência.'],
    views:'44 apreciações · 3.131 visualizações · Abr/2024',
    youtube:null,
@@ -937,7 +989,7 @@ const PROJECTS = [
    figmaUrl:'https://embed.figma.com/design/GVfIR9iJcp4sQRTDiy4EfK/Landing-Page-RevistaSSP-2--Copy-?embed-host=share&footer=false&node-id=0-1',
    figmaLink:'https://www.figma.com/design/GVfIR9iJcp4sQRTDiy4EfK/Landing-Page-RevistaSSP-2--Copy-?node-id=0-1',
    badges:[],
-   desc:'Landing page para captação de assinantes digitais da Revista SSP — topo do funil de conteúdo da marca: Redes Sociais → Landing Page → Revista → Portal. Objetivo único: converter visitantes em assinantes, eliminando toda distração e focando 100% na oferta.',
+   desc:'Landing page para captação de assinantes digitais da Revista SSP, topo do funil de conteúdo da marca: Redes Sociais → Landing Page → Revista → Portal. Objetivo único: converter visitantes em assinantes, eliminando toda distração e focando 100% na oferta.',
    challenge:'Criar uma página de conversão com a identidade visual "pesada" da SSP (vermelho vibrante, alto contraste) sem comprometer a experiência e a taxa de conversão. Diferente do portal (retenção/leitura), a LP precisava de urgência e ação imediata.',
    solution:'Hierarquia de atenção única: fundo vermelho vibrante para destacar a oferta, exposição das capas das edições anteriores como prova social, botões de ação ("Ler Edição", "Inscrever-se") repetidos estrategicamente ao longo do scroll. Zero pontos de saída além do CTA. Formulário simplificado para captação direta.',
    learnings:['A LP e o Portal resolvem problemas distintos com a mesma marca: a LP grita "inscreva-se", o portal sussurra "leia". Manter consistência visual enquanto se muda completamente o tom é o desafio omnichannel real.'],
@@ -958,14 +1010,14 @@ const PROJECTS = [
    figmaUrl:'https://embed.figma.com/design/Mn7kuvEIBhrRSGLHSDE8Og/Landing-Page-Planejamento-Tribut%C3%A1rio?embed-host=share&footer=false&node-id=0-1',
    figmaLink:'https://www.figma.com/design/Mn7kuvEIBhrRSGLHSDE8Og/Landing-Page-Planejamento-Tribut%C3%A1rio?node-id=0-1',
    badges:[],
-   desc:'Landing page de alta conversão (CRO) para escritório de advocacia previdenciária. O projeto aplicou Psicologia Cognitiva para transformar a ansiedade de trabalhadores próximos à aposentadoria em decisão de contato — simplificando o juridiquês e convertendo visitantes que acreditam que "já é tarde demais" em leads qualificados.',
+   desc:'Landing page de alta conversão (CRO) para escritório de advocacia previdenciária. O projeto aplicou Psicologia Cognitiva para transformar a ansiedade de trabalhadores próximos à aposentadoria em decisão de contato, simplificando o juridiquês e convertendo visitantes que acreditam que "já é tarde demais" em leads qualificados.',
    challenge:'Vender planejamento previdenciário para trabalhadores de 50-60 anos com medo de aposentar com salário mínimo. Três barreiras centrais: falta de clareza sobre o valor do serviço, linguagem técnica que afasta o público comum, e a crença de que é caro ou que já passou do prazo para agir.',
-   solution:'Estrutura AIDA com Psicologia Cognitiva: (1) Aversão à Perda no hero — "Não deixe a miséria bater à sua porta" ativa o medo de perder dignidade, mais poderoso que o desejo de ganhar; (2) Analogia Mental — comparar previdência a uma "Consulta Médica" (Diagnóstico → Tratamento) ancora um conceito jurídico complexo em algo familiar e confiável; (3) Arco Emocional visual — foto do homem preocupado no topo, foto sorrindo no rodapé, com a Pedrosa como ponte entre os dois estados; (4) UX Writing direto — de "análise de benefício previdenciário conforme legislação vigente" para "saiba como salvar sua aposentadoria"; (5) CTA repetido em 3 pontos do scroll, botão laranja contrastando com fundo azul marinho (Lei de Von Restorff).',
+   solution:'Estrutura AIDA com Psicologia Cognitiva: (1) Aversão à Perda no hero: "Não deixe a miséria bater à sua porta" ativa o medo de perder dignidade, mais poderoso que o desejo de ganhar; (2) Analogia Mental: comparar previdência a uma "Consulta Médica" (Diagnóstico → Tratamento) ancora um conceito jurídico complexo em algo familiar e confiável; (3) Arco Emocional visual: foto do homem preocupado no topo, foto sorrindo no rodapé, com a Pedrosa como ponte entre os dois estados; (4) UX Writing direto: de "análise de benefício previdenciário conforme legislação vigente" para "saiba como salvar sua aposentadoria"; (5) CTA repetido em 3 pontos do scroll, botão laranja contrastando com fundo azul marinho (Lei de Von Restorff).',
    personas:[
      {name:'Carlos — O Trabalhador Preocupado',pain:'50-60 anos, medo de aposentar com salário mínimo após anos ganhando bem. Sente que o governo vai "passá-lo para trás". Barreira: acha que advogado é caro ou que "já é tarde demais".',ux:'A página não deve falar de "leis", mas de "futuro" e "proteção". Analogias simples e zero juridiquês.'},
    ],
    metodologia:'Engenharia Reversa de UX com Psicologia Cognitiva: análise heurística da página existente, mapeamento de barreiras cognitivas do público-alvo, aplicação de Aversão à Perda (Kahneman), Modelo Mental por Analogia e estrutura AIDA adaptada para serviços de alta fricção e decisão emocional.',
-   learnings:['Analogias funcionam: a metáfora do "Médico" (Diagnóstico → Tratamento) reduziu drasticamente a fricção cognitiva, tornando um serviço jurídico acessível para quem nunca contratou um advogado.','Emoção converte: reconhecer o medo do usuário no topo da página cria conexão imediata antes de apresentar a solução técnica — a sequência emocional importa tanto quanto o conteúdo.'],
+   learnings:['Analogias funcionam: a metáfora do "Médico" (Diagnóstico → Tratamento) reduziu drasticamente a fricção cognitiva, tornando um serviço jurídico acessível para quem nunca contratou um advogado.','Emoção converte: reconhecer o medo do usuário no topo da página cria conexão imediata antes de apresentar a solução técnica. A sequência emocional importa tanto quanto o conteúdo.'],
    views:'5 apreciações · 37 visualizações · Abr/2024',
    youtube:null,
    sections:[
@@ -1158,6 +1210,7 @@ function openM(p){
         </div>
       </div>`:galHTML}
     </div>`:''}
+    ${p.casestudy?.map(s=>`<div class="m-sec"><h4>${s.title}</h4><div class="cs-body">${s.body}</div></div>`).join('')||''}
     <div class="m-sec"><h4>Sobre o Projeto</h4><p>${p.desc}</p></div>
     <div class="m-sec"><h4>Desafio</h4><p>${p.challenge}</p></div>
     <div class="m-sec"><h4>Solução</h4><p>${p.solution}</p></div>
@@ -1248,7 +1301,7 @@ document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
 /* ================================================================
    TYPEWRITER
 ================================================================ */
-const ROLES=['Product Designer','Front-end Dev','AI-assisted','Full Stack Design'];
+const ROLES=['Product Designer','Vibe Coder','AI-assisted','Full Stack Design'];
 let ri=0,ci=0,del=false;
 const tel=document.getElementById('typed');
 function tw(){
