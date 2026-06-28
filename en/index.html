@@ -365,6 +365,18 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
   .hero-ctas{flex-direction:column}
   .m-pan{width:100vw}
 }
+/* ===== CASE STUDY SECTIONS ===== */
+.cs-photo{width:100%;border-radius:var(--rsm);margin:1rem 0;display:block;max-height:460px;object-fit:cover;object-position:center}
+.cs-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin:1.25rem 0}
+.cs-stat{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--rsm);padding:1rem 1.25rem}
+.cs-n{display:block;font-size:1.75rem;font-weight:800;color:var(--pri);line-height:1.1}
+.cs-lbl{display:block;font-size:.73rem;color:var(--muted);margin-top:.35rem;line-height:1.45}
+.cs-body p{font-size:.875rem;color:var(--txt2);line-height:1.65;margin-bottom:.75rem}
+.cs-body p:last-child{margin-bottom:0}
+.cs-body strong{color:var(--txt);font-weight:600}
+.cs-quote{font-style:italic;color:var(--pri)!important;font-weight:500;padding:.75rem 1rem;border-left:3px solid var(--pri);background:rgba(230,81,0,.06);border-radius:0 var(--rsm) var(--rsm) 0;margin:1rem 0!important}
+.cs-photos-2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1rem 0}
+.cs-photo-item{width:100%;border-radius:var(--rsm);display:block;height:220px;object-fit:cover;object-position:center}
 </style>
 </head>
 <body>
@@ -429,7 +441,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         <span class="typed" id="typed"></span><span class="cursor-blink"></span>
       </div>
       <p class="hero-desc rv">
-        UI/UX Designer based in Lages, SC, Brazil. Specialist in digital experiences, high-conversion interfaces and user research — from discovery to handoff.
+        UI/UX Designer based in Lages, SC, Brazil. Specialist in digital experiences, high-conversion interfaces and user research, from discovery to handoff.
       </p>
       <div class="hero-ctas rv">
         <a href="#projetos" class="btn btn-pri">
@@ -462,8 +474,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
         <span class="lbl rv">About me</span>
         <h2 class="stit rv">Designer with <span>strategic</span> vision</h2>
         <p class="rv">I'm a UI/UX Designer specialized in digital interfaces, high-conversion landing pages and user research. My approach combines UX Research data with design decisions that connect businesses and people.</p>
-        <p class="rv">I apply the Double Diamond process — from immersion to handoff — ensuring every solution is grounded in real research, not intuition. Every pixel has a strategic reason.</p>
-        <p class="rv">Throughout my career, I've worked in sectors such as finance, social security, digital health and corporate travel — building a diverse portfolio that demonstrates UX depth and consistent results delivery.</p>
+        <p class="rv">I apply the Double Diamond process, from immersion to handoff, ensuring every solution is grounded in real research, not intuition. Every pixel has a strategic reason.</p>
+        <p class="rv">Throughout my career, I've worked in sectors such as finance, social security, digital health and corporate travel, building a diverse portfolio that demonstrates UX depth and consistent results delivery.</p>
         <div class="sobre-tags rv">
           <span class="tag">UI/UX Design</span>
           <span class="tag">UX Research</span>
@@ -593,7 +605,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
       <div class="cont-info">
         <span class="lbl rv">Contact</span>
         <h2 class="stit rv">Let's build something <span>great</span> together?</h2>
-        <p class="rv">Available for freelance projects and full-time remote opportunities. Whether a full brief or just an initial idea — I'd love to hear about your project.</p>
+        <p class="rv">Available for freelance projects and full-time remote opportunities. Whether a full brief or just an initial idea, I'd love to hear about your project.</p>
         <div class="soc-links rv">
           <a href="https://www.linkedin.com/in/luanavilafischer" target="_blank" rel="noopener" class="soc-link">
             <div class="soc-ic" style="background:rgba(10,102,194,.15);color:#70B5F9;font-size:.8rem">in</div>
@@ -634,7 +646,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
   <div class="wrap">
     <div class="foot-in">
       <p>© 2026 Luan Fischer · Lages, SC, Brazil</p>
-      <p>"Design doesn't start on screen — it starts with a deep understanding of people."</p>
+      <p>"Design doesn't start on screen: it starts with a deep understanding of people."</p>
     </div>
   </div>
 </footer>
@@ -673,7 +685,77 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 ================================================================ */
 
 const PROJECTS = [
-  {id:5,num:'01',cats:['ui-ux','ux-research'],
+  {id:9,num:'01',cats:['produto-digital','ux-research'],
+   title:'SportsHub',sub:'Sports Data Platform — HackathOrion 2026',
+   tags:['UX Research','Discovery','Figma Prototyping','React','Pitch Deck'],
+   tools:['Figma','React','Vite'],
+   grad:'linear-gradient(135deg,#c2410c 0%,#F97316 60%,#fb923c 100%)',
+   cover:'../assets/sportshub/hub.jpg',
+   badges:[{type:'hackathon',text:'🏆 Hackathon · 1st Place'}],
+   desc:'Sports data collection platform developed for the Lages Municipal Sports Foundation. Connects sports practitioners, maps community demands and generates data for public policies. Developed at HackathOrion 2026, Orion Technology Park, Lages, SC.',
+   challenge:'The Lages Sports Foundation was making decisions without data. Research with 79 residents revealed that ~60% had quit a sport due to lack of company or not knowing where to practice, and most rated the city 1 or 2 out of 5 for ease of finding information about sports venues and schedules.',
+   solution:'Digital hub with a sports events feed, attendance confirmation and a data dashboard for the Foundation, enabling decisions based on real community demand.',
+   views:'1st Place · HackathOrion 2026 · Orion Technology Park, Lages/SC',
+   youtube:null,
+   liveUrl:'https://luanfischerr.github.io/sportshub/',
+   liveLabel:'Interactive Prototype',
+   personas:[
+     {name:'Sports Practitioner — Lages/SC (n=79)',
+      pain:'~60% have quit a sport due to lack of company or not knowing where to practice. The city scores 1–2 out of 5 for ease of finding information about venues and schedules.',
+      ux:'Event feed by sport type and location, attendance confirmation with gamification (streaks, XP) and a social profile to find training companions.'},
+     {name:'Managers — Lages Sports Foundation',
+      pain:'Infrastructure investment decisions without real data on demand by neighborhood, sport type and age group.',
+      ux:'Dashboard with demand vs. supply by neighborhood, weekly check-in trends, distribution by sport and age group, actionable insights and report export.'},
+   ],
+   metodologia:'Data-driven discovery: (1) Quantitative research with 79 Lages residents, mapping sport types, frequency, barriers and social profile; (2) Synthesis and persona definition (practitioner + public manager); (3) High-fidelity Figma prototyping with 4 main screens (Hub, Profile, Venues, Foundation); (4) Front-end development and pitch deck for hackathon presentation. Key data: 67% practice sports; 41% would like to meet new people to practice with; 88.6% would use the platform.',
+   learnings:[
+     'Research data is the strongest argument: the 58.1% dropout statistic due to lack of company was the turning point in the presentation to the judges.',
+     'In a hackathon, the product needs to communicate before it works. The decision to prioritize the Foundation dashboard (actionable data for public policy) was strategic for the pitch.',
+     'Two days of development force brutal prioritization: what was cut was a product decision, not a technical limitation.',
+     '88.6% usage intent validated the proposal before a single line of production code was written. UX Research as a real competitive advantage.',
+   ],
+   casestudy:[
+     {
+       title:'The Event',
+       body:`<p>HackathOrion 2026 was a 48-hour hackathon held at <strong>Orion Technology Park</strong>, in Lages, SC, an initiative of the Santa Catarina State Secretariat for Innovation. Around 80 participants, organized in multidisciplinary teams, developed tech solutions for real city problems.</p>
+<img src="../assets/sportshub/evento-venue.jpg" alt="Aerial view of HackathOrion 2026" class="cs-photo">
+<p>Our 5-person team chose sports and wellness as our focus, identifying a critical gap in public management: the Lages Municipal Sports Foundation was making decisions without real data on the informal sports practiced by the community.</p>`
+     },
+     {
+       title:'User Research — 79 Responses',
+       body:`<p>Before prototyping any screen, we conducted quantitative research with <strong>79 Lages residents</strong> via Google Forms, mapping barriers, sports of interest and usage profile.</p>
+<div class="cs-stats">
+  <div class="cs-stat"><span class="cs-n">88.6%</span><span class="cs-lbl">would use the platform</span></div>
+  <div class="cs-stat"><span class="cs-n">58.1%</span><span class="cs-lbl">have quit a sport due to lack of company or not knowing where to go</span></div>
+  <div class="cs-stat"><span class="cs-n">30.6%</span><span class="cs-lbl">want to find new people to practice with</span></div>
+  <div class="cs-stat"><span class="cs-n">1–2/5</span><span class="cs-lbl">city rating for ease of finding sports venues and schedules</span></div>
+</div>
+<p><strong>Most cited sports:</strong> Walking, Running, Football, Volleyball and Cycling, all predominantly informal and invisible to the Foundation.</p>
+<p><strong>Main barriers:</strong> lack of company, difficulty finding venues and schedules, available time. The problem wasn't lack of interest, it was lack of information and connection.</p>
+<p class="cs-quote">"Lages makes sports decisions in the dark. Let's bring clarity to sports decision-making."</p>`
+     },
+     {
+       title:'The Team',
+       body:`<img src="../assets/sportshub/evento-time.jpg" alt="SportsHub team on stage at HackathOrion" class="cs-photo">
+<p>5 people. 48 hours. From discovery to pitch: quantitative research, data synthesis, persona definition, high-fidelity Figma prototyping and React platform development.</p>`
+     },
+     {
+       title:'The Pitch',
+       body:`<div class="cs-photos-2">
+  <img src="../assets/sportshub/pitch-wide.jpg" alt="Luan Fischer presenting SportsHub at HackathOrion" class="cs-photo-item">
+  <img src="../assets/sportshub/pitch-data.jpg" alt="Slide with research data: 58.1% and 30.6%" class="cs-photo-item">
+</div>
+<img src="../assets/sportshub/pitch-close.jpg" alt="Luan Fischer at the microphone during the pitch" class="cs-photo">
+<p>The presentation was built around research data, opening with the core problem: <em>"The pain isn't just the Foundation's."</em> The 58.1% of people who had quit a sport due to lack of company turned the narrative from a feature list into a social impact argument. The working prototype in production closed the pitch with technical credibility.</p>`
+     },
+     {
+       title:'Award — 1st Place',
+       body:`<img src="../assets/sportshub/evento-premio.jpg" alt="Award ceremony — 1st Place HackathOrion 2026" class="cs-photo">
+<p>SportsHub won HackathOrion 2026 in <strong>1st place</strong>. The decisive differentiator was the combination of real research data with a working prototype, with the platform running in production at the time of the pitch. The 58.1% dropout statistic was the turning point with the judges.</p>`
+     },
+   ],
+  },
+  {id:5,num:'02',cats:['ui-ux','ux-research'],
    title:'Tripideias — Travel App',sub:'Mobile B2B2C UX/UI — Complete Double Diamond',
    tags:['UI/UX Design','Mobile','Research'],
    tools:['Figma','FigJam'],
@@ -685,9 +767,9 @@ const PROJECTS = [
    figjamLink:'https://www.figma.com/board/PyCzTpP0Ll49LcuuBUCBVo/Projeto-do-curso-UX-Alura?node-id=0-1',
    notionUrl:'https://luanfischer.notion.site/Tripideias-380a55ddffb280429aaae09bfa7f49f7?pvs=143',
    badges:[{type:'ux',text:'UX Process'}],
-   desc:'Mobile B2B2C app for a fictional corporate travel agency selling customized tour packages. Complete Double Diamond process — from research to handoff — with 5 usability testing rounds and an 80% success rate.',
+   desc:'Mobile B2B2C app for a fictional corporate travel agency selling customized tour packages. Complete Double Diamond process, from research to handoff, with 5 usability testing rounds and an 80% success rate.',
    challenge:'The B2B2C model created friction on three fronts: slow quote generation impacting sales, delayed service due to individual package customization per client, and the need for multiple separate requests for each employee of the client company.',
-   solution:'Double Diamond in 3 stages: (1) Context — quantitative research, proto-persona, personas (employee + manager/buyer), competitor analysis and Value Proposition Canvas; (2) Strategy — UX Canvas aligning user pain points with business objectives; (3) Solution — Crazy Eights with PM and devs, 3 critical flows (signup, package creation and payment), Figma navigable prototype and 5 testing rounds with 80% success rate.',
+   solution:'Double Diamond in 3 stages: (1) Context: quantitative research, proto-persona, personas (employee + manager/buyer), competitor analysis and Value Proposition Canvas; (2) Strategy: UX Canvas aligning user pain points with business objectives; (3) Solution: Crazy Eights with PM and devs, 3 critical flows (signup, package creation and payment), Figma navigable prototype and 5 testing rounds with 80% success rate.',
    views:'Completed · Ready for Dev Handoff',
    youtube:null,
    personas:[
@@ -698,14 +780,14 @@ const PROJECTS = [
       pain:'Slow quote generation hurts sales; requesting individual packages for each employee multiplies team workload.',
       ux:'Group purchase flow with centralized settings and single-order approval, accelerating the sales cycle.'},
    ],
-   metodologia:'Double Diamond structured in three stages: (1) Problem context — quantitative research for proto-persona and representative user personas, competitor analysis and identification of client and user pain points; (2) Value proposition development — Value Proposition Canvas and UX Canvas to align strategic UX vision with business objectives; (3) Solution context — co-creation via Crazy Eights with PM and developers, critical interaction flows, iterative usability testing and navigable prototype for handoff.',
+   metodologia:'Double Diamond structured in three stages: (1) Problem context: quantitative research for proto-persona and representative user personas, competitor analysis and identification of client and user pain points; (2) Value proposition development: Value Proposition Canvas and UX Canvas to align strategic UX vision with business objectives; (3) Solution context: co-creation via Crazy Eights with PM and developers, critical interaction flows, iterative usability testing and navigable prototype for handoff.',
    learnings:[
-     'Developed structured UX thinking by applying the complete Double Diamond process — from research to prototype — in a real product context with business constraints.',
+     'Developed structured UX thinking by applying the complete Double Diamond process, from research to prototype, in a real product context with business constraints.',
      'Understood the importance of recognizing the company\'s UX maturity: the type of intervention must be proportional to the organizational context and product stage.',
-     'Understanding the value of the idea relative to market competitors before designing the solution is essential — competitive analysis directly shaped the value proposition.',
+     'Understanding the value of the idea relative to market competitors before designing the solution is essential. Competitive analysis directly shaped the value proposition.',
      'What I\'d do differently: involve stakeholders from the research phase, not just in solution co-creation, to align expectations earlier and reduce rework.',
    ]},
-  {id:6,num:'02',cats:['ux-research'],
+  {id:6,num:'03',cats:['ux-research'],
    title:'AluraMed — UX Research',sub:'Qualitative Research for a Telemedicine App',
    tags:['UX Research','Mobile'],
    notionUrl:'https://luanfischer.notion.site/AluraMed-380a55ddffb280b0be39cb1dbfc733a0?pvs=143',
@@ -713,9 +795,9 @@ const PROJECTS = [
    grad:'linear-gradient(135deg,#880E4F 0%,#AD1457 50%,#C2185B 100%)',
    cover:'../assets/proj-06/cover.jpg',
    badges:[{type:'ux',text:'UX Process'}],
-   desc:'Complete UX Research for AluraMed, a fictional telemedicine company helping doctors optimize their time. The goal was to validate and guide the design of a new feature — a patient record field — directly in the app.',
+   desc:'Complete UX Research for AluraMed, a fictional telemedicine company helping doctors optimize their time. The goal was to validate and guide the design of a new feature, a patient record field, directly in the app.',
    challenge:'How to help medical professionals document information quickly and efficiently? It was necessary to understand the current registration process during teleconsultations and identify real functional gaps, without influencing interviewees\' answers.',
-   solution:'Complete UX Research cycle in two stages: (1) Immersion/Desk Research — analysis of telemedicine context in Brazil, benchmarking of direct competitors and CSD Matrix (Certainties, Assumptions and Doubts); (2) Semi-structured interviews with doctor users — critical finding: doctors recorded patient data in Google Docs or Word due to lack of a field in the app, exposing sensitive data. Deliverables: research-based persona, empathy map, User Journey Map, interaction flow and organized Notion repository.',
+   solution:'Complete UX Research cycle in two stages: (1) Immersion/Desk Research: analysis of telemedicine context in Brazil, benchmarking of direct competitors and CSD Matrix (Certainties, Assumptions and Doubts); (2) Semi-structured interviews with doctor users. Critical finding: doctors recorded patient data in Google Docs or Word due to lack of a field in the app, exposing sensitive data. Deliverables: research-based persona, empathy map, User Journey Map, interaction flow and organized Notion repository.',
    views:'Research Completed · Repository Delivered',
    youtube:null,
    personas:[
@@ -723,14 +805,14 @@ const PROJECTS = [
       pain:'"Although consultations are conducted through the app, I have to make records in another program, like Google Docs or Word. I\'m uncomfortable not having a safer space to store such valuable and sensitive information."',
       ux:'Integrated record field in the app, with pre-filled patient data (weight, age, last medication), option to minimize video during consultation and quick prescription generation.'},
    ],
-   metodologia:'UX Research structured in two research cycles with stakeholder-validated deliverables: (1) Topic immersion — Desk Research on telemedicine in Brazil, direct competitor analysis and CSD Matrix to map what we know, assume and need to discover; (2) User interviews — in-depth semi-structured interviews with doctors, data analysis and affinity clustering in FigJam, validation or refutation of CSD Matrix hypotheses, research-based persona, empathy map and User Journey Map. All artifacts documented in a Notion repository and presented to stakeholders.',
+   metodologia:'UX Research structured in two research cycles with stakeholder-validated deliverables: (1) Topic immersion: Desk Research on telemedicine in Brazil, direct competitor analysis and CSD Matrix to map what we know, assume and need to discover; (2) User interviews: in-depth semi-structured interviews with doctors, data analysis and affinity clustering in FigJam, validation or refutation of CSD Matrix hypotheses, research-based persona, empathy map and User Journey Map. All artifacts documented in a Notion repository and presented to stakeholders.',
    learnings:[
-     'Critical finding: the hypothesis that "doctors need space to record information" was REFUTED — they were already recording, but in external tools (Google Docs/Word), exposing sensitive data. The real need was secure in-app integration, not just space.',
+     'Critical finding: the hypothesis that "doctors need space to record information" was REFUTED. They were already recording, but in external tools (Google Docs/Word), exposing sensitive data. The real need was secure in-app integration, not just space.',
      'In-depth interviews revealed pain points no quantitative research would capture: discomfort with data security and flow interruption during teleconsultations when switching between apps.',
-     'The CSD Matrix is a powerful tool to structure what you don\'t know before going into the field — it prevents researchers from confirming existing beliefs and keeps focus on real uncertainties.',
+     'The CSD Matrix is a powerful tool to structure what you don\'t know before going into the field. It prevents researchers from confirming existing beliefs and keeps focus on real uncertainties.',
      'Documenting everything in a structured Notion repository transforms research into a product asset: findings remain accessible to the design and development team at any future stage.',
    ]},
-  {id:1,num:'03',cats:['ui-ux'],
+  {id:1,num:'04',cats:['ui-ux'],
    title:'Banco da Família',sub:'Website Redesign — UX/UI for Financial Cooperative',
    tags:['UI/UX Design','Web Design','Figma'],
    tools:['Figma','Photoshop'],
@@ -740,7 +822,7 @@ const PROJECTS = [
    figmaLink:'https://www.figma.com/design/OX3dkicXhUecZM48dBbSry/Site-Novo-BF?node-id=0-1',
    badges:[],
    desc:'Redesign of the institutional website for Banco da Família, a financial cooperative with 27 years of history and R$2.9 billion in credit granted. The project transformed a transactional portal into a conversion and emotional connection tool, applying strategic UX to communicate authority, humanize the brand and create a B2B journey dedicated to attracting new franchisees.',
-   challenge:'The previous site focused excessively on the transactional — "get money" — with shallow information architecture (only "You", "Business", "Agro"), no social proof (millions of impacted lives invisible) and no strategy for attracting new franchisees, a strategic growth pillar completely overlooked.',
+   challenge:'The previous site focused excessively on the transactional, centered on "get money", with shallow information architecture (only "You", "Business", "Agro"), no social proof (millions of impacted lives invisible) and no strategy for attracting new franchisees, a strategic growth pillar completely overlooked.',
    solution:'Redesign structured in AIDA: hero with emotional impact and video, authority section with real numbers (R$2.9B in credit, 450+ employees), expanded product portfolio (BF Solar, BF Sanitation, BF Telemedicine, BF Agro), humanization through documentary photography and new B2B journey dedicated to franchisees.',
    personas:[
      {name:'Dona Maria — The Microentrepreneur',pain:'Needs quick credit but fears traditional banking bureaucracy.',ux:'"Stories that Transform" sections and real people photos generate identification. BF Microcredit highlighted.'},
@@ -748,7 +830,7 @@ const PROJECTS = [
      {name:'Roberto — The Investor/Franchisee',pain:'Seeks a solid business model with ESG purpose.',ux:'New "Become a Franchisee" section with profitability data (R$2.9B in credit, 27 years of history).'},
    ],
    metodologia:'UX Reverse Engineering: heuristic analysis of the current site, persona mapping inferred from the product offering, high-fidelity redesign with Long Scrolling and Storytelling, and modern UI with Whitespace to convey modernity and lightness.',
-   learnings:['Reverse documentation reinforces that good design decisions, even intuitive ones, are based on solid heuristics — documenting them after the fact helps defend them to stakeholders.','Balancing emotion (life stories) with reason (financial numbers) on the same interface is the biggest challenge — and the biggest differentiator — of design for the financial sector.'],
+   learnings:['Reverse documentation reinforces that good design decisions, even intuitive ones, are based on solid heuristics. Documenting them after the fact helps defend them to stakeholders.','Balancing emotion (life stories) with reason (financial numbers) on the same interface is the biggest challenge and the biggest differentiator of design for the financial sector.'],
    views:'11 likes · 22 views · Mar/2026',
    youtube:null,
    sections:[
@@ -773,14 +855,14 @@ const PROJECTS = [
      {name:'Dark Gray',hex:'#343333',role:'Text'},
      {name:'Light Gray',hex:'#DADADA',role:'Background/Border'},
    ]}},
-  {id:7,num:'04',cats:['ui-ux'],
+  {id:7,num:'05',cats:['ui-ux'],
    title:'Landing Page | Alessandra Breda',sub:'High-Conversion LP for Premium Mentoring — MPR',
    tags:['UI/UX Design','Landing Page','Copywriting','Branding'],
    tools:['Figma','HTML/CSS'],
    cover:'../assets/alessandra/cover.jpg',
    badges:[],
-   desc:'Complete landing page for the MPR Mentoring — Mulheres Plenas e Reinantes (Fulfilled & Reigning Women), by Alessandra Breda. Real client project: lead generation page for a premium mentoring program aimed at women entrepreneurs who want to grow their businesses without compromising faith, family and marriage.',
-   challenge:'Communicate a deep, premium transformation to a demanding audience — entrepreneurs, liberal professionals and agribusiness women — without falling into generic self-help language. The visual identity needed to convey sophistication, faith and authority simultaneously.',
+   desc:'Complete landing page for the MPR Mentoring, Mulheres Plenas e Reinantes (Fulfilled & Reigning Women), by Alessandra Breda. Real client project: lead generation page for a premium mentoring program aimed at women entrepreneurs who want to grow their businesses without compromising faith, family and marriage.',
+   challenge:'Communicate a deep, premium transformation to a demanding audience, specifically entrepreneurs, liberal professionals and agribusiness women, without falling into generic self-help language. The visual identity needed to convey sophistication, faith and authority simultaneously.',
    solution:'Cream/Navy/Gold palette with editorial typography (Playfair Display + Cormorant Garamond) to convey sophistication and premium femininity. 9-section LP with emotional progression: Pain → Belief-breaking → Solution → Who it\'s for → Who leads → CTA. Copywriting and design integrated for total cohesion between message and aesthetics.',
    views:'Real Project · Active Client',
    youtube:null,
@@ -788,19 +870,19 @@ const PROJECTS = [
    sections:[
      {title:'Hero — Immediate Impact',desc:'Emotional headline, editorial photo of the mentor and low-friction CTA for free diagnosis.',images:['lp1.jpg'],dir:'alessandra'},
      {title:'Pain & Belief-Breaking Section',desc:'Mirroring the responsibilities that weigh on women and deconstructing the false choice between business and personal life.',images:['lp2.jpg'],dir:'alessandra'},
-     {title:'Breaking Beliefs (Navy)',desc:'Grid of false choices with the central mentoring answer — navy background with golden typography.',images:['lp3.jpg'],dir:'alessandra'},
-     {title:'The 4 Methodology Pillars',desc:'Faith · Family · Business · Posture — sticky structure with detailed breakdown of each MPR pillar.',images:['lp4.jpg'],dir:'alessandra'},
+     {title:'Breaking Beliefs (Navy)',desc:'Grid of false choices with the central mentoring answer, navy background with golden typography.',images:['lp3.jpg'],dir:'alessandra'},
+     {title:'The 4 Methodology Pillars',desc:'Faith · Family · Business · Posture: sticky structure with detailed breakdown of each MPR pillar.',images:['lp4.jpg'],dir:'alessandra'},
    ],
    personas:[
      {name:'Woman Entrepreneur / Liberal Professional',
       pain:'Grew in business but feels faith, marriage or family are suffering. Carries everything alone and is exhausted from putting out fires without truly advancing.',
-      ux:'Language that sees her without judgment, a proposal combining professional growth and inner order — without having to choose between one or the other.'},
+      ux:'Language that sees her without judgment, a proposal combining professional growth and inner order, without having to choose between one or the other.'},
    ],
-   metodologia:'LP structured based on Conversion Copywriting and Emotional Design principles: (1) Mirroring — the pain section uses the persona\'s real language and responsibilities to generate immediate identification; (2) Belief-breaking — deconstructs the idea of having to choose between business and personal life before presenting the solution; (3) Value proposition in pillars — 4 clear pillars (Faith, Family, Business, Posture) facilitate understanding and alignment with the offer; (4) Lead qualification — "Who it\'s for / not for" section filters those truly ready for premium mentoring; (5) Low-friction CTA — free diagnosis as entry point, reducing the barrier to first conversion.',
+   metodologia:'LP structured based on Conversion Copywriting and Emotional Design principles: (1) Mirroring: the pain section uses the persona\'s real language and responsibilities to generate immediate identification; (2) Belief-breaking: deconstructs the idea of having to choose between business and personal life before presenting the solution; (3) Value proposition in pillars: 4 clear pillars (Faith, Family, Business, Posture) facilitate understanding and alignment with the offer; (4) Lead qualification: "Who it\'s for / not for" section filters those truly ready for premium mentoring; (5) Low-friction CTA: free diagnosis as entry point, reducing the barrier to first conversion.',
    learnings:[
-     'Copywriting and design must be created together — when message and aesthetics are developed separately, the LP loses cohesion and the lead feels the inconsistency before even reading the text.',
+     'Copywriting and design must be created together: when message and aesthetics are developed separately, the LP loses cohesion and the lead feels the inconsistency before even reading the text.',
      'For a premium product with a complex emotional journey (faith + business + family), the LP structure matters as much as the copy: the order of sections defines the pace of perceived transformation.',
-     'The Cream/Navy/Gold palette was not chosen for aesthetics — each color has a semiotic function: Cream for warmth, Navy for authority, Gold for aspiration and purpose.',
+     'The Cream/Navy/Gold palette was not chosen for aesthetics. Each color has a semiotic function: Cream for warmth, Navy for authority, Gold for aspiration and purpose.',
      'Qualifying the lead within the LP itself ("Who it\'s not for" section) reduces objections before the sales conversation and attracts those genuinely ready for the process.',
    ],
    styleGuide:{
@@ -817,7 +899,7 @@ const PROJECTS = [
        {name:'Jost',style:'Geometric sans-serif · 300–700',role:'Body, labels, CTAs'},
      ]
    }},
-  {id:8,num:'05',cats:['ui-ux'],
+  {id:8,num:'06',cats:['ui-ux'],
    title:'Landing Page | Prandi',sub:'B2B Commercial LP — Precast Concrete Structures',
    tags:['UI/UX Design','Landing Page','B2B','CRO'],
    tools:['Figma'],
@@ -826,8 +908,8 @@ const PROJECTS = [
    figmaUrl:'https://embed.figma.com/design/geG4BTF4CtbCgj16f9pjjo/Landing-Page-Comercial-Prandi?embed-host=share&footer=false&node-id=0-1',
    figmaLink:'https://www.figma.com/design/geG4BTF4CtbCgj16f9pjjo/Landing-Page-Comercial-Prandi?node-id=0-1',
    badges:[],
-   desc:'Landing page for Prandi — a company specializing in precast concrete structures with 20+ years in the market and 500+ completed projects. The project communicates technical solidity and reliability to a demanding B2B audience: construction companies, engineers and project managers who make rational purchasing decisions based on technical proof and proven experience.',
-   challenge:'Convert B2B visitors who need trust before any contact. In the construction sector, purchasing decisions are complex and high-value — clients won\'t reach out without first verifying real experience, project cases and technical capacity. The LP needed to replace a complete sales conversation in a single page.',
+   desc:'Landing page for Prandi, a company specializing in precast concrete structures with 20+ years in the market and 500+ completed projects. The project communicates technical solidity and reliability to a demanding B2B audience: construction companies, engineers and project managers who make rational purchasing decisions based on technical proof and proven experience.',
+   challenge:'Convert B2B visitors who need trust before any contact. In the construction sector, purchasing decisions are complex and high-value: clients won\'t reach out without first verifying real experience, project cases and technical capacity. The LP needed to replace a complete sales conversation in a single page.',
    solution:'Progressive authority structure: hero with direct value proposition ("Quality, Speed and Economy") + immediate stats (20+ years, 500+ projects, 100% satisfaction), 9 technical differentiators, detailed services portfolio, completed projects gallery as visual social proof and low-friction CTA ("Request a Quote") reducing first conversion friction.',
    views:'Real Project · Delivered',
    youtube:null,
@@ -839,7 +921,7 @@ const PROJECTS = [
       desc:'Zoom into conversion sections and mobile LP adaptation: expanded differentiators, service cards and footer with multiple contact points.',
       images:['02.jpg'],dir:'prandi'},
    ]},
-  {id:2,num:'06',cats:['ui-ux'],
+  {id:2,num:'07',cats:['ui-ux'],
    title:'Website Layout | SSP Magazine',sub:'Digital Portal for Private Security Specialized Publication',
    tags:['UI/UX Design','Web Design','Figma'],
    tools:['Figma','Photoshop','Illustrator'],
@@ -848,14 +930,14 @@ const PROJECTS = [
    figmaUrl:'https://embed.figma.com/design/hI1gnRCO26QN4B1ubz48FB/Site-RevistaSSP?embed-host=share&footer=false&node-id=0-1',
    figmaLink:'https://www.figma.com/design/hI1gnRCO26QN4B1ubz48FB/Site-RevistaSSP?node-id=0-1',
    badges:[],
-   desc:'Design of the SSP Magazine digital portal — part of a complete media ecosystem built from scratch for the private security sector. The portal prioritized readability and content retention, complementing the Landing Page (acquisition) and the print magazine (product).',
+   desc:'Design of the SSP Magazine digital portal, part of a complete media ecosystem built from scratch for the private security sector. The portal prioritized readability and content retention, complementing the Landing Page (acquisition) and the print magazine (product).',
    challenge:'The Private Security sector lacked centralized, modern information sources. Professionals consumed content in a fragmented way on social networks, without a reliable hub. The challenge was to create a channel uniting the depth of a magazine with the agility of a portal, serving two distinct profiles: the active professional on mobile and the strategic manager on desktop.',
    solution:'Readability-focused portal: transition to white/light gray background (G1/CNN standard), reducing visual fatigue for long reads. "Headline + Feed" news grid for quick scannability, responsive hamburger menu and scalable typography. Omnichannel consistency: same typeface family as the magazine and grid inspired by double-page layout, creating familiarity for readers migrating from print to digital.',
    personas:[
      {name:'The Connected Security Guard',pain:'Active professional, accesses the internet mostly on mobile during breaks. Needs quick information on rights, courses and job openings.',ux:'Smooth mobile navigation, large buttons and accessible reading (good contrast). Hamburger menu for agility.'},
      {name:'The Security Manager',pain:'Makes strategic decisions on desktop. Seeks analytical depth and visual credibility.',ux:'Efficient search, clear categorization and content visual hierarchy that conveys authority.'},
    ],
-   metodologia:'360° Design — systemic approach in three phases: (1) Foundation: Branding and Visual Identity (Red/Black palette, shield as symbol); (2) Product: Editorial Design and Magazine Layout; (3) UX Distribution: News Portal (retention) + Acquisition Landing Page (conversion).',
+   metodologia:'360° Design: systemic approach in three phases: (1) Foundation: Branding and Visual Identity (Red/Black palette, shield as symbol); (2) Product: Editorial Design and Magazine Layout; (3) UX Distribution: News Portal (retention) + Acquisition Landing Page (conversion).',
    learnings:['Branding × UX: adapting a "heavy" brand (strong colors, vibrant red) for a reading interface (light colors) without losing identity requires precise technical decisions on hierarchy and contrast.','Content Flow: understanding the reader\'s journey (Social Media → LP → Magazine → Portal) was crucial to designing the right conversion points at each experience touchpoint.'],
    views:'44 likes · 3,131 views · Apr/2024',
    youtube:null,
@@ -865,7 +947,7 @@ const PROJECTS = [
       images:['01.gif','02.gif','03.gif','04.gif','05.gif','06.gif','07.gif','08.gif','09.jpg'],
       dir:'proj-02'},
    ]},
-  {id:4,num:'07',cats:['ui-ux'],
+  {id:4,num:'08',cats:['ui-ux'],
    title:'Landing Page | SSP Magazine',sub:'Subscriber Acquisition — Top of Content Funnel',
    tags:['UI/UX Design','Landing Page','CRO','Figma'],
    tools:['Figma'],
@@ -874,7 +956,7 @@ const PROJECTS = [
    figmaUrl:'https://embed.figma.com/design/GVfIR9iJcp4sQRTDiy4EfK/Landing-Page-RevistaSSP-2--Copy-?embed-host=share&footer=false&node-id=0-1',
    figmaLink:'https://www.figma.com/design/GVfIR9iJcp4sQRTDiy4EfK/Landing-Page-RevistaSSP-2--Copy-?node-id=0-1',
    badges:[],
-   desc:'Landing page to acquire digital subscribers for SSP Magazine — the top of the brand\'s content funnel: Social Media → Landing Page → Magazine → Portal. Single objective: convert visitors into subscribers, eliminating all distractions and focusing 100% on the offer.',
+   desc:'Landing page to acquire digital subscribers for SSP Magazine, the top of the brand\'s content funnel: Social Media → Landing Page → Magazine → Portal. Single objective: convert visitors into subscribers, eliminating all distractions and focusing 100% on the offer.',
    challenge:'Create a conversion page with SSP\'s "heavy" visual identity (vibrant red, high contrast) without compromising experience and conversion rate. Unlike the portal (retention/reading), the LP needed urgency and immediate action.',
    solution:'Single attention hierarchy: vibrant red background to highlight the offer, previous issue covers as social proof, action buttons ("Read Issue", "Subscribe") repeated strategically throughout the scroll. Zero exit points beyond the CTA. Simplified form for direct acquisition.',
    learnings:['The LP and the Portal solve different problems with the same brand: the LP shouts "subscribe", the portal whispers "read". Maintaining visual consistency while completely changing tone is the real omnichannel challenge.'],
@@ -886,7 +968,7 @@ const PROJECTS = [
       images:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'],
       dir:'proj-07'},
    ]},
-  {id:3,num:'08',cats:['ui-ux'],
+  {id:3,num:'09',cats:['ui-ux'],
    title:'Landing Page | Pedrosa Previdência',sub:'CRO with Cognitive Psychology — Turning Anxiety into Action',
    tags:['UI/UX Design','CRO','Landing Page','UX Writing','Figma'],
    tools:['Figma','Photoshop'],
@@ -895,14 +977,14 @@ const PROJECTS = [
    figmaUrl:'https://embed.figma.com/design/Mn7kuvEIBhrRSGLHSDE8Og/Landing-Page-Planejamento-Tribut%C3%A1rio?embed-host=share&footer=false&node-id=0-1',
    figmaLink:'https://www.figma.com/design/Mn7kuvEIBhrRSGLHSDE8Og/Landing-Page-Planejamento-Tribut%C3%A1rio?node-id=0-1',
    badges:[],
-   desc:'High-conversion landing page (CRO) for a social security law firm. The project applied Cognitive Psychology to transform the anxiety of workers nearing retirement into a decision to contact — simplifying legal jargon and converting visitors who believe "it\'s too late" into qualified leads.',
+   desc:'High-conversion landing page (CRO) for a social security law firm. The project applied Cognitive Psychology to transform the anxiety of workers nearing retirement into a decision to contact, simplifying legal jargon and converting visitors who believe "it\'s too late" into qualified leads.',
    challenge:'Sell pension planning to 50–60-year-old workers afraid of retiring on minimum wage. Three core barriers: lack of clarity about the service\'s value, technical language that alienates the general public, and the belief that it\'s expensive or past the deadline to act.',
-   solution:'AIDA structure with Cognitive Psychology: (1) Loss Aversion in the hero — "Don\'t let poverty knock on your door" activates the fear of losing dignity, more powerful than the desire to gain; (2) Mental Analogy — comparing social security to a "Medical Consultation" (Diagnosis → Treatment) anchors a complex legal concept in something familiar and trustworthy; (3) Visual Emotional Arc — worried man\'s photo at top, smiling photo at bottom, with Pedrosa as the bridge between both states; (4) Direct UX Writing — from "social security benefit analysis according to current legislation" to "learn how to save your retirement"; (5) CTA repeated at 3 scroll points, orange button contrasting with navy background (Von Restorff effect).',
+   solution:'AIDA structure with Cognitive Psychology: (1) Loss Aversion in the hero: "Don\'t let poverty knock on your door" activates the fear of losing dignity, more powerful than the desire to gain; (2) Mental Analogy: comparing social security to a "Medical Consultation" (Diagnosis → Treatment) anchors a complex legal concept in something familiar and trustworthy; (3) Visual Emotional Arc: worried man\'s photo at top, smiling photo at bottom, with Pedrosa as the bridge between both states; (4) Direct UX Writing: from "social security benefit analysis according to current legislation" to "learn how to save your retirement"; (5) CTA repeated at 3 scroll points, orange button contrasting with navy background (Von Restorff effect).',
    personas:[
      {name:'Carlos — The Worried Worker',pain:'50–60 years old, afraid of retiring on minimum wage after years of good earnings. Feels the government will "screw him over". Barrier: thinks a lawyer is expensive or "it\'s already too late".',ux:'The page should not talk about "laws", but about "future" and "protection". Simple analogies and zero legal jargon.'},
    ],
    metodologia:'UX Reverse Engineering with Cognitive Psychology: heuristic analysis of the existing page, mapping of the target audience\'s cognitive barriers, application of Loss Aversion (Kahneman), Mental Analogy Model and AIDA structure adapted for high-friction, emotionally-driven decision services.',
-   learnings:['Analogies work: the "Doctor" metaphor (Diagnosis → Treatment) drastically reduced cognitive friction, making a legal service accessible to those who have never hired a lawyer.','Emotion converts: acknowledging the user\'s fear at the top of the page creates an immediate connection before presenting the technical solution — the emotional sequence matters as much as the content.'],
+   learnings:['Analogies work: the "Doctor" metaphor (Diagnosis → Treatment) drastically reduced cognitive friction, making a legal service accessible to those who have never hired a lawyer.','Emotion converts: acknowledging the user\'s fear at the top of the page creates an immediate connection before presenting the technical solution. The emotional sequence matters as much as the content.'],
    views:'5 likes · 37 views · Apr/2024',
    youtube:null,
    sections:[
@@ -1095,6 +1177,7 @@ function openM(p){
         </div>
       </div>`:galHTML}
     </div>`:''}
+    ${p.casestudy?.map(s=>`<div class="m-sec"><h4>${s.title}</h4><div class="cs-body">${s.body}</div></div>`).join('')||''}
     <div class="m-sec"><h4>About the Project</h4><p>${p.desc}</p></div>
     <div class="m-sec"><h4>Challenge</h4><p>${p.challenge}</p></div>
     <div class="m-sec"><h4>Solution</h4><p>${p.solution}</p></div>
