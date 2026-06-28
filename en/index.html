@@ -209,6 +209,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .bdg{font-size:.62rem;font-weight:700;padding:.25rem .65rem;border-radius:100px;line-height:1}
 .bdg-star{background:#FFD700;color:#333}
 .bdg-ux{background:rgba(26,35,126,.88);color:#90CAF9;border:1px solid rgba(144,202,249,.3)}
+.bdg-hackathon{background:#fff;color:#92400e;border:1px solid #f59e0b}
 .proj-body{padding:1.5rem}
 .proj-tit{font-size:1rem;font-weight:700;line-height:1.3;margin-bottom:.25rem}
 .proj-sub{font-size:.78rem;color:var(--dim);margin:0}
@@ -632,7 +633,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
           </div>
           <div class="fg">
             <label class="flbl" for="ce">E-mail</label>
-            <input type="email" id="ce" class="finp" placeholder="seu@email.com" required>
+            <input type="email" id="ce" class="finp" placeholder="your@email.com" required>
           </div>
           <div class="fg">
             <label class="flbl" for="cm">Message</label>
@@ -691,7 +692,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 ================================================================ */
 
 const PROJECTS = [
-  {id:9,num:'01',cats:['produto-digital','ux-research'],
+  {id:9,num:'01',cats:['ux-research'],
    title:'SportsHub',sub:'Sports Data Platform — HackathOrion 2026',
    tags:['UX Research','Discovery','Figma Prototyping','React','Pitch Deck'],
    tools:['Figma','React','Vite'],
@@ -1015,7 +1016,7 @@ function renderProjects(filter='all'){
     el.dataset.pid=p.id;
     el.style.transitionDelay=(i*.07)+'s';
     el.onclick=()=>openM(p);
-    const bdgs=p.badges.map(b=>`<span class="bdg bdg-${b.type==='star'?'star':'ux'}">${b.text}</span>`).join('');
+    const bdgs=p.badges.map(b=>`<span class="bdg bdg-${b.type==='star'?'star':b.type==='hackathon'?'hackathon':'ux'}">${b.text}</span>`).join('');
     const tags=p.tags.map(t=>`<span class="ptag">${t}</span>`).join('');
     el.innerHTML=`
       <div class="proj-thumb">
@@ -1135,7 +1136,7 @@ function openM(p){
     </div>`:'';
 
   document.getElementById('mcnt').innerHTML=`
-    <div class="m-num">${p.num} / 08</div>
+    <div class="m-num">${p.num} / 09</div>
     <h2 class="m-tit">${p.title}</h2>
     <div class="m-tags">${tags}</div>
     ${p.figmaUrl?`
@@ -1361,14 +1362,14 @@ document.getElementById('cform').addEventListener('submit',function(e){
   const msg=document.getElementById('cm').value.trim();
   const fmsg=document.getElementById('fmsg');
   if(!n||!em||!msg){
-    fmsg.textContent='Por favor, preencha todos os campos.';
+    fmsg.textContent='Please fill in all fields.';
     fmsg.className='form-msg err';
     return;
   }
   const subj=encodeURIComponent(`Portfólio — Mensagem de ${n}`);
   const body=encodeURIComponent(`Nome: ${n}\nE-mail: ${em}\n\n${msg}`);
   window.location.href=`mailto:luanavilafischer@gmail.com?subject=${subj}&body=${body}`;
-  fmsg.textContent='Seu cliente de e-mail foi aberto com a mensagem pronta para envio!';
+  fmsg.textContent='Your email client has been opened with the message ready to send!';
   fmsg.className='form-msg ok';
   this.reset();
 });
