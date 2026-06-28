@@ -149,9 +149,11 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 
 /* ===== SOBRE ===== */
 #sobre{background:var(--bg2)}
-.sobre-g{max-width:680px}
+.sobre-g{display:grid;grid-template-columns:1fr 300px;gap:3.5rem;align-items:center}
 .sobre-text p{color:var(--muted);margin-bottom:1.25rem;font-size:1rem;line-height:1.85}
 .sobre-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.sobre-photo{width:100%;border-radius:var(--r);object-fit:cover;object-position:center top;aspect-ratio:3/4;display:block;box-shadow:0 16px 48px rgba(0,0,0,.18)}
+@media(max-width:768px){.sobre-g{grid-template-columns:1fr}.sobre-photo-wrap{display:none}}
 
 /* ===== HABILIDADES ===== */
 #habilidades{background:var(--bg)}
@@ -498,6 +500,9 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
           <span class="tag">CRO</span>
           <span class="tag">Deploy &amp; Sustentação</span>
         </div>
+      </div>
+      <div class="sobre-photo-wrap rv">
+        <img src="assets/foto-sobre.jpg" alt="Luan Fischer no HackathOrion 2026" class="sobre-photo">
       </div>
     </div>
   </div>
