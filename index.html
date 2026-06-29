@@ -391,6 +391,21 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 .cs-quote{font-style:italic;color:var(--pri)!important;font-weight:500;padding:.75rem 1rem;border-left:3px solid var(--pri);background:rgba(230,81,0,.06);border-radius:0 var(--rsm) var(--rsm) 0;margin:1rem 0!important}
 .cs-photos-2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1rem 0}
 .cs-photo-item{width:100%;border-radius:var(--rsm);display:block;height:220px;object-fit:cover;object-position:center}
+/* ===== RESULTS METRICS ===== */
+.res-wrap{background:var(--bgc);border:1px solid var(--bdr);border-radius:var(--r);padding:1.5rem;margin-bottom:1.75rem}
+.res-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--bdr)}
+.res-htit{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.res-card{background:var(--bg);border:1px solid var(--bdr);border-radius:var(--rsm);padding:1rem 1.1rem}
+.res-main{display:block;font-size:1.85rem;font-weight:900;color:var(--pri);line-height:1;letter-spacing:-.02em}
+.res-arrow-wrap{display:flex;align-items:baseline;gap:.35rem;margin-bottom:.05rem}
+.res-before{font-size:.95rem;font-weight:600;color:var(--muted);text-decoration:line-through;opacity:.5}
+.res-arr{font-size:.75rem;color:var(--muted);opacity:.4}
+.res-after{font-size:1.85rem;font-weight:900;color:var(--pri);line-height:1;letter-spacing:-.02em}
+.res-label{display:block;font-size:.74rem;font-weight:600;color:var(--txt);margin-top:.5rem;line-height:1.4}
+.res-ctx{display:block;font-size:.66rem;color:var(--dim);margin-top:.25rem;line-height:1.4}
+.res-note{font-size:.66rem;color:var(--dim);margin-top:.9rem;display:block;text-align:right;opacity:.65}
+@media(max-width:600px){.res-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -886,6 +901,18 @@ const PROJECTS = [
       desc:'Seção de administração e conselho fiscal com fotos editoriais dos membros da equipe e liderança da cooperativa.',
       images:['41.jpg'],dir:'site-bf'},
    ],
+   results:{
+     title:'Resultados reais — 5 meses após o redesign',
+     footnote:'Fonte: Google Search Console + GA4',
+     metrics:[
+       {main:'+125%',target:125,pre:'+',suf:'%',label:'Impressões orgânicas na homepage',ctx:'181K → 406K · fev–jun/2026'},
+       {bef:'12,7',aft:'8,3',target:8.3,dec:1,label:'Posição média no Google',ctx:'homepage · fev–jun/2026'},
+       {bef:'17,5',aft:'8,1',target:8.1,dec:1,label:'Posição no Google em desktop',ctx:'2ª → 1ª página · fev–jun/2026'},
+       {main:'+125%',target:125,pre:'+',suf:'%',label:'Tempo médio de engajamento',ctx:'21s → 49s · fev–jun/2026'},
+       {main:'+35%',target:35,pre:'+',suf:'%',label:'Sessões engajadas por usuário',ctx:'0,74 → 1,00 · fev–jun/2026'},
+       {main:'36K',target:36,suf:'K',label:'Impressões das páginas de produto',ctx:'primeiros 5 meses após o redesign'},
+     ]
+   },
    styleGuide:{colors:[
      {name:'Laranja BF',hex:'#EC6726',role:'Primary CTA'},
      {name:'Laranja BF 2',hex:'#F07E26',role:'Primary Hover'},
@@ -1076,6 +1103,39 @@ function renderProjects(filter='all'){
 ================================================================ */
 let curGallery=[], curLBIdx=0;
 
+function animateCountUp(el,ptBR){
+  const t=parseFloat(el.dataset.target),pre=el.dataset.pre||'',suf=el.dataset.suf||'',dec=parseInt(el.dataset.dec||0),dur=1200,t0=performance.now();
+  const fmt=v=>{const s=v.toFixed(dec);return pre+(ptBR&&dec>0?s.replace('.',','):s)+suf;};
+  function tick(now){const p=Math.min((now-t0)/dur,1),v=t*(1-Math.pow(1-p,3));el.textContent=fmt(v);p<1?requestAnimationFrame(tick):el.textContent=fmt(t);}
+  el.textContent=fmt(0);requestAnimationFrame(tick);
+}
+
+function renderResults(r,ptBR){
+  const cards=r.metrics.map(m=>{
+    if(m.bef!==undefined){
+      return `<div class="res-card">
+        <div class="res-arrow-wrap">
+          <span class="res-before">${m.bef}</span>
+          <span class="res-arr">→</span>
+          <span class="res-after" data-countup data-target="${m.target}" data-dec="${m.dec||0}">${m.aft}</span>
+        </div>
+        <span class="res-label">${m.label}</span>
+        <span class="res-ctx">${m.ctx}</span>
+      </div>`;
+    }
+    return `<div class="res-card">
+      <span class="res-main" data-countup data-target="${m.target}" data-pre="${m.pre||''}" data-suf="${m.suf||''}">${m.main}</span>
+      <span class="res-label">${m.label}</span>
+      <span class="res-ctx">${m.ctx}</span>
+    </div>`;
+  }).join('');
+  return `<div class="res-wrap">
+    <div class="res-head"><span class="res-htit">${r.title}</span></div>
+    <div class="res-grid">${cards}</div>
+    <span class="res-note">${r.footnote}</span>
+  </div>`;
+}
+
 function openM(p){
   document.getElementById('mtg').style.background=p.grad;
 
@@ -1220,6 +1280,7 @@ function openM(p){
     <div class="m-sec"><h4>Sobre o Projeto</h4><p>${p.desc}</p></div>
     <div class="m-sec"><h4>Desafio</h4><p>${p.challenge}</p></div>
     <div class="m-sec"><h4>Solução</h4><p>${p.solution}</p></div>
+    ${p.results?renderResults(p.results,true):''}
     ${personasSection}
     ${metodologiaSection}
     <div class="m-sec"><h4>Ferramentas</h4><div class="m-tools">${tools}</div></div>
@@ -1234,6 +1295,18 @@ function openM(p){
   document.getElementById('mpan').classList.add('open');
   document.body.style.overflow='hidden';
   addHov();
+  if(p.results){
+    const rw=document.querySelector('.res-wrap'),mc=document.getElementById('mcnt');
+    if(rw&&mc){
+      const obs=new IntersectionObserver(entries=>{
+        if(entries[0].isIntersecting){
+          document.querySelectorAll('[data-countup]').forEach(el=>animateCountUp(el,true));
+          obs.disconnect();
+        }
+      },{root:mc,threshold:0.1});
+      obs.observe(rw);
+    }
+  }
 }
 
 function mclose2(){
