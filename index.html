@@ -581,8 +581,9 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
     <h2 class="stit rv">Projetos <span>Selecionados</span></h2>
     <div class="filter-bar rv">
       <button class="fbtn act" data-f="all">Todos</button>
-      <button class="fbtn" data-f="produto-digital">Produto Digital</button>
-      <button class="fbtn" data-f="ui-ux">UI/UX</button>
+      <button class="fbtn" data-f="produto-app">Produto &amp; App</button>
+      <button class="fbtn" data-f="ux-ui-web">UX/UI &amp; Web</button>
+      <button class="fbtn" data-f="landing-page">Landing Page</button>
       <button class="fbtn" data-f="ux-research">UX Research</button>
     </div>
     <div class="proj-g" id="pgrid"></div>
@@ -738,7 +739,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:2rem 0}
 ================================================================ */
 
 const PROJECTS = [
-  {id:9,num:'01',cats:['produto-digital','ux-research'],
+  {id:9,num:'01',cats:['produto-app','ux-research'],
    title:'SportsHub',sub:'Plataforma de Dados Esportivos — HackathOrion 2026',
    tags:['UX Research','Discovery','Prototipagem Figma','Front-end','Pitch Deck'],
    tools:['Figma','React','Vite'],
@@ -808,7 +809,7 @@ const PROJECTS = [
      },
    ],
   },
-  {id:5,num:'02',cats:['ui-ux','ux-research'],
+  {id:5,num:'02',cats:['produto-app','ux-research'],
    title:'Tripideias — App de Viagens',sub:'UX/UI Mobile B2B2C — Double Diamond Completo',
    tags:['UI/UX Design','Mobile','Research'],
    tools:['Figma','FigJam'],
@@ -865,7 +866,7 @@ const PROJECTS = [
      'A Matriz CSD é uma ferramenta poderosa para estruturar o que você não sabe antes de entrar em campo: evita que o pesquisador confirme o que já acredita e mantém o foco nas incertezas reais.',
      'Documentar tudo em um repositório Notion estruturado transforma a pesquisa em ativo de produto: as descobertas ficam acessíveis para o time de design e desenvolvimento em qualquer etapa futura.',
    ]},
-  {id:1,num:'04',cats:['ui-ux'],
+  {id:1,num:'04',cats:['ux-ui-web'],
    title:'Banco da Família',sub:'Redesign de Site — UX/UI para Cooperativa Financeira',
    tags:['UI/UX Design','Web Design','Figma'],
    tools:['Figma','Photoshop'],
@@ -920,7 +921,7 @@ const PROJECTS = [
      {name:'Cinza Escuro',hex:'#343333',role:'Texto'},
      {name:'Cinza Claro',hex:'#DADADA',role:'Background/Borda'},
    ]}},
-  {id:7,num:'05',cats:['ui-ux'],
+  {id:7,num:'05',cats:['landing-page'],
    title:'Landing Page | Alessandra Breda',sub:'LP de Alta Conversão para Mentoria Premium — MPR',
    tags:['UI/UX Design','Landing Page','Copywriting','Branding'],
    tools:['Figma','HTML/CSS'],
@@ -964,7 +965,7 @@ const PROJECTS = [
        {name:'Jost',style:'Sans-serif geométrica · 300–700',role:'Corpo, labels, CTAs'},
      ]
    }},
-  {id:8,num:'06',cats:['ui-ux'],
+  {id:8,num:'06',cats:['landing-page'],
    title:'Landing Page | Prandi',sub:'LP Comercial B2B — Estruturas Pré-Moldadas de Concreto',
    tags:['UI/UX Design','Landing Page','B2B','CRO'],
    tools:['Figma'],
@@ -986,7 +987,7 @@ const PROJECTS = [
       desc:'Zoom nas seções de conversão e adaptação mobile da LP: diferenciais expandidos, cards de serviços e footer com múltiplos pontos de contato.',
       images:['02.jpg'],dir:'prandi'},
    ]},
-  {id:2,num:'07',cats:['ui-ux'],
+  {id:2,num:'07',cats:['ux-ui-web'],
    title:'Layout de Site | Revista SSP',sub:'Portal Digital para Publicação Especializada em Segurança',
    tags:['UI/UX Design','Web Design','Figma'],
    tools:['Figma','Photoshop','Illustrator'],
@@ -1012,7 +1013,7 @@ const PROJECTS = [
       images:['01.gif','02.gif','03.gif','04.gif','05.gif','06.gif','07.gif','08.gif','09.jpg'],
       dir:'proj-02'},
    ]},
-  {id:4,num:'08',cats:['ui-ux'],
+  {id:4,num:'08',cats:['landing-page'],
    title:'Landing Page | Revista SSP',sub:'Captação de Assinantes — Topo do Funil de Conteúdo',
    tags:['UI/UX Design','Landing Page','CRO','Figma'],
    tools:['Figma'],
@@ -1033,7 +1034,7 @@ const PROJECTS = [
       images:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'],
       dir:'proj-07'},
    ]},
-  {id:3,num:'09',cats:['ui-ux'],
+  {id:3,num:'09',cats:['landing-page'],
    title:'Landing Page | Pedrosa Previdência',sub:'CRO com Psicologia Cognitiva — Transformando Ansiedade em Ação',
    tags:['UI/UX Design','CRO','Landing Page','UX Writing','Figma'],
    tools:['Figma','Photoshop'],
